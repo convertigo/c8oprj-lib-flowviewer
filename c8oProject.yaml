@@ -1,0 +1,21 @@
+↑convertigo: 8.0.0.m006
+↓lib_FlowViewer [core.Project]: 
+  comment: Convertigo Mobile builder Project
+  corsOrigin: =Origin
+  version: 8.0.0
+  ↓void [connectors.SqlConnector]: 🗏 connectors/void.yaml
+  ↓GetGraph [sequences.GenericSequence]: 🗏 sequences/GetGraph.yaml
+  ↓GetProperties [sequences.GenericSequence]: 🗏 sequences/GetProperties.yaml
+  ↓NgxBuilderTemplate [references.ProjectSchemaReference]: 
+    comment: ngx builder template
+    projectName: mobilebuilder_tpl_8_0_0_ngx=https://github.com/convertigo/c8oprj-mobilebuilder-tpl/archive/mobilebuilder_tpl_8_0_0_ngx.zip
+  ↓Project_reference [references.ProjectSchemaReference]: 
+    projectName: mobilebuilder_tpl_7_9_0_Ionic5=https://github.com/convertigo/c8oprj-mobilebuilder-tpl/archive/mobilebuilder_tpl_7_9_0_Ionic5.zip
+  ↓MobileApplication [core.MobileApplication]: 
+    comment: Describes the mobile application global properties
+    splashRemoveMode: beforeUpdate
+    ↓Android [mobileplatforms.Android]: 
+      comment: Android platform
+    ↓iOS [mobileplatforms.IOs]: 
+      comment: iOS platform
+    ↓Application [ngx.components.ApplicationComponent]: 🗏 mobileApplication.yaml

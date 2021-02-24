@@ -1,0 +1,507 @@
+↓MinusLevel [steps.SimpleStep-1614095554666]: 
+  expression: |
+    level = level - 1;
+    // level = 0; // comment this and re-enable the 2 Then to enable level again
+↓elementsToNotDisplay [steps.SimpleStep-1614095554669]: 
+  expression: |
+    '//todo
+    const elementsToNotDisplayByClassName = [
+    	''variables.TestCaseVariable'',
+    	''variables.RequestableVariable'',
+    	''variables.StepVariable'',
+    	''core.TestCase'',
+    	''steps.XMLAttributeStep'',
+    //	''steps.ThenStep'',
+    //	''steps.ElseStep''
+    ];
+    
+    strBean = ''com.twinsoft.convertigo.beans.'''
+↓callGetPropertiesFunction [steps.SimpleStep-1614177591782]: 
+  expression: |
+    'function callGetProperties(qname) {
+    	var __project = java.lang.reflect.Array.newInstance(java.lang.String, 1);
+    	__project[0] = "lib_FlowViewer"
+    	var __sequence = "GetProperties"
+    	
+    	var parameters = new java.util.HashMap();
+    	parameters.put("__project", __project);
+    	parameters.put("__sequence", __sequence);
+    	parameters.put("qname", qname);
+    	
+    	var request = new com.twinsoft.convertigo.engine.requesters.InternalHttpServletRequest();
+    	var requester = new com.twinsoft.convertigo.engine.requesters.InternalRequester(parameters, request);
+    	requester.processRequest();
+    	org.apache.log4j.MDC.put("ContextualParameters", context.logParameters);
+    
+    	return requester.getDocument();
+    }'
+↓jElement [steps.ElementStep-1614095554672]: 
+  expression: qname
+  nodeName: qname
+↓array [steps.XMLComplexStep-1614095554675]: 
+  nodeName: array
+  ↓Attribute [steps.XMLAttributeStep-1614095554678]: 
+    nodeName: type
+    nodeText: array
+  ↓jIfThenElse [steps.IfThenElseStep-1614095554681]: 
+    condition: qname == "root"
+    isEnabled: false
+    ↓jThen [steps.ThenStep-1614095554684]: 
+      ↓jIterator [steps.SimpleIteratorStep-1614095554687]: 
+        expression: com.twinsoft.convertigo.engine.Engine.theApp.databaseObjectsManager.getDatabaseObjectByQName(qname).getDatabaseObjectChildren()
+        ↓jElement54 [steps.ElementStep-1614095554690]: 
+          expression: item.getClass().getName().substring(strBean.length)
+          nodeName: stepSubstr
+          output: false
+        ↓jSimpleSource [steps.SimpleSourceStep-1614095554693]: 
+          sourceDefinition: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: 1614095554690
+                - java.lang.String: 
+                  - ↑value: ./text()
+          variableName: stepSubstr
+        ↓jIf [steps.IfStep-1614095554696]: 
+          condition: elementsToNotDisplayByClassName.indexOf(stepSubstr) == -1
+          ↓dbo [steps.XMLComplexStep-1614095554699]: 
+            nodeName: dbo
+            ↓type [steps.XMLAttributeStep-1614095554702]: 
+              isEnabled: false
+              nodeName: type
+              nodeText: object
+            ↓jSource [steps.SourceStep-1614095554705]: 
+              sourceDefinition: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                  - com.twinsoft.convertigo.beans.common.XMLVector: 
+                    - java.lang.String: 
+                      - ↑value: 1614095554699
+                    - java.lang.String: 
+                      - ↑value: .
+              variableName: dboNode
+            ↓jIfThenElse [steps.IfThenElseStep-1614095554708]: 
+              condition: level > 0
+              ↓jThen [steps.ThenStep-1614095554711]: 
+                ↓walkChildren [steps.SimpleStep-1614095554714]: 
+                  expression: |
+                    'strBean = ''com.twinsoft.convertigo.beans.''
+                    beanSubstr = "" + item.getClass().getName().substring(strBean.length)
+                    
+                    if(elementsToNotDisplayByClassName.indexOf(beanSubstr) == -1) {
+                    	isComplex = (beanSubstr == "steps.XMLComplexStep") ? true : false
+                    
+                    	context.addTextNode(dboNode.item(0), "qname", item.getFullQName());
+                    	context.addTextNode(dboNode.item(0), "displayName", item.getName());
+                    	context.addTextNode(dboNode.item(0), "className", item.getClass().getName());
+                    	context.addTextNode(dboNode.item(0), "isStarting", true);
+                    	
+                    	var isEmbeddedNode = context.addTextNode(dboNode.item(0), "isEmbedded", false);
+                    	isEmbeddedNode.setAttribute("type", "boolean");
+                    	
+                    	var isComplexNode = context.addTextNode(dboNode.item(0), "isComplex", isComplex);
+                    	isComplexNode.setAttribute("type", "boolean");
+                    	
+                    	parentQName = item.getFullQName();
+                    
+                    	walkChildren(dboNode.item(0), parentQName);
+                    }
+                    
+                    function walkChildren(parentNode, parentQName) {
+                    	
+                    	// getting dbo and its children
+                    	var dbo = com.twinsoft.convertigo.engine.Engine.theApp.databaseObjectsManager.getDatabaseObjectByQName(parentQName);
+                    	var child = dbo.getDatabaseObjectChildren();
+                    	
+                    	var nodeList = parentNode.getChildNodes(); /* return all nodes under parentNode */
+                    	var parentIsEmbedded = nodeList.item(5).getTextContent(); /* return bool */
+                    	var parentIsComplex = parentNode.getLastChild().getTextContent(); /* return bool */
+                    	var isEmbedded = (parentIsComplex == "true" || parentIsEmbedded == "true") ? true : false;
+                    
+                    //	for(var j = 0; j < nodeList.length; j++)
+                    //		log.warn("STEP IS : " + nodeList.item(j))
+                    //		
+                    //	log.warn(''parentIsEmbedded :'' + parentIsEmbedded)
+                    //	log.warn("parentIsComplex : " + parentIsComplex)
+                    //	log.warn("isEmbedded : " + isEmbedded)
+                    	
+                    	
+                    	if(!child.isEmpty() && elementsToNotDisplayByClassName.indexOf(beanSubstr) == -1) {
+                    		
+                    		// creating children node in parent''s node
+                    		var childNode = context.addTextNode(parentNode, "children", "");
+                    		childNode.setAttribute("type", "array");
+                    		
+                    		lo.warn("I AM LEVEL : " + level)
+                    		// for each children 
+                    		for (var i = 0; i < child.size(); i++) { // for (var i = 0; i < child.size(); i++) {
+                    			var childQName = child.get(i).getFullQName();
+                    			var childDisplayName = child.get(i).getName();
+                    			var childClassName = child.get(i).getClass().getName();
+                    			var beanSubstr = "" + childClassName.substring(strBean.length)
+                    
+                    			if(elementsToNotDisplayByClassName.indexOf(beanSubstr) == -1) {
+                    				isComplex = (beanSubstr == "steps.XMLComplexStep") ? true : false
+                    
+                    				// creating new dbo''s node for children
+                    				var dboChildNode = context.addTextNode(childNode, "dbo", "");
+                    				context.addTextNode(dboChildNode, "qname", '''' + childQName);
+                    				context.addTextNode(dboChildNode, "displayName", '''' + childDisplayName);
+                    				context.addTextNode(dboChildNode, "className", '''' + childClassName);
+                    				context.addTextNode(dboChildNode, "isStarting", false)
+                    				
+                    				var isEmbeddedNode = context.addTextNode(dboChildNode, "isEmbedded", isEmbedded);
+                    				isEmbeddedNode.setAttribute("type", "boolean");
+                    				
+                    				var isComplexNode = context.addTextNode(dboChildNode, "isComplex", isComplex);
+                    				isComplexNode.setAttribute("type", "boolean");
+                    				
+                    				// getting children of children
+                    				walkChildren(dboChildNode, childQName)
+                    			}
+                    		}
+                    	}
+                    
+                    	
+                    }'
+              ↓jElse [steps.ElseStep-1614095554717]: 
+                ↓qname [steps.ElementStep-1614095554720]: 
+                  expression: item
+                  nodeName: qname
+                ↓displayName [steps.ElementStep-1614095554723]: 
+                  expression: item
+                  nodeName: displayName
+                ↓className [steps.XMLElementStep-1614095554726]: 
+                  nodeName: className
+                  nodeText: com.twinsoft.convertigo.beans.core.Project
+                ↓hasChildren [steps.XMLElementStep-1614095554729]: 
+                  nodeName: hasChildren
+                  nodeText: true
+                  ↓type [steps.XMLAttributeStep-1614095554732]: 
+                    nodeName: type
+                    nodeText: boolean
+    ↓jElse [steps.ElseStep-1614095554735]: 
+      ↓jIterator [steps.SimpleIteratorStep-1614095554738]: 
+        expression: com.twinsoft.convertigo.engine.Engine.theApp.databaseObjectsManager.getDatabaseObjectByQName(qname).getDatabaseObjectChildren()
+        ↓jElement54 [steps.ElementStep-1614095554741]: 
+          expression: item.getClass().getName().substring(strBean.length)
+          nodeName: stepSubstr
+          output: false
+        ↓jSimpleSource [steps.SimpleSourceStep-1614095554744]: 
+          sourceDefinition: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: 1614095554741
+                - java.lang.String: 
+                  - ↑value: ./text()
+          variableName: stepSubstr
+        ↓jIf [steps.IfStep-1614095554747]: 
+          condition: elementsToNotDisplayByClassName.indexOf(stepSubstr) == -1
+          ↓dbo [steps.XMLComplexStep-1614095554750]: 
+            nodeName: dbo
+            ↓type [steps.XMLAttributeStep-1614095554753]: 
+              isEnabled: false
+              nodeName: type
+              nodeText: object
+            ↓jSource [steps.SourceStep-1614095554756]: 
+              sourceDefinition: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                  - com.twinsoft.convertigo.beans.common.XMLVector: 
+                    - java.lang.String: 
+                      - ↑value: 1614095554750
+                    - java.lang.String: 
+                      - ↑value: .
+              variableName: dboNode
+            ↓jIfThenElse1 [steps.IfThenElseStep-1614095554759]: 
+              condition: level > 0
+              ↓jThen [steps.ThenStep-1614095554762]: 
+                ↓walkChildren [steps.SimpleStep-1614095554765]: 
+                  expression: |
+                    'strBean = ''com.twinsoft.convertigo.beans.''
+                    beanSubstr = "" + item.getClass().getName().substring(strBean.length)
+                    
+                    if(elementsToNotDisplayByClassName.indexOf(beanSubstr) == -1) {
+                    	isComplex = (beanSubstr == "steps.XMLComplexStep") ? true : false
+                    
+                    	context.addTextNode(dboNode.item(0), "qname", item.getFullQName());
+                    	context.addTextNode(dboNode.item(0), "displayName", item.getName());
+                    	context.addTextNode(dboNode.item(0), "className", item.getClass().getName());
+                    	context.addTextNode(dboNode.item(0), "isStarting", true);
+                    	
+                    	var isEmbeddedNode = context.addTextNode(dboNode.item(0), "isEmbedded", false);
+                    	isEmbeddedNode.setAttribute("type", "boolean");
+                    	
+                    	var isComplexNode = context.addTextNode(dboNode.item(0), "isComplex", isComplex);
+                    	isComplexNode.setAttribute("type", "boolean");
+                    	
+                    	parentQName = item.getFullQName();
+                    
+                    	walkChildren(dboNode.item(0), parentQName);
+                    }
+                    
+                    function walkChildren(parentNode, parentQName) {
+                    	
+                    	// getting dbo and its children
+                    	var dbo = com.twinsoft.convertigo.engine.Engine.theApp.databaseObjectsManager.getDatabaseObjectByQName(parentQName);
+                    	var child = dbo.getDatabaseObjectChildren();
+                    	
+                    	var nodeList = parentNode.getChildNodes(); /* return all nodes under parentNode */
+                    	var parentIsEmbedded = nodeList.item(5).getTextContent(); /* return bool */
+                    	var parentIsComplex = parentNode.getLastChild().getTextContent(); /* return bool */
+                    	var isEmbedded = (parentIsComplex == "true" || parentIsEmbedded == "true") ? true : false;
+                    
+                    	for(var j = 0; j < nodeList.length; j++)
+                    		log.warn("STEP IS : " + nodeList.item(j))
+                    		
+                    	log.warn(''parentIsEmbedded :'' + parentIsEmbedded)
+                    	log.warn("parentIsComplex : " + parentIsComplex)
+                    	log.warn("isEmbedded : " + isEmbedded)
+                    	
+                    	
+                    	if(!child.isEmpty() && elementsToNotDisplayByClassName.indexOf(beanSubstr) == -1) {
+                    		
+                    		// creating children node in parent''s node
+                    		var childNode = context.addTextNode(parentNode, "children", "");
+                    		childNode.setAttribute("type", "array");
+                    		
+                    		// for each children 
+                    		for (var i = 0; i < child.size(); i++) {
+                    			var childQName = child.get(i).getFullQName();
+                    			var childDisplayName = child.get(i).getName();
+                    			var childClassName = child.get(i).getClass().getName();
+                    			var beanSubstr = "" + childClassName.substring(strBean.length)
+                    
+                    			if(elementsToNotDisplayByClassName.indexOf(beanSubstr) == -1) {
+                    				isComplex = (beanSubstr == "steps.XMLComplexStep") ? true : false
+                    
+                    				// creating new dbo''s node for children
+                    				var dboChildNode = context.addTextNode(childNode, "dbo", "");
+                    				context.addTextNode(dboChildNode, "qname", '''' + childQName);
+                    				context.addTextNode(dboChildNode, "displayName", '''' + childDisplayName);
+                    				context.addTextNode(dboChildNode, "className", '''' + childClassName);
+                    				context.addTextNode(dboChildNode, "isStarting", false)
+                    				
+                    				var isEmbeddedNode = context.addTextNode(dboChildNode, "isEmbedded", isEmbedded);
+                    				isEmbeddedNode.setAttribute("type", "boolean");
+                    				
+                    				var isComplexNode = context.addTextNode(dboChildNode, "isComplex", isComplex);
+                    				isComplexNode.setAttribute("type", "boolean");
+                    				// getting children of children
+                    				walkChildren(dboChildNode, childQName)
+                    			}
+                    		}
+                    	}
+                    	
+                    }'
+              ↓jElse [steps.ElseStep-1614095554768]: 
+                ↓jElement1 [steps.ElementStep-1614095554771]: 
+                  expression: item.getFullQName()
+                  nodeName: qname
+                ↓jElement11 [steps.ElementStep-1614095554774]: 
+                  expression: item.getName()
+                  nodeName: dislayName
+                ↓jElement111 [steps.ElementStep-1614095554777]: 
+                  expression: item.getClass().getName()
+                  nodeName: className
+                ↓jElement [steps.ElementStep-1614095554780]: 
+                  expression: '!item.getDatabaseObjectChildren().isEmpty()'
+                  nodeName: hasChildren
+                  ↓type [steps.XMLAttributeStep-1614095554783]: 
+                    nodeName: type
+                    nodeText: boolean
+            ↓jIfThenElse [steps.IfThenElseStep-1614095554786]: 
+              condition: dbo instanceof com.twinsoft.convertigo.beans.core.MobileComponent
+              isEnabled: false
+              ↓jThen [steps.ThenStep-1614095554789]: 
+              ↓jElse [steps.ElseStep-1614095554792]: 
+                ↓className [steps.ElementStep-1614095554795]: 
+                  expression: item.getClass().getName()
+                  nodeName: className
+  ↓jIterator [steps.SimpleIteratorStep-1614095554798]: 
+    expression: com.twinsoft.convertigo.engine.Engine.theApp.databaseObjectsManager.getDatabaseObjectByQName(qname).getDatabaseObjectChildren()
+    ↓jElement54 [steps.ElementStep-1614095554801]: 
+      expression: item.getClass().getName().substring(strBean.length)
+      nodeName: stepSubstr
+      output: false
+    ↓jSimpleSource [steps.SimpleSourceStep-1614095554804]: 
+      sourceDefinition: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+          - com.twinsoft.convertigo.beans.common.XMLVector: 
+            - java.lang.String: 
+              - ↑value: 1614095554801
+            - java.lang.String: 
+              - ↑value: ./text()
+      variableName: stepSubstr
+    ↓jIf [steps.IfStep-1614095554807]: 
+      condition: elementsToNotDisplayByClassName.indexOf(stepSubstr) == -1
+      ↓dbo [steps.XMLComplexStep-1614095554810]: 
+        nodeName: dbo
+        ↓type [steps.XMLAttributeStep-1614095554813]: 
+          isEnabled: false
+          nodeName: type
+          nodeText: object
+        ↓jSource [steps.SourceStep-1614095554816]: 
+          sourceDefinition: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+              - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - java.lang.String: 
+                  - ↑value: 1614095554810
+                - java.lang.String: 
+                  - ↑value: .
+          variableName: dboNode
+        ↓jIfThenElse1 [steps.IfThenElseStep-1614095554819]: 
+          condition: level > 0
+          ↓jThen [steps.ThenStep-1614095554822]: 
+            ↓walkChildren [steps.SimpleStep-1614095554825]: 
+              expression: |
+                'strBean = ''com.twinsoft.convertigo.beans.''
+                beanSubstr = "" + item.getClass().getName().substring(strBean.length)
+                dbo = com.twinsoft.convertigo.engine.Engine.theApp.databaseObjectsManager.getDatabaseObjectByQName(qname);
+                
+                if(elementsToNotDisplayByClassName.indexOf(beanSubstr) == -1) {
+                	isComplex = (beanSubstr == "steps.XMLComplexStep") ? true : false
+                
+                	context.addTextNode(dboNode.item(0), "qname", item.getFullQName());
+                	context.addTextNode(dboNode.item(0), "displayName", 
+                		com.twinsoft.convertigo.engine.Engine.theApp.databaseObjectsManager.getDatabaseObjectByQName(
+                			item.getFullQName()
+                		).toString()
+                	); 
+                	context.addTextNode(dboNode.item(0), "className", item.getClass().getName());
+                	context.addTextNode(dboNode.item(0), "isStarting", true);
+                	
+                	var isEmbeddedNode = context.addTextNode(dboNode.item(0), "isEmbedded", false);
+                	isEmbeddedNode.setAttribute("type", "boolean");
+                	
+                	var isComplexNode = context.addTextNode(dboNode.item(0), "isComplex", isComplex);
+                	isComplexNode.setAttribute("type", "boolean");
+                	
+                	context.addTextNode(dboNode.item(0), "depthLvl", 0);
+                	
+                	// add properties array
+                	var docProperties = callGetProperties(item.getFullQName())
+                	var nodeList = docProperties.getElementsByTagName(''properties'')
+                	dboNode.item(0).appendChild(dom.adoptNode(nodeList.item(0)));
+                
+                	parentQName = item.getFullQName();
+                
+                	walkChildren(dboNode.item(0), parentQName, 0);
+                }
+                
+                function walkChildren(parentNode, parentQName, depthLvl) {
+                	
+                	// getting dbo and its children
+                	var dbo = com.twinsoft.convertigo.engine.Engine.theApp.databaseObjectsManager.getDatabaseObjectByQName(parentQName);
+                	var child = dbo.getDatabaseObjectChildren();
+                	
+                	var nodeList = parentNode.getChildNodes(); /* return all nodes under parentNode */
+                	var parentIsEmbedded = nodeList.item(5).getTextContent(); /* return bool */
+                	var parentIsComplex = parentNode.getLastChild().getTextContent(); /* return bool */
+                	var isEmbedded = (parentIsComplex == "true" || parentIsEmbedded == "true") ? true : false;
+                
+                //	for(var j = 0; j < nodeList.length; j++)
+                //		log.warn("STEP IS : " + nodeList.item(j))
+                //		
+                //	log.warn(''parentIsEmbedded :'' + parentIsEmbedded)
+                //	log.warn("parentIsComplex : " + parentIsComplex)
+                //	log.warn("isEmbedded : " + isEmbedded)
+                	
+                	
+                	if(!child.isEmpty() && elementsToNotDisplayByClassName.indexOf(beanSubstr) == -1) {
+                		
+                		// creating children node in parent''s node
+                		var childNode = context.addTextNode(parentNode, "children", "");
+                		childNode.setAttribute("type", "array");
+                		
+                		depthLvl++;
+                		// for each children 
+                		for (var i = 0; i < child.size(); i++) {
+                			var childQName = child.get(i).getFullQName();
+                			var childDisplayName = child.get(i).getName();
+                			var childClassName = child.get(i).getClass().getName();
+                			var beanSubstr = "" + childClassName.substring(strBean.length)
+                
+                
+                			if(elementsToNotDisplayByClassName.indexOf(beanSubstr) == -1) {
+                				isComplex = (beanSubstr == "steps.XMLComplexStep") ? true : false
+                
+                				// creating new dbo''s node for children
+                				var dboChildNode = context.addTextNode(childNode, "dbo", "");
+                				context.addTextNode(dboChildNode, "qname", '''' + childQName);
+                				context.addTextNode(dboChildNode, "displayName", 
+                					com.twinsoft.convertigo.engine.Engine.theApp.databaseObjectsManager.getDatabaseObjectByQName(childQName).toString()
+                				);
+                				context.addTextNode(dboChildNode, "className", '''' + childClassName);
+                				context.addTextNode(dboChildNode, "isStarting", false)
+                				
+                				var isEmbeddedNode = context.addTextNode(dboChildNode, "isEmbedded", isEmbedded);
+                				isEmbeddedNode.setAttribute("type", "boolean");
+                				
+                				var isComplexNode = context.addTextNode(dboChildNode, "isComplex", isComplex);
+                				isComplexNode.setAttribute("type", "boolean");
+                				
+                				context.addTextNode(dboChildNode, "depthLvl", depthLvl);
+                				
+                				var docProperties = callGetProperties(childQName)
+                				var nodeList = docProperties.getElementsByTagName(''properties'')
+                	
+                				dboChildNode.appendChild(dom.adoptNode(nodeList.item(0)));
+                				// getting children of children
+                				walkChildren(dboChildNode, childQName, depthLvl)
+                			}
+                		}
+                	}
+                	
+                }'
+          ↓jElse [steps.ElseStep-1614095554828]: 
+            ↓jElement1 [steps.ElementStep-1614095554831]: 
+              expression: item.getFullQName()
+              nodeName: qname
+            ↓jElement11 [steps.ElementStep-1614095554834]: 
+              expression: item.getName()
+              nodeName: displayName
+            ↓jElement111 [steps.ElementStep-1614095554837]: 
+              expression: item.getClass().getName()
+              nodeName: className
+            ↓jElement [steps.ElementStep-1614095554840]: 
+              expression: '!item.getDatabaseObjectChildren().isEmpty()'
+              nodeName: hasChildren
+              ↓type [steps.XMLAttributeStep-1614095554843]: 
+                nodeName: type
+                nodeText: boolean
+        ↓jIfThenElse [steps.IfThenElseStep-1614095554846]: 
+          condition: dbo instanceof com.twinsoft.convertigo.beans.core.MobileComponent
+          isEnabled: false
+          ↓jThen [steps.ThenStep-1614095554849]: 
+          ↓jElse [steps.ElseStep-1614095554852]: 
+            ↓className [steps.ElementStep-1614095554855]: 
+              expression: item.getClass().getName()
+              nodeName: className
+↓qname [variables.RequestableVariable-1614095554858]: 
+↓level [variables.RequestableVariable-1614095554861]: 
+↓C8oStudio [core.TestCase]: 
+  ↓qname [variables.TestCaseVariable-1614095554865]: 
+    value: C8oStudio
+  ↓level [variables.TestCaseVariable-1614095554868]: 
+    value: 100
+↓GetChildren [core.TestCase]: 
+  ↓qname [variables.TestCaseVariable-1614095554872]: 
+    value: C8oStudio.sq:GetChildren
+  ↓level [variables.TestCaseVariable-1614095554875]: 
+    value: 100
+↓lvl0 [core.TestCase]: 
+  ↓qname [variables.TestCaseVariable-1614095554879]: 
+    value: C8oStudio.sq:GetChildren
+  ↓level [variables.TestCaseVariable-1614095554882]: 
+    value: 0
+↓root [core.TestCase]: 
+  ↓qname [variables.TestCaseVariable-1614095554886]: 
+    value: root
+  ↓level [variables.TestCaseVariable-1614095554889]: 
+    value: 100

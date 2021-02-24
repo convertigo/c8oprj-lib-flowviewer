@@ -1,0 +1,2318 @@
+↓qname [ngx.components.UICompVariable-1614095416041]: 
+↓PageEvent [ngx.components.UIPageEvent-1614095528000]: 
+  ↓importJointJSAndLibs [ngx.components.UICustomAction-1614095598885]: 
+    package_dependencies: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: jointjs
+              - java.lang.String: 
+                - ↑value: 3.3.1
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: '@types/lodash'
+              - java.lang.String: 
+                - ↑value: 4.14.168
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: '@types/jquery'
+              - java.lang.String: 
+                - ↑value: '>=3.4.1'
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: '@types/backbone'
+              - java.lang.String: 
+                - ↑value: 1.4.1
+    page_ts_imports: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: ViewChild
+              - java.lang.String: 
+                - ↑value: '@angular/core'
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: ViewChildren
+              - java.lang.String: 
+                - ↑value: '@angular/core'
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: QueryList
+              - java.lang.String: 
+                - ↑value: '@angular/core'
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: ElementRef
+              - java.lang.String: 
+                - ↑value: '@angular/core'
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: '* as _ '
+              - java.lang.String: 
+                - ↑value: lodash
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: '* as backbone'
+              - java.lang.String: 
+                - ↑value: backbone
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: '* as joint'
+              - java.lang.String: 
+                - ↑value: jointjs
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: '* as \$'
+              - java.lang.String: 
+                - ↑value: jquery
+    ↓initFlowViewerClass [ngx.components.UICustomAction-1614097971290]: 
+      actionValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+          - com.twinsoft.convertigo.beans.common.FormatedContent: 
+            →: |
+              '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+              		
+              		class FlowViewer {
+              			
+              			@ViewChildren("levelDomElement") public all_levelDomElement : QueryList<any>;
+              			@ViewChild("levelDomElement", { static: false }) public levelDomElement;
+              	
+              			@ViewChildren("graphDomElement") public all_graphDomElement : QueryList<any>;
+              			@ViewChild("graphDomElement", { static: false }) public graphDomElement;
+              			
+              			constructor(c8o: any, global: any) {
+              				this.c8o = c8o
+              				this.global = global
+              			}
+              			
+              			/* 
+              			*
+              			* 
+              			* CLASS PROPERTIES
+              			* 
+              			*/
+              			 
+              			public c8o;
+              			public global;
+              			ifSteps = ["IfStep", "IfExistStep", "IfFileExistStep", "IsInStep"]
+              			ifThenElseSteps = ["IfThenElseStep","IfExistThenElseStep", "IsInThenElseStep"]
+              			iteratorSteps = ["SimpleIteratorStep", "IteratorStep"]
+              			linkColors = {
+              				main: ''#77ACA1'',
+              				iterators: [
+              					''#ef5350'',
+              					''#ec407a'',
+              					''#ab47bc'',
+              					''#7e57c2'',
+              					''#5c6bc0''
+              				]
+              			}
+              			elementColors = {
+              				main: "#2D433F",
+              				mainBorder: "#1E7C6D",
+              				complex: ''#0CBBE7'',
+              				iterators: [
+              					''#ef5350'',
+              					''#ec407a'',
+              					''#ab47bc'',
+              					''#7e57c2'',
+              					''#5c6bc0''
+              				],
+              				iteratorsBorder: [
+              					''#b61827'',
+              					''#b4004e'',
+              					''#790e8b'',
+              					''#4d2c91'',
+              					''#26418f''
+              				]
+              			}
+              			graph = new joint.dia.Graph({}, {cellNamespace: joint.shapes})
+              			paper : joint.dia.Paper
+              			miniMapsArray = [];
+              			breadcrumb = [];
+              			scale : number = 10
+              			scaleView = 100;
+              			levelCount: number = 0;
+              			dragStartPosition = null;
+              			verticalSpace = 170
+              			horizontalSpace = 140 //115
+              			graphOriginX = 10
+              			graphOriginY = 200
+              			minimapNavigatorPosition = {
+              		  		minX: 0,
+              		  		minY: 0,
+              		  		maxX: 500,
+              		  		maxY: 300,
+              			};
+              			strStep = ''com.twinsoft.convertigo.beans.steps.''
+              			
+              			/* 
+              			*
+              			* 
+              			* CLASS METHODS
+              			* 
+              			*/ 
+              			
+              			addToBreadcrumb(breadcrumbObject) {
+              				this.breadcrumb.push(breadcrumbObject)
+              			}
+              			
+              			cardIsOpen(priority) {
+              				var isOpened;
+              				for (var i =0; i < this.miniMapsArray.length; i++){
+              					if(this.miniMapsArray[i].priority == priority) {
+              						isOpened = true;
+              						break;
+              					}
+              				}
+              				
+              				return isOpened;
+              			}
+              			
+              			checkElementOnPoint(x: number, y: number) {
+              				if (this.graph.findModelsFromPoint({ x: x, y: y }).length > 0)
+              					return true;
+              				else 
+              					return false;
+              			}
+              			
+              			// Compare a Then and an Else branch to know the longest
+              			compareBranches(jThen: number, jElse: number) {
+              				if(jThen > jElse) {
+              					return jThen
+              				} else if (jElse > jThen) {
+              					return jElse
+              				} else {
+              					return jThen
+              				}	
+              			}
+              			
+              			createGraph() {
+              				var graph = new joint.dia.Graph({}, {cellNamespace: joint.shapes})
+              				return graph;
+              			}
+              	
+              			createPaper(opts: Object) {
+              				var paper = new joint.dia.Paper(opts);
+              				return paper;
+              			}
+              			
+              			// define a custom template in JointJS to make collapsable iterator boxes
+              			
+              			defineContainerShape() {
+              				var headerHeight = 30;
+              		   	 	var buttonSize = 14;
+              				
+              				joint.shapes[''container''] = {};
+              		
+              				joint.shapes[''container''][''Parent''] = joint.dia.Element.define(''container.Parent'', {
+              			        collapsed: false,
+              			        attrs: {
+              			            root: {
+              			                magnetSelector: ''body''
+              			            },
+              			            shadow: {
+              			                refWidth: ''100%'',
+              			                refHeight: ''100%'',
+              			                x: 3,
+              			                y: 3,
+              			                fill: ''#000000'',
+              			                opacity: 0.05
+              			            },
+              			            body: {
+              			                refWidth: ''100%'',
+              			                refHeight: ''100%'',
+              			                strokeWidth: 1,
+              			                stroke: ''#DDDDDD'',
+              			                fill: ''#FCFCFC''
+              			            },
+              			            header: {
+              			                refWidth: ''100%'',
+              			                height: headerHeight,
+              			                strokeWidth: 0.5,
+              			                stroke: ''#4666E5'',
+              			                fill: ''#4666E5''
+              			            },
+              			            headerText: {
+              			                textVerticalAnchor: ''middle'',
+              			                textAnchor: ''start'',
+              			                refX: 8,
+              			                refY: headerHeight / 2,
+              			                fontSize: 16,
+              			                fontFamily: ''sans-serif'',
+              			                letterSpacing: 1,
+              			                fill: ''#FFFFFF'',
+              			                textWrap: {
+              			                    width: -40,
+              			                    maxLineCount: 1,
+              			                    ellipsis: ''*''
+              			                },
+              			                style: {
+              			                    textShadow: ''1px 1px #222222'',
+              			                }
+              			            },
+              			            button: {
+              			                refDx: - buttonSize - (headerHeight - buttonSize) / 2,
+              			                refY: (headerHeight - buttonSize) / 2,
+              			                cursor: ''pointer'',
+              			                event: ''element:button:pointerdown'',
+              			                title: ''Collapse / Expand''
+              			            },
+              			            buttonBorder: {
+              			                width: buttonSize,
+              			                height: buttonSize,
+              			                fill: ''#000000'',
+              			                fillOpacity: 0.2,
+              			                stroke: ''#FFFFFF'',
+              			                strokeWidth: 0.5,
+              			            },
+              			            buttonIcon: {
+              			                fill: ''none'',
+              			                stroke: ''#FFFFFF'',
+              			                strokeWidth: 1
+              			            }
+              			        }
+              			    }, {
+              			
+              			        markup: [{
+              			            tagName: ''rect'',
+              			            selector: ''shadow''
+              			        }, {
+              			            tagName: ''rect'',
+              			            selector: ''body''
+              			        }, {
+              			            tagName: ''rect'',
+              			            selector: ''header''
+              			        }, {
+              			            tagName: ''text'',
+              			            selector: ''headerText''
+              			        }, {
+              			            tagName: ''g'',
+              			            selector: ''button'',
+              			            children: [{
+              			                tagName: ''rect'',
+              			                selector: ''buttonBorder''
+              			            }, {
+              			                tagName: ''path'',
+              			                selector: ''buttonIcon''
+              			            }]
+              			        }],
+              			
+              			        toggle: function(shouldCollapse) {
+              			            var buttonD;
+              			            var collapsed = (shouldCollapse === undefined) ? !this.get(''collapsed'') : shouldCollapse;
+              			            if (collapsed) {
+              			                buttonD = ''M 2 7 12 7 M 7 2 7 12'';
+              			                this.resize(140, 30);
+              			            } else {
+              			                buttonD = ''M 2 7 12 7'';
+              			                this.fitChildren();
+              			            }
+              			            this.attr([''buttonIcon'',''d''], buttonD);
+              			            this.set(''collapsed'', collapsed);
+              			        },
+              			
+              			        isCollapsed: function() {
+              			            return Boolean(this.get(''collapsed''));
+              			        },
+              			
+              			        fitChildren: function() {
+              			            var padding = 10;
+              			            this.fitEmbeds({
+              			                padding: {
+              			                    top: headerHeight + padding,
+              			                    left: padding,
+              			                    right: padding,
+              			                    bottom: padding
+              			                }
+              			            });
+              			        }
+              			    });
+              		
+              			}
+              			
+              			displayFlow(qName) {
+              				this.graph.clear();
+              		
+              				var previous = null;
+              				var previousFromSequence = null;
+              				var previousViewLength;
+              				var nbChildren = 0;
+              							
+              				var isIterator = false;
+              				var isInIterator = false; 
+              				var refIteratorBox : any = ''''
+              							
+              				var children = {
+              						then: 0,
+              						else: 0	
+              				};
+              				
+              				var x, y;
+              							
+              				var lastCell = this.graph.getLastCell();
+              				this.paper.setOrigin(this.graphOriginX, this.graphOriginY)
+              					
+              				_.each(qName, (newElement, i) => {
+              
+              					x = 70 + this.horizontalSpace * parseInt(i);
+              					y = 70;
+              								
+              					var newElementIsComplex = newElement.dbo.isComplex;
+              					var newElementQName = newElement.dbo.qname;
+              					var newElementClassName = this.getClassName(newElement.dbo.className);
+              											
+              					if(previousFromSequence != null)
+              						var previousFromSequenceClassName = this.getClassName(previousFromSequence.dbo.className)
+              						
+              					if(previous != null) {
+              						var previousClassName = this.getClassName(previous.attributes.className)
+              						previousViewLength = this.getElementViewLength(previous)
+              						x = previousViewLength + this.horizontalSpace
+              					}
+              
+              					var thenNumber = 0;
+              					var elseNumber = 0;
+              					if(previousFromSequence != null && previousFromSequenceClassName != undefined && this.isInArray(this.ifThenElseSteps, previousFromSequenceClassName)) { // previousFromSequenceClassName == "IfThenElseStep"
+              						if(previousFromSequence.dbo.children[0].dbo.children != undefined)
+              							thenNumber = previousFromSequence.dbo.children[0].dbo.children.length
+              							
+              						if(previousFromSequence.dbo.children[1].dbo.children != undefined)
+              							elseNumber = previousFromSequence.dbo.children[1].dbo.children.length
+              								
+              						children = {
+              							then: thenNumber,
+              							else: elseNumber
+              						}
+              							
+              						var nbChildren = this.compareBranches(children.then, children.else)
+              						x = previousViewLength + (70 + this.horizontalSpace * nbChildren) + this.horizontalSpace
+              						y = 70
+              					}
+              						
+              					if(previous != null && this.isInArray(this.ifSteps, previousClassName) || this.isInArray(this.iteratorSteps, previousClassName)) { //previousClassName == "IfStep"g
+              						if(previousClassName != previousFromSequenceClassName) {
+              							var lastElement = this.getLastElementFromSimpleBranch(previous, 1);
+              							var lastElementViewLength = this.getElementViewLength(lastElement)
+              							x = lastElementViewLength + this.horizontalSpace
+              						} else {
+              							lastCell = this.graph.getLastCell()
+              											
+              							if(lastCell != undefined && lastCell.attributes.type == "standard.ShadowLink") {
+              								// So if it a link, the true last cell is its target
+              								if(lastCell.attributes.target != undefined) {
+              									var lastCellTarget = lastCell.attributes.target
+              									var lastCellTargetViewLength = this.getElementViewLength(lastCellTarget)
+              									x = lastCellTargetViewLength + this.horizontalSpace
+              								}
+              							} 
+              							else {
+              								x = previousViewLength + this.horizontalSpace
+              							}								
+              						}
+              							
+              					}
+              						
+              					if(this.checkElementOnPoint(x,y)) {
+              						// Last cell might be a link or en element
+              						var lastCell = this.graph.getLastCell();
+              						if(lastCell.attributes.type == "standard.ShadowLink") {
+              							// So if it a link, the true last cell is its target
+              							var lastCellTarget = lastCell.attributes.target
+              							x = lastCellTarget.attributes.position.x + this.horizontalSpace;
+              							y = lastCellTarget.attributes.position.y
+              						} else {
+              							x = lastCell.attributes.position.x + this.horizontalSpace
+              							y = lastCell.attributes.position.y
+              						}
+              					}
+              						
+              					if(previous != null && x < previousViewLength) { // previous.attributes.position.x
+              						x = previousViewLength + this.horizontalSpace
+              					}
+              						
+              					if(this.isInArray(this.iteratorSteps, newElementClassName))
+              						isIterator = true;
+              //
+              					var elColor;
+              					if(this.isInArray(this.iteratorSteps, newElementClassName)) {
+              						elColor = this.elementColors.iterators[newElement.dbo.depthLvl]
+              					} else {
+              						if(newElement.dbo.isComplex)
+              							elColor = this.elementColors.complex
+              						else
+              							elColor = this.elementColors.main
+              					}
+              
+              					var elmtOpts = {
+                  					attrs: {
+                      					position: {
+                         	 					x: x,
+                          					y: y
+                      					}
+                  					},
+                  					props: {
+              							qname: newElement.dbo.qname,
+              							displayName: newElement.dbo.displayName,
+              							className: newElement.dbo.className,
+              							isComplex: newElement.dbo.isComplex,
+              							isIterator: isIterator,
+              							isInIterator: isInIterator,
+              							isInBranch: false,
+              							refBranchStart: '''',
+              							refBranchIterator: '''',
+              							refIteratorBox: refIteratorBox,
+              							depthLvl: newElement.dbo.depthLvl,
+              							properties: newElement.dbo.properties
+                  					}
+              					}
+              					// var el = this.makeElement(elmtOpts, this.graph, elColor)
+              					var el = (newElement.dbo.isComplex) ? this.makeComplexElement(elmtOpts, this.graph, elColor) : this.makeElement(elmtOpts, this.graph, elColor)
+              						
+              					if(previous != null && this.isInArray(this.ifThenElseSteps, previousClassName)) { // this.getClassName(previous.attributes.className) == "IfThenElseStep"
+              						var lastElements = this.getLastElementsFromThenAndElseBranch(previous)
+              						var jThenLastElement = lastElements.jThen[lastElements.jThen.length - 1]
+              						var jElseLastElement = lastElements.jElse[lastElements.jElse.length - 1]
+              
+              						if(jThenLastElement != undefined) {
+              							this.makeLink(jThenLastElement, el, '''', this.graph, false, false, "right", ''#77ACA1'')
+              						}
+              								
+              						if(jElseLastElement != undefined) {
+              							this.makeLink(jElseLastElement, el, '''', this.graph, false, false, "right", ''#77ACA1'')
+              						}
+              					}  
+              					else if(previous != null && this.isInArray(this.ifSteps, previousClassName)) { // this.getClassName(previous.attributes.className) == "IfStep"
+              						if(previousClassName != previousFromSequenceClassName) {
+              							var lastElement = this.getLastElementFromSimpleBranch(previous, 1);
+              							this.makeLink(lastElement, el, '''', this.graph, false, false, "right", ''#77ACA1'')
+              						} else {
+              							if(lastCell != undefined && lastCell.attributes.type == "standard.ShadowLink") {
+              								// So if it a link, the true last cell is its target
+              								if(lastCell.attributes.target != undefined) {
+              									var lastCellTarget = lastCell.attributes.target
+              //									console.log(''target: '' + JSON.stringify(lastCellTarget))
+              									if(lastCellTarget.attributes.isInBranch) {
+              										var startBranchElement = this.graph.getCell(lastCellTarget.attributes.refBranchStart)
+              										if(this.isInArray(this.ifThenElseSteps, this.getClassName(startBranchElement.attributes.className))) {
+              											// var startBranchElement = this.graph.getCell(lastCellTarget.attributes.refBranchStart)
+              											var lastElements = this.getLastElementsFromThenAndElseBranch(startBranchElement)
+              											var jThenLastElement = lastElements.jThen[lastElements.jThen.length - 1]
+              											var jElseLastElement = lastElements.jElse[lastElements.jElse.length - 1]
+              
+              											if(jThenLastElement != undefined) {
+              												this.makeLink(jThenLastElement, el, "", this.graph, false, false, "right", ''#77ACA1'') // right
+              											}
+              																
+              											if(jElseLastElement != undefined) {
+              												el.position(el.attributes.position.x, jElseLastElement.attributes.position.y)
+              												this.makeLink(jElseLastElement, el, "", this.graph, false, false, "right", ''#77ACA1'') // right
+              											}
+              																								
+              										} else {
+              											this.makeLink(lastCellTarget, el, '''', this.graph, false, false, "right", ''#77ACA1'')
+              										}
+              									}
+              										this.makeLink(lastCellTarget, el, '''', this.graph, false, false, "right", ''#77ACA1'')
+              								}
+              
+              							} 
+              							else {
+              								this.makeLink(lastCell, el, '''', this.graph, false, false, "right", ''#77ACA1'')
+              							}								
+              						}
+              
+              					} else if(previous != null && this.isInArray(this.iteratorSteps, previousClassName)) {
+              						if(lastCell != undefined && lastCell.attributes.type == "standard.ShadowLink") {
+              							// So if it a link, the true last cell is its target
+              							if(lastCell.attributes.target != undefined) {
+              								var lastCellTarget = lastCell.attributes.target
+              //								console.log(''target: '' + JSON.stringify(lastCellTarget))
+              								if(lastCellTarget.attributes.isInIterator) {
+              									this.makeLink(lastCellTarget, el, '''', this.graph, false, false, "right", ''#77ACA1'')
+              								} else {
+              									this.makeLink(lastCellTarget, el, '''', this.graph, false, false, "right", ''#77ACA1'')
+              								}
+              							}
+              						} else {
+              							this.makeLink(lastCell, el, '''', this.graph, false, false, "right", ''#77ACA1'')
+              						}
+              					} else {
+              						if(previous != null && !this.isInArray(this.ifThenElseSteps, previousClassName)) // && previousClassName != "IfThenElseStep"
+              							var link = this.makeLink(previous, el, '''', this.graph, false, false, "right", ''#77ACA1'')
+              					}
+              						
+              					previous = el
+              					previousFromSequence = newElement;
+              						
+              					if(!newElementIsComplex && newElement.dbo.children != undefined && newElement.dbo.children.length > 0) 
+              						this.walkChildren(newElement.dbo.children, previous, false, false, '''', this.graph)
+              				}); // end foreach
+              			} // end displayFlowFunction
+              			
+              			embedIteratorBox(graph:joint.dia.Graph) {
+              				var elements = graph.getElements();
+              				var iteratorBox;
+              				for(var i = 0; i < elements.length; i++) {
+              		//			console.log("LIST OF ELEMENTS: " + JSON.stringify(elements[i]))
+              					if(elements[i].attributes.isIteratorBox) {
+              						if(elements[i].attributes.refIteratorBox.length != 0) {
+              							var previousBox = graph.getCell(elements[i].attributes.refIteratorBox)
+              							previousBox.embed(elements[i])
+              							//@ts-ignore
+              							previousBox.fitEmbeds({
+              								padding: 20,
+              								deep: true
+              							})
+              							
+              							// previousBox.attributes.embeds.push(elements[i].attributes.id);
+              						}
+              					}
+              				}
+              			}
+              	
+              			ellipseString(string) {
+              				if(string.length > 20) {
+              					var sbStr = string.substring(0,20)
+              					sbStr = sbStr + "(...)"
+              					return sbStr
+              				} else {
+              					return string
+              				}
+              			}
+              	
+              			findElementInGetGraphResponse(array, elementQName) {
+              		//		console.log(JSON.stringify(this.global.getGraphResponse))
+              				let obj;
+              				let _this = this;
+              				let breakFlag = false;
+              		
+              				for(var i = 0; i < array.length; i++) {
+              					var el = array[i];
+              					if(breakFlag)
+              						break;
+              							
+              					if(el.dbo.qname == elementQName) {
+              						if (el.dbo.children != undefined && el.dbo.children.length > 0) {
+              							this.global[''nextElementInGetGraphResponse''] = el.dbo.children
+              							break;
+              						}
+              					} else {
+              						if(el.dbo.children != undefined && el.dbo.children.length > 0) {
+              							obj = _this.findElementInGetGraphResponse(el.dbo.children, elementQName)
+              						}
+              					}
+              					
+              				}
+              				
+              				if (this.global[''nextElementInGetGraphResponse''] != undefined && this.global[''nextElementInGetGraphResponse''].length > 0)
+              					return this.global[''nextElementInGetGraphResponse''];
+              			}
+              			
+              			fitAncestors(element) {
+              		        element.getAncestors().forEach(function(container) {
+              		            container.fitChildren();
+              		        });
+              		    }
+              
+              			getCardByPriority(priority) {
+              				var card;
+              				for(var i = 0; i < this.miniMapsArray.length; i++) {
+              					if(this.miniMapsArray[i].priority == priority) {
+              						card = this.miniMapsArray[i];
+              						break;
+              					}
+              				}
+              				
+              				return card;
+              			}
+              			
+              			getClassName(className: string) {
+              				var className = className.substr(this.strStep.length)
+              				return className;
+              			}
+              			
+              			getElementViewLength(element) {
+              				let elementBBox = element.findView(this.paper).getBBox();
+              				let elementViewLength = element.attributes.position.x + Math.round(elementBBox.width)
+              				// Math.round(elementBBox.x)
+              				return elementViewLength
+              			}
+              			
+              			getFlowScale() {
+              				var scale = this.paper.scale();
+              				var scaleNbr = scale.sx;
+              				return scaleNbr;
+              			}
+              			
+              			/*
+              				getting length - 2 because of the search algorithm (see : https://resources.jointjs.com/docs/jointjs/v3.2/joint.html#dia.Graph.prototype.dfs )
+              				using a minus because this function is used once before the next element after logical branch is created (to calculate x position), and once it has been
+              				last array''s element is the one which comes after the branch in logical flow, it is linked from the ''if step'' so it appears as a successors of it
+              			*/
+              			getLastElementFromSimpleBranch(branch, minus) {
+              				var successors = this.graph.getSuccessors(branch)
+              				var lastElement = successors[successors.length - minus]
+              
+              				return lastElement;
+              			}
+              			
+              			getLastElementsFromThenAndElseBranch(branch) {
+              		//		console.log("successors branch is: " + JSON.stringify(branch))
+              				
+              				var successors = this.graph.getSuccessors(branch);
+              				var lastElements = {
+              					jThen: [],
+              					jElse: []
+              				};
+              				
+              				var jThen = [];
+              				var jElse = []
+              				_.each(successors, (successor) => {
+              					var qName = successor.attributes.qname
+              					var displayName = successor.attributes.displayName
+              					var splitStr = qName.split(''.'')
+              					if(splitStr[splitStr.length - 2] == "jThen") {
+              						jThen.push(successor)
+              					}
+              					if(splitStr[splitStr.length - 2] == "jElse") {
+              						jElse.push(successor)
+              					}
+              				});
+              				
+              				lastElements.jThen = jThen;
+              				lastElements.jElse = jElse;
+              				
+              				return lastElements;
+              			}
+              			
+              			getPriority(properties) {
+              				var priority;
+              				for (var i =0; i < properties.length; i++) {
+              					if(properties[i].name == "priority")
+              						priority = properties[i].value
+              				}
+              				return priority;
+              			}
+              			
+              			highlightBreadcrumb(id) {
+              				for(var i = 0; i < this.breadcrumb.length; i++) {
+              					if(this.breadcrumb[i].id == id)
+              						this.breadcrumb[i].isSelected = true
+              					else 
+              						this.breadcrumb[i].isSelected = false
+              				}
+              			}
+              			
+              			highlightCard(id) {
+              				for(var i = 0; i < this.miniMapsArray.length; i++) {
+              					if(this.miniMapsArray[i].id == id)
+              						this.miniMapsArray[i].isSelected = true
+              					else
+              						this.miniMapsArray[i].isSelected = false
+              				}
+              			}
+              			
+              			isInArray(array, className) {
+              				if(array.includes(className))
+              					return true
+              				else 
+              					return false
+              			}
+              			
+              			importFromJSON(graph, json) {
+              				graph.clear();
+              				graph.fromJSON(json);
+              			}
+              			
+              			makeComplexElement(opts, graph, color) {
+              				var element = new joint.shapes.basic.Rect({
+              					size: {
+              						width: 70,
+              						height: 70
+              					},
+              					position: {
+              						x: opts.attrs.position.x,
+              						y: opts.attrs.position.y
+              					},
+              					// portMarkup: ''<g class="port port<%= id %>"><path class="port-body"/><text class="port-label"/></g>'',
+              					ports: {
+              					    groups: {
+              					      ''in'': {
+              					        position: { name: ''left'' },
+              					        attrs: {circle: {fill: color, magnet: ''passive'', refX: -6 }},
+              							
+              					      },
+              					      ''out'': {
+              					        position: { name: ''right'' },
+              					        attrs: {circle: {fill: color, magnet: true, refX: 6 }},    
+              					      }
+              					    },
+              					    items:[ { group: ''in'' }, { group: ''out'' } ]
+              				  	},
+              					attrs:{
+              				    	text: {
+              							text : joint.util.breakText(this.ellipseString(opts.props.displayName), { width: 70})
+              						},
+              				      	root: {
+              				         	title: opts.props.displayName,
+              							magnet: true
+              				      	},
+              						rect: {
+              							fill: color
+              						}
+              				   }
+              				})
+              				
+              				for(var key in opts.props) {
+              					element.prop(key, opts.props[key])
+              		//			console.log("key:" + key + " value: " + opts.props[key])
+              				}
+              
+              				element.addTo(graph);
+              				return element;		
+              			}
+              			
+              			makeElement(opts, graph, color) {
+              				var colorIndex;
+              				var borderColor;
+              					
+              				if(this.elementColors.iterators.indexOf(color) >= 0) {
+              					colorIndex = this.elementColors.iterators.indexOf(color);
+              					borderColor = this.elementColors.iteratorsBorder[colorIndex];
+              				} else {
+              					borderColor = this.elementColors.mainBorder;
+              				}
+              
+              				var element = new joint.shapes.standard.InscribedImage({
+              					size: {
+              						width: 70,
+              						height: 70
+              					},
+              					position: {
+              						x: opts.attrs.position.x,
+              						y: opts.attrs.position.y
+              					},
+              					// portMarkup: ''<g class="port port<%= id %>"><path class="port-body"/><text class="port-label"/></g>'',
+              					ports: {
+              					    groups: {
+              					      ''in'': {
+              					        position: { name: ''left'' },
+              					        attrs: {circle: {fill: color, magnet: ''passive'', refY: 12, refX: 2 }},
+              							
+              					      },
+              					      ''out'': {
+              					        position: { name: ''right'' },
+              					        attrs: {circle: {fill: color, magnet: true, refY: 12, refX: 2}},    
+              					      }
+              					    },
+              					    items:[ { group: ''in'' }, { group: ''out'' } ]
+              				  	},
+              					attrs:{
+              				      border: {
+              				         stroke: borderColor
+              				      },
+              				      background: {
+              				         fill: color,
+              				         fillOpacity: 0.5
+              				      },
+              				      image: {
+              				         xlinkHref: this.c8o.endpoint + ''/.bin?__sequence=GetIcon&className='' + opts.props.className + ''&large=true&__nolog=true''
+              				      },
+              				      label: {
+              				         fill: ''#fff'',
+              				         text: this.ellipseString(opts.props.displayName)
+              				      },
+              				      root: {
+              				         title: opts.props.displayName,
+              						 magnet: true
+              				      },
+              				   }
+              				})
+              				
+              				for(var key in opts.props) {
+              					element.prop(key, opts.props[key])
+              				}
+              
+              				element.addTo(graph)
+              				return element;
+              					
+              			}
+              						
+              			makeLink(source, target, label, graph: joint.dia.Graph, previousThen, previousElse, startDirection, colorLink) {
+              		
+              				startDirection = (previousThen) ? ''top'' : (previousElse) ? 	''bottom'' : startDirection;
+              				
+              		        var link = new joint.shapes.standard.ShadowLink({
+              				    source: source,
+              				    target: target,
+              				    connector: { name: ''rounded'' },
+              				    markup: [{
+              				        tagName: ''path'',
+              				        selector: ''shadow'',
+              				        attributes: {
+              				            ''fill'': ''none''
+              				        }
+              				    }, {
+              				        tagName: ''path'',
+              				        selector: ''line'',
+              				        attributes: {
+              				            ''fill'': ''none''
+              				        }
+              				    }, {
+              				        tagName: ''text'',
+              				        selector: ''label''
+              				    }],
+              				    attrs: {
+              				        line: {
+              				            stroke: colorLink, //#77ACA1
+              							"stroke-width": 5, 
+              							sourceMarker: {
+              								type: "circle",
+              								fill: "#FFF",
+              								stroke: ''#333'',
+              		 		 				r: 5, // radius of the circle
+              		  						cx: 5
+              							},
+              							targetMarker: {
+              								cx: 100
+              							}
+              				        },
+              						shadow: {
+              							"stroke-width": 5,
+              							sourceMarker: {
+              								type: "circle"
+              							}
+              						}
+              					},
+              		
+              				});
+              				
+              				link.appendLabel({
+              		    			attrs: {
+              		        			text: {
+              		            			text: label
+              		        			}
+              		    		}
+              				})
+              				
+              				
+              				
+              				link.router(''manhattan'', {
+              				    startDirections: [startDirection],
+              		//		    endDirections: [''left''],
+              					step: 10,
+              					maximumLoops: 2000,
+              					padding: {
+              						horizontal: 20
+              					},
+              					perpendicular: true,
+              					maxAllowedDirectionChange: 1200
+              				});
+              				
+              				link.connector(''rounded'')
+              				link.toBack()
+              				link.addTo(graph)
+              				
+              		    }
+              
+              			makeIteratorBox(opts, graph, color) {
+              				var shape = joint.shapes[''container''].Parent;
+              				var element = new shape({
+              					attrs: { headerText: { text: ''Container A'' }}
+              				})
+              
+              				for(var key in opts.props)
+              					element.prop(key, opts.props[key])
+              			
+              				element.addTo(graph);
+              				element.toggle(false)
+              				return element;
+              			}
+              			
+              			makePropertiesPanel(label, props) {
+              					
+              				var template = 
+              					''<div class="properties-panel" style="position: absolute;z-index: 2000;">'' +
+              					''<div class="properties-panel-header">'' +
+              			        ''<button class="properties-panel-button-close">x</button>'' + 
+              			        ''<label></label>'' + 
+              					''</div>'' +
+              			        ''<div class="properties-panel-body">''; 
+              			
+              				for(var i = 0; i < props.length; i++) {
+              					template = template + ''<h5>'' + props[i].displayName + ''</h5>'' +	
+              						''<input type="text" value="'' + props[i].value + ''" />''	
+              				}
+              						
+              				template = template + 
+              				''</div> </div>'';
+              					
+              				joint.shapes[''html''] = {};
+              			    joint.shapes[''html''].Element = joint.shapes.basic.Rect.extend({
+              			    	defaults: joint.util.deepSupplement({
+              			        	type: ''html.Element'',
+              			            attrs: {
+              			            	rect: { stroke: ''none'', ''fill-opacity'': 0 }
+              			            }
+              			        }, joint.shapes.basic.Rect.prototype.defaults)
+              			    });
+              			
+              				joint.shapes[''html''].ElementView = joint.dia.ElementView.extend({
+              			    	template: [
+              			            template
+              			        ].join(''''),
+              			
+              			        initialize(): void {
+              			 //     	console.log("Init function called") //THIS LINE IS NEVER PRINTED ON THE CONSOLE
+              			        	_.bindAll(this, ''updateBox'');
+              			            joint.dia.ElementView.prototype.initialize.apply(this, arguments);
+              			//
+              			            this.$box = $(_.template(this.template)());
+              			            // Prevent paper from handling pointerdown.
+              			            this.$box.find(''input,select'').on(''mousedown click'', function(evt) {
+              			                evt.stopPropagation();
+              			            });
+              			            // This is an example of reacting on the input change and storing the input data in the cell model.
+              			            this.$box.find(''input'').on(''change'', _.bind(function(evt) {
+              			              this.model.set(''input'', $(evt.target).val());
+              			            }, this));
+              			            this.$box.find(''select'').on(''change'', _.bind(function(evt) {
+              			              this.model.set(''select'', $(evt.target).val());
+              			            }, this));
+              			            this.$box.find(''select'').val(this.model.get(''select''));
+              			            this.$box.find(''.properties-panel-button-close'').on(''click'', _.bind(this.model.remove, this.model));
+              			            // Update the box position whenever the underlying model changes.
+              			            this.model.on(''change'', this.updateBox, this);
+              			            // Remove the box when the model gets removed from the graph.
+              			            this.model.on(''remove'', this.removeBox, this);
+              			//            console.log("************Init function processed"+this)
+              			//
+              			            this.updateBox();
+              			        },
+              			        render: function() {
+              			            joint.dia.ElementView.prototype.render.apply(this, arguments);
+              			            this.paper.$el.prepend(this.$box);
+              			            this.updateBox();
+              			            return this;
+              			        },
+              			        updateBox: function() {
+              			          console.log("****This is the time")
+              			          // Set the position and dimension of the box so that it covers the JointJS element.
+              			          var bbox = this.model.getBBox();
+              			          // Example of updating the HTML with a data stored in the cell model.
+              			          this.$box.find(''label'').text(this.model.get(''label''));
+              			//          this.$box.find(''span'').text(this.model.get(''select''));
+              			//		console.log(''bbox:'' + JSON.stringify(bbox))
+              			
+              			          this.$box.css({
+              			              width: bbox.width,
+              			              height: bbox.height,
+              			              left: bbox.x,
+              			              top: bbox.y,
+              			//              transform: ''rotate('' + (this.model.get(''angle'') || 0) + ''deg)''
+              			          });
+              			      },
+              			
+              			      removeBox: function(evt) {
+              			        this.$box.remove();
+              			      }
+              			    });
+              			
+              				var el1 = new joint.shapes[''html''].Element({
+              			        size: { width: 300, height: 500 },
+              			        label: label,
+              			    });
+              				
+              				el1.addTo(this.graph)
+              				return el1;
+              			}
+              
+              			
+              			onGridSizeChanged() {
+              			    this.paper.scale(this.scale / 10)
+              			}
+              			
+              			onMouseMove(event) {
+              		//		console.log("I AM EVENT " + JSON.stringify(event));
+              				 if (this.dragStartPosition != null) {
+              					// this.c8o.log.debug("Mouse Move : " + JSON.stringify(this.dragStartPosition))
+              					var bbox = this.graph.getBBox()
+              		//			console.log(JSON.stringify(bbox));
+              					
+              					var scale = this.getFlowScale()
+              					this.paper.translate(
+              				    	event.offsetX - this.dragStartPosition.x * scale, 
+              				        event.offsetY - this.dragStartPosition.y * scale);
+              						
+              				console.log(event.offsetX - this.dragStartPosition.x * this.scale / 10)
+              				console.log(event.offsetY - this.dragStartPosition.y * this.scale / 10)
+              				}
+              		    }
+              
+              			unselectBreadcrumb(breadcrumbID) {
+              				for(var i = 0; i < this.breadcrumb.length; i++) {
+              					if(this.breadcrumb[i].id != breadcrumbID)
+              						this.breadcrumb[i].isSelected = false;
+              				}
+              			}
+              				
+              			unselectCard(cardID) {
+              				for(var i = 0; i < this.miniMapsArray.length; i++) {
+              					if(this.miniMapsArray[i].id != cardID)
+              						this.miniMapsArray[i].isSelected = false
+              				}
+              			}
+              			
+              			updateGraph(graph: joint.dia.Graph, cellsToAdd) {
+              				//graph.clear();
+              				graph.addCells(cellsToAdd);
+              			}
+              			
+              			walkChildren(nodeObject: any, previous = null, previousThen, previousElse, refId, graph) {
+              				// refid = id du complex
+              				let x;
+              				let y;
+              				
+              				let parent = previous // parent is the element we get by clicking on one in the graph
+              				let parentClassName = parent.attributes[''className''].substring(this.strStep.length)			
+              				let parentIsComplex = parent.attributes.isComplex;
+              				let parentX = parent.attributes.position.x;
+              				let parentY = parent.attributes.position.y;
+              				
+              				let label = '''';
+              				/* flags */
+              				var previousThen = previousThen;
+              				var previousElse = previousElse;
+              				var previousNodeObject;
+              				
+              				var stepIsInBranch = false;
+              				var refBranchStart = '''';
+              				
+              				var isIterator = false;
+              				var stepIsInIterator = false;
+              				var refBranchIterator = '''';
+              				var refIteratorBox : any = '''';
+              				
+              				var nbChildren = 0;
+              				for (var i=0; i < nodeObject.length; i++) {
+              					//parent = previous;
+              					// variablizing data
+              					let stepClassName = nodeObject[i].dbo.className.substring(this.strStep.length)
+              					let displayName = nodeObject[i].dbo.displayName
+              					
+              					// this previous is the one inside loop
+              					let previousClassName = this.getClassName(previous.attributes.className)
+              					// let previousBBox = previous.findView(this.paper).getBBox();
+              					let previousViewLength = this.getElementViewLength(previous)
+              					// let previousViewLength = Math.round(previousBBox.x) + Math.round(previousBBox.width)
+              
+              					x = previousViewLength + this.horizontalSpace
+              					// x = previous.attributes.position.x + this.horizontalSpace
+              					y = previous.attributes.position.y 
+              					
+              					if(this.isInArray(this.ifThenElseSteps, parentClassName) && previousThen) { // parentClassName == "IfThenElseStep"
+              						x = parentX + this.horizontalSpace
+              						y = parentY - 120;
+              						stepIsInBranch = true
+              					} else if (this.isInArray(this.ifThenElseSteps, parentClassName) && previousElse) { // parentClassName == "IfThenElseStep"
+              						x = parentX + this.horizontalSpace
+              						y = parentY + 120
+              						stepIsInBranch = true
+              					}
+              					
+              					if(this.isInArray(this.ifSteps, previousClassName)) {
+              						x = previousViewLength + this.horizontalSpace
+              						// x = previous.attributes.position.x + this.horizontalSpace
+              						y = previous.attributes.position.y - 120
+              						stepIsInBranch = true			
+              					}
+              					
+              					if(previousNodeObject != undefined && this.isInArray(this.ifSteps, previousClassName)) {
+              						
+              						nbChildren = previousNodeObject.dbo.children.length		
+              		//				console.log(''nbChildren: '' + nbChildren)
+              						x = previousViewLength + (70 + this.horizontalSpace * nbChildren) + 45
+              						// x = previous.attributes.position.x + (70 + this.horizontalSpace * nbChildren) + 45
+              						y = previous.attributes.position.y
+              						
+              					}
+              					var lastCell = this.graph.getLastCell()
+              		//			console.log(''lastCell: '' + JSON.stringify(lastCell))
+              								
+              					if(lastCell != undefined && lastCell.attributes.type == "standard.ShadowLink") {
+              							// So if it a link, the true last cell is its target
+              							if(lastCell.attributes.target != undefined && !previousThen && !previousElse) {
+              								var lastCellTarget = lastCell.attributes.target
+              								var lastCellTargetViewLength = this.getElementViewLength(lastCellTarget)
+              								
+              								if(lastCellTarget.attributes.isInIterator && lastCellTarget.attributes.refBranchIterator != previous.id) {
+              									var lastCellTargetIteratorBox = this.graph.getCell(lastCellTarget.attributes.refIteratorBox)
+              									var lastCellTargetIteratorBoxViewLength = this.getElementViewLength(lastCellTargetIteratorBox)
+              									x = lastCellTargetIteratorBoxViewLength + this.horizontalSpace
+              								} else {
+              									x = lastCellTargetViewLength + this.horizontalSpace
+              								}
+              							}
+              					} 
+              					else {
+              						x = lastCell.attributes.position.x + this.horizontalSpace
+              						// y = lastCell.attributes.position.y
+              					}
+              				
+              					// walking through branches
+              					
+              					if(previousNodeObject != undefined && this.isInArray(this.ifThenElseSteps, previousClassName)) {
+              						var thenNumber = 0;
+              						var elseNumber = 0;
+              						var children = {
+              							then: 0,
+              							else: 0	
+              						};				
+              						if(previousNodeObject.dbo.children[0].dbo.children != undefined)
+              							thenNumber = previousNodeObject.dbo.children[0].dbo.children.length
+              									
+              						if(previousNodeObject.dbo.children[1].dbo.children != undefined)
+              							elseNumber = previousNodeObject.dbo.children[1].dbo.children.length
+              										
+              							children = {
+              								then: thenNumber,
+              								else: elseNumber
+              							}
+              									
+              							var nbChildren = this.compareBranches(children.then, children.else)
+              		//					console.log(''nbChildren: '' + nbChildren)
+              							x = previousViewLength + (70 + this.horizontalSpace * nbChildren) + 45
+              							// x = previous.attributes.position.x + (70 + this.horizontalSpace * nbChildren) + 45
+              							y = previous.attributes.position.y
+              							stepIsInBranch = true
+              					}
+              			
+              					
+              					if(stepIsInBranch)
+              						refBranchStart = parent.id
+              						
+              					if(previous.attributes.isInIterator)
+              						refBranchIterator = previous.attributes.refBranchIterator	
+              					
+              					if(this.isInArray(this.iteratorSteps, stepClassName))
+              						isIterator = true;
+              						
+              					if(this.isInArray(this.iteratorSteps, previousClassName))
+              						refBranchIterator = parent.id
+              		
+              					if(this.isInArray(this.iteratorSteps, parentClassName) && parent.attributes.depthLvl < nodeObject[i].dbo.depthLvl || previous.attributes.isInIterator)
+              						stepIsInIterator = true;
+              					
+              					if(previous.attributes.isInIterator)
+              						refIteratorBox = previous.attributes.refIteratorBox
+              		
+              					var elColor;
+              					if(this.isInArray(this.iteratorSteps, stepClassName)) {
+              						elColor = this.elementColors.iterators[nodeObject[i].dbo.depthLvl]
+              					} else if(stepIsInIterator) {
+              						var iteratorRef = this.graph.getCell(refBranchIterator)
+              						elColor = this.elementColors.iterators[iteratorRef.attributes.depthLvl]
+              					} else {
+              						if(nodeObject[i].dbo.isComplex)
+              							elColor = this.elementColors.complex
+              						else
+              							elColor = this.elementColors.main
+              					}
+              					
+              					if(previous.attributes.isIterator && previous.id == refBranchIterator) { // isIterator
+              						var iteratorBoxOpts = {
+              							attrs: {
+              								position: {
+              									x: x,
+              									y: y
+              								}
+              							},
+              							props: {
+              								refIteratorBox : (previous.attributes.refIteratorBox.length > 0) ? previous.attributes.refIteratorBox : '''',
+              								isInIterator: stepIsInIterator,
+              								isIteratorBox: true
+              							}
+              						}
+              						var iteratorBox = this.makeIteratorBox(iteratorBoxOpts, this.graph, elColor)
+              						refIteratorBox = iteratorBox.id
+              					}
+              					
+              					if(!parentIsComplex && stepClassName != "ThenStep" && stepClassName != "ElseStep") {
+              						
+              						var elmtOpts = {
+              		    				attrs: {
+              		        				position: {
+              		           	 				x: x,
+              		            				y: y
+              		        				}
+              		    				},
+              		    				props: {
+              						        qname: nodeObject[i].dbo.qname,
+              						        displayName: nodeObject[i].dbo.displayName,
+              						        className: nodeObject[i].dbo.className,
+              						        isComplex: nodeObject[i].dbo.isComplex,
+              								isIterator: isIterator,
+              						        isInBranch: stepIsInBranch,
+              								isInIterator: stepIsInIterator,
+              						        refBranchStart: refBranchStart,
+              								refBranchIterator: refBranchIterator,
+              								refIteratorBox: refIteratorBox,
+              						        depthLvl: nodeObject[i].dbo.depthLvl,
+              						        properties: nodeObject[i].dbo.properties
+              		    				}
+              						}
+              						
+              						var el = (nodeObject[i].dbo.isComplex) ? this.makeComplexElement(elmtOpts, graph, elColor) : this.makeElement(elmtOpts, graph, elColor);
+              
+              						if (previous.attributes.isInIterator || stepIsInIterator) {
+              							if(el.attributes.refIteratorBox.length != 0) {
+              		//						console.log(''elite:'' + JSON.stringify(el))
+              								var cellIteratorBox = this.graph.getCell(el.attributes.refIteratorBox);
+              								cellIteratorBox.embed(el);
+              								//@ts-ignore
+              								cellIteratorBox.fitEmbeds({
+              									padding: 20,
+              									deep:true
+              								})
+              					
+              							}
+              						}
+              
+              					if(previousThen) {
+              						label = "Then"
+              					} else if (previousElse) {
+              						label = "Else"
+              					} else {
+              						label = ""
+              					}
+              					
+              
+              					var startDirection;
+              					var linkColor;
+              					if(el.attributes.isInIterator != undefined && el.attributes.isInIterator) { // this.isInArray(this.iteratorSteps, parentClassName) && el.attributes.depthLvl != parent.attributes.depthLvl
+              						var iteratorRef = this.graph.getCell(el.attributes.refBranchIterator)
+              						var depthLvl = iteratorRef.attributes.depthLvl
+              						linkColor = this.linkColors.iterators[depthLvl]
+              					} else {
+              						linkColor = this.linkColors.main
+              					}
+              						
+              					var link;
+              		
+              					if(this.isInArray(this.ifSteps, previousClassName) && !this.isInArray(this.ifSteps, stepClassName)) {
+              		
+              						startDirection = (this.isInArray(this.ifThenElseSteps, stepClassName)) ? ''right'' : (previous.attributes.depthLvl == el.attributes.depthLvl) ? ''bottom'' : ''top''
+              						startDirection = (this.isInArray(this.ifSteps, previousClassName) && this.isInArray(this.ifThenElseSteps, stepClassName) && previous.attributes.depthLvl != el.attributes.depthLvl) ? ''top'' : startDirection
+              		
+              						link = this.makeLink(previous, el, label, graph, previousThen, previousElse, startDirection, linkColor)
+              					} else if (this.isInArray(this.ifSteps, previousClassName) && this.isInArray(this.ifSteps, stepClassName)) {
+              				
+              						startDirection = (this.graph.getSuccessors(previous).length <= 0) ? ''top'' : ''right''
+              						link = this.makeLink(previous, el, label, graph, previousThen, previousElse, startDirection, linkColor) // right
+              							
+              					} else if (this.isInArray(this.ifSteps, previousClassName) && this.isInArray(this.ifThenElseSteps, stepClassName)) {
+              							
+              						startDirection = (previousNodeObject.dbo.children != undefined) ? ''right '' : ''top''
+              						link = this.makeLink(previous, el, label, graph, previousThen, previousElse, startDirection, linkColor) // top
+              							
+              					} else if(this.isInArray(this.iteratorSteps, previousClassName) && !el.attributes.isInIterator) {
+              							
+              						link = this.makeLink(previous, el, label, graph, previousThen, previousElse, "bottom", linkColor)
+              							
+              					} else if(!this.isInArray(this.ifSteps, previousClassName) && !this.isInArray(this.ifThenElseSteps, previousClassName)) {
+              							
+              						link = this.makeLink(previous, el, label, graph, previousThen, previousElse, "right", linkColor)
+              					} else if(!this.isInArray(this.ifThenElseSteps, previousClassName) && !this.isInArray(this.ifSteps, stepClassName)) {
+              							
+              						link = this.makeLink(previous, el, label, graph, previousThen, previousElse, "right", linkColor)
+              					} else if(this.isInArray(this.ifThenElseSteps, previousClassName) && this.isInArray(this.ifThenElseSteps, stepClassName)) {
+              						link = this.makeLink(previous, el, label, graph, previousThen, previousElse, "top", linkColor)
+              							
+              					} else if (!this.isInArray(this.ifThenElseSteps, previousClassName) && !el.attributes.isInIterator) {
+              							
+              					} else if(!this.isInArray(this.ifThenElseSteps, stepClassName) && !this.isInArray(this.ifSteps, stepClassName) && previous.id == el.attributes.refBranchStart) {	
+              						link = this.makeLink(previous, el, label, graph, previousThen, previousElse, "right", linkColor)		
+              					} 
+              
+              					// getting last element of branches	
+              					if(previousNodeObject != null && this.isInArray(this.ifThenElseSteps, previousClassName)) { // this.getClassName(previous.attributes.className) == "IfThenElseStep"
+              						var lastElements = this.getLastElementsFromThenAndElseBranch(previous)
+              						var jThenLastElement = lastElements.jThen[lastElements.jThen.length - 1]
+              						var jElseLastElement = lastElements.jElse[lastElements.jElse.length - 1]
+              						
+              		//							console.log("jThenLastElement: " + JSON.stringify(jThenLastElement) )
+              						if(jThenLastElement != undefined) {
+              							link = this.makeLink(jThenLastElement, el, label, this.graph, false, false, "right", linkColor) // right
+              		//					previous = jThenLastElement
+              						}
+              									
+              						if(jElseLastElement != undefined) {
+              							link = this.makeLink(jElseLastElement, el, label, this.graph, false, false, "right", linkColor) // right
+              		//					previous = jElseLastElement
+              						}
+              										
+              					} 
+              					// add a condition tfor last elmement
+              					else if(previousNodeObject != null && this.isInArray(this.ifSteps, previousClassName)) { // this.getClassName(previous.attributes.className) == "IfStep"
+              						if(previousClassName != this.getClassName(previousNodeObject.dbo.className)) {
+              							var lastElement = this.getLastElementFromSimpleBranch(previous, 2);
+              							link = this.makeLink(lastElement, el, '''', this.graph, false, false, "right", linkColor)
+              						} else {			
+              							if(lastCell != undefined && lastCell.attributes.type == "standard.ShadowLink") {
+              								// So if it a link, the true last cell is its target
+              								if(lastCell.attributes.target != undefined) {
+              									// if(lastCell.attributes.isInBranch)
+              									// getSuccessors - 1 
+              									var lastCellTarget = lastCell.attributes.target
+              		//							console.log(''target: '' + JSON.stringify(lastCellTarget))
+              									
+              									if(lastCellTarget != undefined) {
+              										var startBranchElement = this.graph.getCell(lastCellTarget.attributes.refBranchStart)
+              										var lastElements = this.getLastElementsFromThenAndElseBranch(startBranchElement)
+              										var jThenLastElement = lastElements.jThen[lastElements.jThen.length - 1]
+              										var jElseLastElement = lastElements.jElse[lastElements.jElse.length - 1]
+              										
+              										// positionning current element on Y position of the start branch element
+              										//el.position(el.attributes.position.x, startBranchElement.attributes.position.y)
+              		
+              						//							console.log("jThenLastElement: " + JSON.stringify(jThenLastElement) )
+              										if(jThenLastElement != undefined) {
+              											link = this.makeLink(jThenLastElement, el, label, this.graph, false, false, "right", linkColor) // right
+              						//					previous = jThenLastElement
+              										}
+              													
+              										if(jElseLastElement != undefined) {
+              											el.position(el.attributes.position.x, jElseLastElement.attributes.position.y)
+              											link = this.makeLink(jElseLastElement, el, label, this.graph, false, false, "right", linkColor) // right
+              						//					previous = jElseLastElement
+              										}	
+              									}
+              								}
+              							} 
+              							else {
+              								link = this.makeLink(lastCell, el, '''', this.graph, false, false, "right", linkColor)
+              								// y = lastCell.attributes.position.y
+              							}								
+              						}
+              					}
+              					previous = el
+              					
+              					if(this.isInArray(this.ifThenElseSteps, stepClassName) || this.isInArray(this.ifSteps, stepClassName) || this.isInArray(this.iteratorSteps, stepClassName))
+              						previousNodeObject = nodeObject[i]
+              									
+              					}
+              					
+              					if(stepClassName == "ThenStep") {
+              						previousThen = true
+              						previousElse = false
+              					}  else if(stepClassName == "ElseStep") {
+              						previousElse = true
+              						previousThen = false				
+              					} else {
+              						previousThen = false
+              						previousElse = false
+              					}
+              					
+              					this.embedIteratorBox(this.graph);
+              		//			console.log("linkIsOverElement: " + linkIsOverElement)
+              				
+              					if(!parentIsComplex && nodeObject[i].dbo.children != undefined && nodeObject[i].dbo.children.length > 0) {
+              							this.walkChildren(nodeObject[i].dbo.children, previous, previousThen, previousElse, refId, graph);
+              					}
+              		
+              				}
+              				
+              			}
+              			
+              			zoomInFlow() {
+              				var currentScale = this.getFlowScale();
+              				currentScale = currentScale * 100;
+              		//		console.log(''currentScale : '' + currentScale)
+              				if(currentScale == 100) {
+              					this.getInstance(Events).publish("scaleView","Zoom max");
+              				} else {
+              					var newScale = currentScale + 10
+              		//			console.log(''newScale : '' + newScale)
+              					this.paper.scale(newScale / 100)
+              					this.scaleView = newScale;
+              				}
+              			}
+              			
+              			zoomOutFlow() {
+              				var currentScale = this.getFlowScale();
+              				currentScale = currentScale * 100;
+              		//		console.log(''currentScale : '' + currentScale)
+              				if(currentScale == 10) {
+              					this.getInstance(Events).publish("scaleView", "Zoom min");
+              				} else {
+              					var newScale = currentScale - 10
+              					if(newScale == 0)
+              						newScale = 10; // we can go under 0.1 otherwise graph disappears
+              		//			console.log(''newScale : '' + newScale)
+              					this.paper.scale(newScale / 100)
+              					this.scaleView = newScale;
+              				}
+              			}
+              			
+              		} // end class
+              //		
+              		// initialize global object with the class
+              		this[''fv''] = new FlowViewer(page.c8o, this.global);
+              
+              		resolve();
+              '
+      ↓initGraphAndPaper [ngx.components.UICustomAction-1614180389198]: 
+        actionValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+            - com.twinsoft.convertigo.beans.common.FormatedContent: 
+              →: |
+                '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+                		
+                		this.global[''joint''] = joint;
+                		this.fv.defineContainerShape()
+                
+                		this.global.showSpinner = false;
+                		var _this = this.fv;
+                
+                		let graphDomElement = document.getElementById("graphDomElement")
+                	    // let graphDomElement = this.fv.graphDomElement as ElementRef
+                
+                		let paperOpts = {
+                            el: graphDomElement, // graphDomElement.nativeElement,
+                            width: ''100%'',
+                            height: ''100%'',
+                            model: this.fv.graph,
+                            gridSize: 10,
+                			embeddingMode: true,
+                			cellViewNamespace: joint.shapes,
+                			preventContextMenu: false,
+                //			drawGrid: {
+                //				name: "dot"
+                //			},
+                			elementView: joint.dia.ElementView.extend({
+                		        pointerdblclick: function(evt, x, y) {
+                					_this.global.showSpinner = true;
+                					_this.graph.clear()
+                					_this.paper.scale(1);
+                					var cellView = this;
+                					var element = cellView;
+                					var elementQName = cellView.model.attributes.qname;
+                					var elementDisplayName = _this.ellipseString(cellView.model.attributes.displayName);
+                					var elementIsComplex = cellView.model.attributes.isComplex;
+                					var elementProperties = cellView.model.attributes.properties;
+                					
+                					var priority = _this.getPriority(elementProperties);
+                					
+                					let elementFromGetGraphResponse = _this.findElementInGetGraphResponse(_this.global.getGraphResponse, elementQName);
+                					_this.global[''nextElementInGetGraphResponse''] = [];
+                					//let elementFromGetGraphResponse = _this.findNextElementInGetGraphResponse(_this.global.getGraphResponse, elementQName)
+                
+                					// on vérifie si la priority de l''objet est contenue dans le tableau des cards, si c''est le cas c''est que l''objet est déjà open, 
+                					// alors, si c''est vrai, on highlight la card
+                			
+                					if(_this.cardIsOpen(priority)) {
+                						
+                						var card = _this.getCardByPriority(priority);
+                						_this.highlightCard(card.id);
+                						_this.highlightBreadcrumb(card.id)
+                						var cellsToAdd = card.graph.getCells();
+                						_this.updateGraph(_this.graph, cellsToAdd);
+                						
+                					} else {
+                						
+                						_this.levelCount++;
+                						var newGraph = _this.createGraph();
+                						setTimeout(() => {
+                							
+                							var card = document.getElementById("level-"+_this.levelCount)
+                							var miniPaperOpts = {
+                					            el: card,
+                					            width: ''100%'',
+                					            height: ''100%'',
+                					            model: newGraph,
+                					            gridSize: 10,
+                								embeddingMode: true,
+                								cellViewNamespace: joint.shapes,
+                								interactive: false,
+                					            defaultLink: new joint.dia.Link({
+                					            	attrs: {
+                					                    ''.connection'' : {
+                					                        stroke: ''orange'',
+                					                        strokeWidth: 2
+                					                    }
+                					                }                
+                					            }),
+                					            defaultRouter: {
+                					                name: ''manhattan''
+                					            },
+                					            defaultConnector: {
+                					                name: ''rounded''
+                					            },
+                					            validateConnection: function(cellViewS, magnetS, cellViewT, magnetT, end, linkView) {
+                					                // Prevent connections if not on Magnets from ports
+                					                if (magnetT == undefined|| magnetS ==undefined)
+                					                    return false
+                					                else
+                					                    return true
+                					            }
+                					        }
+                						
+                							var miniPaper = _this.createPaper(miniPaperOpts);
+                							miniPaper.scaleContentToFit({
+                								padding: 10
+                							});
+                							miniPaper.scale(0.5)
+                							console.log("scale:" + JSON.stringify(miniPaper.scale()))
+                //							paper.scaleContentToFit({
+                //								padding: 10,
+                //								scaleGrid: 0.2
+                //							});
+                //							var computedSize = paper.getComputedSize();
+                //							var originY = computedSize.height / 2;
+                //							paper.setOrigin(this.graphOriginX, originY)
+                							
+                							_this.displayFlow(elementFromGetGraphResponse)
+                							
+                							
+                
+                							_this.unselectBreadcrumb(_this.breadcrumb[_this.breadcrumb.length - 1].id);
+                							_this.unselectCard(_this.miniMapsArray[_this.miniMapsArray.length - 1].id);
+                							
+                							var jsonString = _this.graph.toJSON();
+                							_this.importFromJSON(_this.miniMapsArray[_this.miniMapsArray.length - 1].graph, jsonString)
+                					
+                							_this.global.showSpinner = false;
+                							
+                						}, 0o400) // end setTimeout
+                						
+                						// pushing data to array to retrieve the correct dom element
+                						_this.miniMapsArray.push({
+                								id: ''level-'' + _this.levelCount,
+                								displayName: elementDisplayName,
+                								priority: priority,
+                								qname: elementQName,
+                								isSelected: true,
+                								graph: newGraph, 
+                								cells: []
+                						});
+                						
+                						_this.addToBreadcrumb({
+                								id: ''level-''+ _this.levelCount,
+                								displayName: elementDisplayName,
+                								priority: priority,
+                								graph: newGraph,
+                								isSelected: true
+                						})
+                						
+                						
+                						
+                		        	} // end else
+                				}
+                		    }),
+                            defaultRouter: {
+                                name: ''manhattan''
+                            },
+                            defaultConnector: {
+                                name: ''rounded''
+                            },
+                            validateConnection: function(cellViewS, magnetS, cellViewT, magnetT, end, linkView) {
+                                // Prevent connections if not on Magnets from ports
+                                if (magnetT == undefined|| magnetS ==undefined)
+                                    return false
+                                else
+                                    return true
+                            },
+                			viewport: function(view) {
+                			            var element = view.model;
+                			            // Hide any element or link which is embedded inside a collapsed parent (or parent of the parent).
+                			            var hidden = element.getAncestors().some(function(ancestor) {
+                			                return ancestor.isCollapsed();
+                			            });
+                			            return !hidden;
+                			}
+                        }
+                
+                //			drawGrid: {
+                //				name: ''dot'',
+                //				args: {
+                //					color: ''white''
+                //				}
+                //			},
+                        this.fv.paper = this.fv.createPaper(paperOpts);
+                		this.fv.paper.setOrigin(this.fv.graphOriginX, this.fv.graphOriginY)
+                		
+                		resolve();
+                '
+        ↓SetGlobal [ngx.components.UIDynamicAction-1614165345996]: 
+          beanData: |
+            '{
+             "ionBean": "SetGlobalAction",
+             "Property": "plain:showSpinner",
+             "Value": "script:true"
+            }'
+          ↓GetGraph [ngx.components.UIDynamicAction-1614165396021]: 
+            beanData: '{"ionBean":"CallSequenceAction","requestable":"plain:lib_FlowViewer.GetGraph"}'
+            ↓SetGlobal [ngx.components.UIDynamicAction-1614165396024]: 
+              beanData: |
+                '{
+                 "ionBean": "SetGlobalAction",
+                 "Property": "plain:getGraphResponse",
+                 "Value": "source:{\"filter\":\"Action\",\"project\":\"C8oStudio\",\"input\":\"\",\"model\":{\"data\":[{\"priority\":1614165396021}],\"path\":\"?.out?.array\",\"prefix\":\"\",\"suffix\":\"\",\"custom\":\"\",\"useCustom\":false}}"
+                }'
+            ↓GetProperties [ngx.components.UIDynamicAction-1614165396027]: 
+              beanData: '{"ionBean":"CallSequenceAction","requestable":"plain:lib_FlowViewer.GetProperties"}'
+              ↓qname [ngx.components.UIControlVariable-1614165396175]: 
+                comment: new variable
+                varValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: source:{"filter":"Action","project":"C8oStudio","input":"","model":{"data":[{"priority":1614165396021}],"path":"?.in?.vars?.qname","prefix":"","suffix":"","custom":"","useCustom":false}}
+              ↓createFirstPaperAndPushGraphToArray [ngx.components.UICustomAction-1614165396178]: 
+                actionValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                    - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                      →: |
+                        '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+                        		
+                        		var qname = vars.qname;
+                        		var splitStr = qname.split('':'')
+                        		for(var i = 0; i < splitStr.length; i++) {
+                        			var str = splitStr[i].split(''.'')
+                        		}
+                        		var displayName = str;
+                        		
+                        		this.fv.levelCount++;
+                        
+                        		this.global.firstGraphInColumn = this.fv.createGraph();
+                        
+                        		var priority = this.fv.getPriority(vars.properties.properties);
+                        		
+                        		this.fv.miniMapsArray.push({
+                        			id: ''level-'' + this.fv.levelCount,
+                        			displayName: this.fv.ellipseString(displayName),
+                        			priority: priority,
+                        			graph: this.global.firstGraphInColumn,
+                        			isSelected: true,
+                        		})
+                        		
+                        		this.fv.addToBreadcrumb({
+                        			id: ''level-'' + this.fv.levelCount,
+                        			displayName: displayName,
+                        			priority: priority,
+                        			graph: this.global.firstGraphInColumn,
+                        			isSelected: true
+                        		})
+                        		
+                        //		console.log(this.miniMapsArray);
+                        //		setTimeout(() => {
+                        			var el = document.getElementById("level-"+this.fv.levelCount)
+                        			let paperOpts = {
+                        	            el: el,
+                        	            width: ''100%'',
+                        	            height: ''100%'',
+                        	            model: this.global.firstGraphInColumn,
+                        	            gridSize: 10,
+                        				embeddingMode: true,
+                        				interactive: false,
+                        				cellViewNamespace: joint.shapes,
+                        	            defaultLink: new joint.dia.Link({
+                        	            	attrs: {
+                        	                    ''.connection'' : {
+                        	                        stroke: ''orange'',
+                        	                        strokeWidth: 2
+                        	                    }
+                        	                }                
+                        	            }),
+                        	            defaultRouter: {
+                        	                name: ''manhattan''
+                        	            },
+                        	            defaultConnector: {
+                        	                name: ''rounded''
+                        	            },
+                        	            validateConnection: function(cellViewS, magnetS, cellViewT, magnetT, end, linkView) {
+                        	                // Prevent connections if not on Magnets from ports
+                        	                if (magnetT == undefined|| magnetS ==undefined)
+                        	                    return false
+                        	                else
+                        	                    return true
+                        	            }
+                        	        }
+                        	        var paper = this.fv.createPaper(paperOpts);
+                        			paper.scaleContentToFit({
+                        				padding: 10
+                        			});
+                        //			var computedSize = paper.getComputedSize();
+                        //			var originY = computedSize.height / 2;
+                        //			paper.scaleContentToFit()
+                        			
+                        //			paper.setOrigin(this.graphOriginX, originY)
+                        //		}, 0o400) // = 0.4s
+                        
+                        		resolve();
+                        '
+                ↓qname [ngx.components.UIControlVariable-1614165396181]: 
+                  varValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: source:{"filter":"Action","project":"C8oStudio","input":"","model":{"data":[{"priority":1614165396021}],"path":"?.in?.vars?.qname","prefix":"","suffix":"","custom":"","useCustom":false}}
+                ↓DisplayFlow [ngx.components.UICustomAction-1614165396184]: 
+                  actionValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                      - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                        →: |
+                          				this.fv.graph.clear()
+                          				this.fv.paper.scale(1);
+                          				this.fv.displayFlow(vars.flow);
+                          				this.fv.embedIteratorBox(this.fv.graph);
+                          				this.global.showSpinner = false;
+                          				var cellsToAdd = this.fv.graph.toJSON();
+                          				this.fv.importFromJSON(this.global.firstGraphInColumn, cellsToAdd);
+                          				
+                          				
+                          //			this.walkChildren(vars.flow, null)
+                              		resolve();
+                          
+                  ↓flow [ngx.components.UIControlVariable-1614165396187]: 
+                    varValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: script:this.global.getGraphResponse
+                ↓properties [ngx.components.UIControlVariable-1614165396190]: 
+                  varValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: source:{"filter":"Action","project":"C8oStudio","input":"","model":{"data":[{"priority":1614165396027},{"priority":1614165396021}],"path":"?.out","prefix":"","suffix":"","custom":"","useCustom":false}}
+            ↓qname [ngx.components.UIControlVariable-1614165396193]: 
+              comment: new variable
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: script:this.global.__c8oSecretGraph
+            ↓level [ngx.components.UIControlVariable-1614165396196]: 
+              comment: new variable
+              varValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:100
+  ↓Alert [ngx.components.UIDynamicAction-1614175303921]: 
+    beanData: '{"ionBean":"AlertAction","message":"script:params1614095203377.qname"}'
+    isEnabled: false
+↓Subscribe_Handler [ngx.components.UIEventSubscriber-1614097260608]: 
+  isEnabled: false
+  topic: onActivated
+↓Grid [ngx.components.UIDynamicElement-1614162691375]: 
+  beanData: '{"ionBean":"Grid","Height":"plain:"}'
+  tagName: ion-grid
+  ↓rowLevelAndGraph [ngx.components.UIDynamicElement-1614162691378]: 
+    beanData: |
+      '{
+       "ionBean": "GridRow",
+       "Width": "plain:100%",
+       "Height": "plain:600px"
+      }'
+    tagName: ion-row
+    ↓colLevel [ngx.components.UIDynamicElement-1614162691381]: 
+      beanData: '{"ionBean":"GridCol","SizeXl":"plain:2"}'
+      identifier: levelDomElement
+      tagName: ion-col
+      ↓Style [ngx.components.UIStyle-1614162691384]: 
+        styleContent: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+            - com.twinsoft.convertigo.beans.common.FormatedContent: 
+              →: |
+                '/**
+                 * Custom properties (sometimes referred to as CSS variables or cascading variables)
+                 * are entities defined by CSS authors that contain specific values to be reused throughout a document.
+                 * They are set using custom property notation, e.g.: --main-color: black;
+                 * and are accessed using the var() function, e.g.: color: var(--main-color);
+                 * You can find below your component''s properties you can customize within the page.
+                 * If you''d like to make some customizations for whole app, please see your app Style & Theme components.
+                 * For more informations see https://ionicframework.com/docs/theming.
+                **/
+                //--ion-grid-column-padding	//Padding for the Column
+                //--ion-grid-column-padding-lg	//Padding for the Column on lg screens and up
+                //--ion-grid-column-padding-md	//Padding for the Column on md screens and up
+                //--ion-grid-column-padding-sm	//Padding for the Column on sm screens and up
+                //--ion-grid-column-padding-xl	//Padding for the Column on xl screens and up
+                //--ion-grid-column-padding-xs	//Padding for the Column on xs screens and up
+                //--ion-grid-columns	//The number of total Columns in the Grid
+                
+                background-color: rgba(45,52,54,1);
+                overflow-y: scroll;
+                min-height: 500px !important;
+                height: 100% !important;
+                '
+      ↓Attr [ngx.components.UIAttribute-1614162691387]: 
+        attrName: id
+        attrValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: plain:flow-level-column
+      ↓rowButtonSet [ngx.components.UIDynamicElement-1614162691390]: 
+        beanData: '{"ionBean":"GridRow","Height":"plain"}'
+        isEnabled: false
+        tagName: ion-row
+        ↓colButtonSet [ngx.components.UIDynamicElement-1614162691393]: 
+          beanData: '{"ionBean":"GridCol","SizeXl":"plain:12"}'
+          tagName: ion-col
+          ↓H4 [ngx.components.UIDynamicElement-1614162691396]: 
+            beanData: '{"ionBean":"Heading4"}'
+            tagName: h4
+            ↓Text [ngx.components.UIText-1614162691399]: 
+              textValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:Flow controls :
+          ↓ButtonSet [ngx.components.UIDynamicElement-1614162691402]: 
+            beanData: '{"ionBean":"ButtonSet"}'
+            tagName: ion-buttons
+            ↓Style [ngx.components.UIStyle-1614162691405]: 
+              styleContent: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                  - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                    →: |
+                      '	color: white;
+                      '
+            ↓ZoomIn [ngx.components.UIDynamicElement-1614162691408]: 
+              beanData: '{"ionBean":"Button","IonSize":"plain:large"}'
+              tagName: ion-button
+              ↓Icon [ngx.components.UIDynamicElement-1614162691411]: 
+                beanData: '{"ionBean":"Icon","IconName":"plain:add-circle-outline"}'
+                tagName: ion-icon
+              ↓Event [ngx.components.UIControlEvent-1614162691414]: 
+                ↓zoomIn [ngx.components.UICustomAction-1614162691417]: 
+                  actionValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                      - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                        →: |
+                          '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+                          		this.zoomInFlow();
+                          		resolve();
+                          '
+              ↓Attr [ngx.components.UIAttribute-1614162691420]: 
+                attrName: title
+                attrValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Zoom In
+            ↓ZoomOut [ngx.components.UIDynamicElement-1614162691423]: 
+              beanData: '{"ionBean":"Button","IonSize":"plain:large"}'
+              tagName: ion-button
+              ↓Icon [ngx.components.UIDynamicElement-1614162691426]: 
+                beanData: '{"ionBean":"Icon","IconName":"plain:remove-circle-outline"}'
+                tagName: ion-icon
+              ↓Event [ngx.components.UIControlEvent-1614162691429]: 
+                ↓zoomOut [ngx.components.UICustomAction-1614162691432]: 
+                  actionValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                      - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                        →: |
+                          '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+                          		this.zoomOutFlow();
+                          		resolve();
+                          '
+              ↓Attr [ngx.components.UIAttribute-1614162691435]: 
+                attrName: title
+                attrValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Zoom Out
+            ↓ClearAll [ngx.components.UIDynamicElement-1614162691438]: 
+              beanData: '{"ionBean":"Button","IonSize":"plain:large"}'
+              tagName: ion-button
+              ↓Icon [ngx.components.UIDynamicElement-1614162691441]: 
+                beanData: '{"ionBean":"Icon","IconName":"plain:trash-outline"}'
+                tagName: ion-icon
+              ↓Event [ngx.components.UIControlEvent-1614162691444]: 
+                ↓clearAllCards [ngx.components.UICustomAction-1614162691447]: 
+                  actionValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                      - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                        →: |
+                          '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+                          		this.miniMapsArray = [];
+                          		this.breadcrumb = [];
+                          		this.levelCount = 0;
+                          		this.graph.clear()
+                          		resolve();
+                          '
+              ↓Attr [ngx.components.UIAttribute-1614162691450]: 
+                attrName: title
+                attrValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:Clear all
+      ↓Directive [ngx.components.UIControlDirective-1614162691453]: 
+        directiveItemName: item
+        directiveSource: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: script:this?.fv?.miniMapsArray
+        ↓CardContainer [ngx.components.UIDynamicElement-1614162691456]: 
+          beanData: '{"ionBean":"Card","Button":"plain:true"}'
+          tagName: ion-card
+          ↓CardHeader [ngx.components.UIDynamicElement-1614162691459]: 
+            beanData: '{"ionBean":"CardHeader"}'
+            tagName: ion-card-header
+            ↓CardTitle [ngx.components.UIDynamicElement-1614162691462]: 
+              beanData: '{"ionBean":"CardTitle"}'
+              tagName: ion-card-title
+              ↓Text [ngx.components.UIText-1614162691465]: 
+                textValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: script:item.displayName
+            ↓Style [ngx.components.UIStyle-1614162691468]: 
+              styleContent: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                  - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                    →: |
+                      '	padding: 2px 2px 2px 2px;
+                      '
+            ↓Attr [ngx.components.UIAttribute-1614162691471]: 
+              attrName: style
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: 'script:(item.isSelected) ? ''background-color: #0CBBE7; animation-name: whiteToBlue; animation-duration: 1s''  : ''background-color: #fff; animation-name: blueToWhite; animation-duration: 1s '' '
+          ↓CardContent [ngx.components.UIDynamicElement-1614162691474]: 
+            beanData: '{"ionBean":"CardContent"}'
+            tagName: ion-card-content
+            ↓Style [ngx.components.UIStyle-1614162691477]: 
+              styleContent: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                  - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                    →: |
+                      '	min-height: 100px;
+                      	background-color: rgb(34,34,34)
+                      '
+            ↓Attr [ngx.components.UIAttribute-1614162691480]: 
+              attrName: id
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: script:item.id
+            ↓Event [ngx.components.UIControlEvent-1614162691483]: 
+              ↓updateMainGraphAndUnselectMiniMapCard [ngx.components.UICustomAction-1614162691486]: 
+                actionValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                    - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                      →: |
+                        '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+                        
+                        		var jsonString = vars.graph.toJSON();
+                        		this.fv.importFromJSON(this.fv.graph, jsonString)
+                        		this.fv.paper.setOrigin(this.fv.graphOriginX, this.fv.graphOriginY);
+                        		
+                        		if(!vars.cardObject.isSelected)
+                        			vars.cardObject.isSelected = true
+                        			
+                        		this.fv.unselectCard(vars.cardObject.id);
+                        		this.fv.highlightBreadcrumb(vars.id)
+                        		resolve();
+                        '
+                ↓graph [ngx.components.UIControlVariable-1614162691489]: 
+                  varValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: script:item.graph
+                ↓id [ngx.components.UIControlVariable-1614162691492]: 
+                  varValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: script:item.id
+                ↓cardObject [ngx.components.UIControlVariable-1614162691495]: 
+                  varValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: script:item
+          ↓Attr [ngx.components.UIAttribute-1614162691498]: 
+            attrName: style
+            attrValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: 'plain:animation-name: fadeInUp; animation-duration: 0.5s; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;'
+    ↓colGraph [ngx.components.UIDynamicElement-1614162691501]: 
+      beanData: '{"ionBean":"GridCol","SizeXl":"plain:10"}'
+      tagName: ion-col
+      ↓Style [ngx.components.UIStyle-1614162691564]: 
+        isEnabled: false
+        styleContent: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+            - com.twinsoft.convertigo.beans.common.FormatedContent: 
+              →: |
+                '/**
+                 * Custom properties (sometimes referred to as CSS variables or cascading variables)
+                 * are entities defined by CSS authors that contain specific values to be reused throughout a document.
+                 * They are set using custom property notation, e.g.: --main-color: black;
+                 * and are accessed using the var() function, e.g.: color: var(--main-color);
+                 * You can find below your component''s properties you can customize within the page.
+                 * If you''d like to make some customizations for whole app, please see your app Style & Theme components.
+                 * For more informations see https://ionicframework.com/docs/theming.
+                **/
+                //--ion-grid-column-padding	//Padding for the Column
+                //--ion-grid-column-padding-lg	//Padding for the Column on lg screens and up
+                //--ion-grid-column-padding-md	//Padding for the Column on md screens and up
+                //--ion-grid-column-padding-sm	//Padding for the Column on sm screens and up
+                //--ion-grid-column-padding-xl	//Padding for the Column on xl screens and up
+                //--ion-grid-column-padding-xs	//Padding for the Column on xs screens and up
+                //--ion-grid-columns	//The number of total Columns in the Grid
+                	height: 100% !important;
+                	min-height: 500px !important;
+                '
+      ↓Attr1 [ngx.components.UIAttribute-1614162691567]: 
+        attrName: id
+        attrValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: plain:flow-container
+      ↓GridRow1 [ngx.components.UIDynamicElement-1614162691627]: 
+        beanData: '{"ionBean":"GridRow"}'
+        tagName: ion-row
+        ↓GridCol [ngx.components.UIDynamicElement-1614162691630]: 
+          beanData: '{"ionBean":"GridCol"}'
+          tagName: ion-col
+          ↓Div [ngx.components.UIDynamicElement-1614162691633]: 
+            beanData: '{"ionBean":"DivTag"}'
+            identifier: graphDomElement
+            tagName: div
+            ↓Attr [ngx.components.UIAttribute-1614162691636]: 
+              attrName: (document:mousemove)
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:onMouseMove($event)
+              isEnabled: false
+            ↓Style [ngx.components.UIStyle-1614162691639]: 
+              isEnabled: false
+              styleContent: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                  - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                    →: |
+                      '	height: 600px !important;
+                      	overflow: scroll !important;
+                      '
+            ↓Attr1 [ngx.components.UIAttribute-1614162691642]: 
+              attrName: (document:dblclick)
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: script:this.onSetGlobalSpinner()
+              isEnabled: false
+            ↓Attr2 [ngx.components.UIAttribute-1614182963653]: 
+              attrName: id
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:graphDomElement
+          ↓Style [ngx.components.UIStyle-1614162691645]: 
+            styleContent: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                  →: |
+                    '/**
+                     * Custom properties (sometimes referred to as CSS variables or cascading variables)
+                     * are entities defined by CSS authors that contain specific values to be reused throughout a document.
+                     * They are set using custom property notation, e.g.: --main-color: black;
+                     * and are accessed using the var() function, e.g.: color: var(--main-color);
+                     * You can find below your component''s properties you can customize within the page.
+                     * If you''d like to make some customizations for whole app, please see your app Style & Theme components.
+                     * For more informations see https://ionicframework.com/docs/theming.
+                    **/
+                    //--ion-grid-column-padding	//Padding for the Column
+                    //--ion-grid-column-padding-lg	//Padding for the Column on lg screens and up
+                    //--ion-grid-column-padding-md	//Padding for the Column on md screens and up
+                    //--ion-grid-column-padding-sm	//Padding for the Column on sm screens and up
+                    //--ion-grid-column-padding-xl	//Padding for the Column on xl screens and up
+                    //--ion-grid-column-padding-xs	//Padding for the Column on xs screens and up
+                    //--ion-grid-columns	//The number of total Columns in the Grid
+                    '
+          ↓divBreadcrumb [ngx.components.UIDynamicElement-1614162691648]: 
+            beanData: '{"ionBean":"DivTag"}'
+            tagName: div
+            ↓c [ngx.components.UIAttribute-1614162691651]: 
+              attrName: class
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: plain:bd_content
+            ↓Div [ngx.components.UIDynamicElement-1614162691654]: 
+              beanData: '{"ionBean":"DivTag"}'
+              tagName: div
+              ↓c [ngx.components.UIAttribute-1614162691657]: 
+                attrName: class
+                attrValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:bd_content_1
+              ↓Tag [ngx.components.UIElement-1614162691660]: 
+                tagName: ul
+                ↓Directive [ngx.components.UIControlDirective-1614162691663]: 
+                  directiveItemName: item
+                  directiveSource: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: script:this?.fv?.breadcrumb
+                  ↓Tag [ngx.components.UIElement-1614162691666]: 
+                    tagName: li
+                    ↓Tag [ngx.components.UIElement-1614162691669]: 
+                      tagName: a
+                      ↓Text [ngx.components.UIText-1614162691672]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: script:item.displayName
+                    ↓Event [ngx.components.UIControlEvent-1614162691675]: 
+                      ↓updateMainGraphAndUnselectBreadcrumb [ngx.components.UICustomAction-1614162691678]: 
+                        actionValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                            - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                              →: |
+                                '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+                                		var jsonString = vars.breadcrumbObject.graph.toJSON();
+                                		this.fv.importFromJSON(this.fv.graph, jsonString)
+                                		this.fv.paper.setOrigin(this.fv.graphOriginX, this.fv.graphOriginY);
+                                		
+                                		if(!vars.breadcrumbObject.isSelected)
+                                			vars.breadcrumbObject.isSelected = true
+                                		
+                                		// cards and breadcrumb items have the same id
+                                		this.fv.unselectCard(vars.breadcrumbObject.id)
+                                		this.fv.highlightCard(vars.breadcrumbObject.id)
+                                
+                                		this.fv.unselectBreadcrumb(vars.breadcrumbObject.id);
+                                		
+                                		resolve();
+                                '
+                        ↓graph [ngx.components.UIControlVariable-1614162691681]: 
+                          isEnabled: false
+                          varValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: script:item.graph
+                        ↓id [ngx.components.UIControlVariable-1614162691684]: 
+                          isEnabled: false
+                          varValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: script:item.id
+                        ↓isSelected [ngx.components.UIControlVariable-1614162691687]: 
+                          isEnabled: false
+                          varValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: script:item.isSelected
+                        ↓breadcrumbObject [ngx.components.UIControlVariable-1614162691690]: 
+                          varValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: script:item
+                    ↓Attr [ngx.components.UIAttribute-1614162691693]: 
+                      attrName: style
+                      attrValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: 'script:(item.isSelected) ? ''background-color: #0CBBE7;''  : ''background-color: #fff; '' '
+          ↓Directive [ngx.components.UIControlDirective-1614162691696]: 
+            directiveExpression: this.global.showSpinner
+            directiveName: If
+            ↓divSpinner [ngx.components.UIDynamicElement-1614162691699]: 
+              beanData: '{"ionBean":"DivTag"}'
+              tagName: div
+              ↓Spinner [ngx.components.UIDynamicElement-1614162691702]: 
+                beanData: |
+                  '{
+                   "ionBean": "Spinner",
+                   "IonColor": "plain:light",
+                   "Name": "plain:bubbles"
+                  }'
+                tagName: ion-spinner
+                ↓Style [ngx.components.UIStyle-1614162691705]: 
+                  styleContent: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                      - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                        →: |
+                          '/**
+                           * Custom properties (sometimes referred to as CSS variables or cascading variables)
+                           * are entities defined by CSS authors that contain specific values to be reused throughout a document.
+                           * They are set using custom property notation, e.g.: --main-color: black;
+                           * and are accessed using the var() function, e.g.: color: var(--main-color);
+                           * You can find below your component''s properties you can customize within the page.
+                           * If you''d like to make some customizations for whole app, please see your app Style & Theme components.
+                           * For more informations see https://ionicframework.com/docs/theming.
+                          **/
+                          //--color	//Color of the spinner
+                          
+                          transform: scale(3);
+                          '
+              ↓Style [ngx.components.UIStyle-1614162691708]: 
+                styleContent: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                    - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                      →: |
+                        '/**
+                         * Custom properties (sometimes referred to as CSS variables or cascading variables)
+                         * are entities defined by CSS authors that contain specific values to be reused throughout a document.
+                         * They are set using custom property notation, e.g.: --main-color: black;
+                         * and are accessed using the var() function, e.g.: color: var(--main-color);
+                         * You can find below your component''s properties you can customize within the page.
+                         * If you''d like to make some customizations for whole app, please see your app Style & Theme components.
+                         * For more informations see https://ionicframework.com/docs/theming.
+                        **/
+                        //--color	//Color of the spinner
+                        	z-index: 9999 !important;
+                        	position: absolute;
+                        	top: 50%;
+                        	left: 50%;
+                        '
+↓Directive [ngx.components.UIControlDirective-1614163209118]: 
+  directiveExpression: '[(params1614095203377.qname)]'
+  directiveName: If
+  isEnabled: false

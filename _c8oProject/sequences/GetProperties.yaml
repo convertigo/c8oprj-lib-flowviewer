@@ -1,0 +1,49 @@
+↓jIf [steps.IfStep-1614095736590]: 
+  condition: qname.endsWith(":")
+  ↓Return [steps.ReturnStep-1614095736593]: 
+↓GetBean [steps.SimpleStep-1614095736596]: 
+  expression: |
+    var dbo = com.twinsoft.convertigo.engine.Engine.theApp.databaseObjectsManager.getDatabaseObjectByQName(qname);
+    var propDesc = com.twinsoft.convertigo.engine.util.CachedIntrospector.getBeanInfo(dbo.getClass()).getPropertyDescriptors();
+↓qname [steps.ElementStep-1614095736599]: 
+  expression: qname
+  nodeName: qname
+↓properties [steps.XMLComplexStep-1614095736602]: 
+  nodeName: properties
+  ↓type [steps.XMLAttributeStep-1614095736605]: 
+    nodeName: type
+    nodeText: array
+  ↓props [steps.SimpleIteratorStep-1614095736608]: 
+    expression: propDesc
+    ↓property [steps.XMLComplexStep-1614095736611]: 
+      nodeName: property
+      ↓tpe [steps.XMLAttributeStep-1614095736614]: 
+        nodeName: type
+        nodeText: object
+      ↓displayName [steps.ElementStep-1614095736617]: 
+        expression: item.getDisplayName()
+        nodeName: displayName
+      ↓name [steps.ElementStep-1614095736620]: 
+        expression: item.getName()
+        nodeName: name
+      ↓value [steps.ElementStep-1614095736623]: 
+        expression: '"" + item.getReadMethod().invoke(dbo)'
+        nodeName: value
+  ↓property [steps.XMLComplexStep-1614095736626]: 
+    nodeName: property
+    ↓tpe [steps.XMLAttributeStep-1614095736629]: 
+      nodeName: type
+      nodeText: object
+    ↓displayName [steps.XMLElementStep-1614095736632]: 
+      nodeName: displayName
+      nodeText: Priority
+    ↓name [steps.XMLElementStep-1614095736635]: 
+      nodeName: name
+      nodeText: priority
+    ↓value [steps.ElementStep-1614095736638]: 
+      expression: '"" + dbo.priority'
+      nodeName: value
+↓qname [variables.RequestableVariable-1614095736641]: 
+↓project [core.TestCase]: 
+  ↓qname [variables.TestCaseVariable-1614095736645]: 
+    value: C8oStudio
