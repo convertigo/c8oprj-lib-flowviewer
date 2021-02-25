@@ -1459,7 +1459,7 @@
               				currentScale = currentScale * 100;
               		//		console.log(''currentScale : '' + currentScale)
               				if(currentScale == 100) {
-              					this.getInstance(Events).publish("scaleView","Zoom max");
+              					// this.getInstance(Events).publish("scaleView","Zoom max");
               				} else {
               					var newScale = currentScale + 10
               		//			console.log(''newScale : '' + newScale)
@@ -1473,7 +1473,7 @@
               				currentScale = currentScale * 100;
               		//		console.log(''currentScale : '' + currentScale)
               				if(currentScale == 10) {
-              					this.getInstance(Events).publish("scaleView", "Zoom min");
+              					// this.getInstance(Events).publish("scaleView", "Zoom min");
               				} else {
               					var newScale = currentScale - 10
               					if(newScale == 0)
@@ -1487,7 +1487,7 @@
               		} // end class
               //		
               		// initialize global object with the class
-              		this[''fv''] = new FlowViewer(page.c8o, this.global);
+              		this.fv = new FlowViewer(page.c8o, this.global);
               
               		resolve();
               '
@@ -1499,6 +1499,7 @@
               →: |
                 '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
                 		
+                		// this.fv = super.fv;
                 		this.global[''joint''] = joint;
                 		this.fv.defineContainerShape()
                 
@@ -1672,6 +1673,47 @@
                         this.fv.paper = this.fv.createPaper(paperOpts);
                 		this.fv.paper.setOrigin(this.fv.graphOriginX, this.fv.graphOriginY)
                 		
+                		this.fv.paper.on(''cell:pointerup blank:pointerup'', (cellView, x, y) => {
+                        	this.c8o.log.debug("Mouse Up")
+                            this.fv.dragStartPosition = null
+                        });
+                
+                		this.fv.paper.on(''blank:pointerdown'', (event, x, y) => {
+                        	this.c8o.log.debug("Mouse Start")
+                            this.fv.dragStartPosition = { x: x , y: y }; // { x: x * this.scale / 10, y: y * this.scale / 10};
+                        });
+                
+                		this.fv.paper.on(''blank:pointerclick'', (cellView, evt, x, y) => {
+                			
+                		});
+                
+                		this.fv.paper.on(''blank:mousewheel cell:mousewheel'', (evt, x, y, delta) => {
+                			var normalizedDelta = Math.max(-1, Math.min(1, (delta))) / 10;
+                			var newScale = this.fv.paper.scale().sx + normalizedDelta; // the current paper scale changed by delta
+                		  	if (newScale > 0.4 && newScale < 2) {
+                			    this.fv.paper.scale(newScale, newScale);
+                  			}
+                		})
+                		
+                		this.fv.paper.on(''element:contextmenu'', (cellView, event, x, y) => {
+                			var element = this.fv.makePropertiesPanel(cellView.model.attributes.displayName, cellView.model.attributes.properties)
+                			element.position(70, 70)
+                			//element.position(cellView.model.attributes.position.x + 40, 70)
+                			console.log("model x: "+ cellView.model.attributes.position.x)
+                			event.preventDefault()
+                		})
+                		
+                		this.fv.paper.on(''element:button:pointerdown'', (elementView) => {
+                	        var element = elementView.model;
+                	        element.toggle();
+                	        this.fv.fitAncestors(element);
+                    	});
+                
+                	   this.fv.paper.on(''element:pointermove'', (elementView) => {
+                	        var element = elementView.model;
+                	        this.fv.fitAncestors(element);
+                	    });
+                		
                 		resolve();
                 '
         ↓SetGlobal [ngx.components.UIDynamicAction-1614165345996]: 
@@ -1736,7 +1778,7 @@
                         		})
                         		
                         //		console.log(this.miniMapsArray);
-                        //		setTimeout(() => {
+                        		setTimeout(() => {
                         			var el = document.getElementById("level-"+this.fv.levelCount)
                         			let paperOpts = {
                         	            el: el,
@@ -1778,7 +1820,7 @@
                         //			paper.scaleContentToFit()
                         			
                         //			paper.setOrigin(this.graphOriginX, originY)
-                        //		}, 0o400) // = 0.4s
+                        		}, 0o400) // = 0.4s
                         
                         		resolve();
                         '
@@ -1797,9 +1839,9 @@
                           				this.fv.paper.scale(1);
                           				this.fv.displayFlow(vars.flow);
                           				this.fv.embedIteratorBox(this.fv.graph);
-                          				this.global.showSpinner = false;
                           				var cellsToAdd = this.fv.graph.toJSON();
                           				this.fv.importFromJSON(this.global.firstGraphInColumn, cellsToAdd);
+                          				this.global.showSpinner = false;
                           				
                           				
                           //			this.walkChildren(vars.flow, null)
@@ -2123,8 +2165,7 @@
               attrValue: 
                 - xmlizable: 
                   - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-                  - MobileSmartSourceType: plain:onMouseMove($event)
-              isEnabled: false
+                  - MobileSmartSourceType: script:this.fv.onMouseMove($event)
             ↓Style [ngx.components.UIStyle-1614162691639]: 
               isEnabled: false
               styleContent: 
@@ -2148,29 +2189,6 @@
                 - xmlizable: 
                   - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
                   - MobileSmartSourceType: plain:graphDomElement
-          ↓Style [ngx.components.UIStyle-1614162691645]: 
-            styleContent: 
-              - xmlizable: 
-                - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
-                - com.twinsoft.convertigo.beans.common.FormatedContent: 
-                  →: |
-                    '/**
-                     * Custom properties (sometimes referred to as CSS variables or cascading variables)
-                     * are entities defined by CSS authors that contain specific values to be reused throughout a document.
-                     * They are set using custom property notation, e.g.: --main-color: black;
-                     * and are accessed using the var() function, e.g.: color: var(--main-color);
-                     * You can find below your component''s properties you can customize within the page.
-                     * If you''d like to make some customizations for whole app, please see your app Style & Theme components.
-                     * For more informations see https://ionicframework.com/docs/theming.
-                    **/
-                    //--ion-grid-column-padding	//Padding for the Column
-                    //--ion-grid-column-padding-lg	//Padding for the Column on lg screens and up
-                    //--ion-grid-column-padding-md	//Padding for the Column on md screens and up
-                    //--ion-grid-column-padding-sm	//Padding for the Column on sm screens and up
-                    //--ion-grid-column-padding-xl	//Padding for the Column on xl screens and up
-                    //--ion-grid-column-padding-xs	//Padding for the Column on xs screens and up
-                    //--ion-grid-columns	//The number of total Columns in the Grid
-                    '
           ↓divBreadcrumb [ngx.components.UIDynamicElement-1614162691648]: 
             beanData: '{"ionBean":"DivTag"}'
             tagName: div
