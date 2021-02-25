@@ -1,0 +1,60 @@
+clientCachable: true
+↓BuildBase64Icon [steps.SimpleStep-1614267399836]: 
+  expression: |
+    'var etag = com.twinsoft.convertigo.engine.ProductVersion.fullProductVersion
+                + "_" + context.project.getVersion() + "_" + className + "_" + large;
+    etag = org.apache.commons.codec.digest.DigestUtils.sha1Hex(etag);
+    
+    var changed = true;
+    var base64 = "";
+    
+    context.setResponseHeader("ETag", etag);
+    context.setResponseHeader("Cache-Control", "public,max-age=300,must-revalidate=true");
+    
+    if (context.httpServletRequest.getHeader("If-None-Match") == etag) {
+    	changed = false;
+    } else {
+    	var stream;
+    	if (className.equals("folder")) {
+    		stream = new java.io.FileInputStream(context.getProjectDirectory() + "/icons/folder.png");
+    	} else if (className.startsWith(''mobileComponent:'')) {
+    		var comp = com.twinsoft.convertigo.beans.ngx.components.dynamic.ComponentManager.getComponentByName(className.substring(16));
+    		stream = comp.getClass().getResourceAsStream(comp.getImagePath());
+    	} else {
+    		var bi = com.twinsoft.convertigo.engine.util.CachedIntrospector.getBeanInfo(java.lang.Class.forName(className));
+    		var iconType = large != null && large.equals("true") ? java.beans.BeanInfo.ICON_COLOR_32x32 : java.beans.BeanInfo.ICON_COLOR_16x16;
+    		stream = bi.getBeanDescriptor().getBeanClass().getResourceAsStream(com.twinsoft.convertigo.beans.core.MySimpleBeanInfo.getIconName(bi, iconType));	
+    	}
+    	
+    	base64 = org.apache.commons.codec.binary.Base64.encodeBase64String(org.apache.commons.io.IOUtils.toByteArray(stream));
+    	try {
+    		stream.close();
+    	} catch (e) {}
+    }'
+↓attachment [steps.ElementStep-1614267399839]: 
+  expression: base64
+  nodeName: attachment
+  ↓type [steps.XMLAttributeStep-1614267399842]: 
+    nodeName: type
+    nodeText: attachment
+  ↓name [steps.AttributeStep-1614267399845]: 
+    expression: className + ".png"
+    nodeName: name
+  ↓contentType [steps.XMLAttributeStep-1614267399848]: 
+    nodeName: content-type
+    nodeText: image/png
+  ↓encoding [steps.XMLAttributeStep-1614267399851]: 
+    nodeName: encoding
+    nodeText: base64
+↓jIfNotChanged [steps.IfStep-1614267399854]: 
+  condition: '!changed'
+  ↓Set_response_status [steps.SetResponseStatusStep-1614267399857]: 
+    statusCode: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: 304
+  ↓Return [steps.ReturnStep-1614267399860]: 
+↓className [variables.RequestableVariable-1614267399863]: 
+↓large [variables.RequestableVariable-1614267399866]: 

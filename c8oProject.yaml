@@ -5,6 +5,7 @@
   version: 8.0.0
   ↓void [connectors.SqlConnector]: 🗏 connectors/void.yaml
   ↓GetGraph [sequences.GenericSequence]: 🗏 sequences/GetGraph.yaml
+  ↓GetIcon [sequences.GenericSequence]: 🗏 sequences/GetIcon.yaml
   ↓GetProperties [sequences.GenericSequence]: 🗏 sequences/GetProperties.yaml
   ↓NgxBuilderTemplate [references.ProjectSchemaReference]: 
     comment: ngx builder template
