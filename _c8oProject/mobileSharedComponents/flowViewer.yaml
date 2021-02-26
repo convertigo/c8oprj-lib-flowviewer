@@ -165,99 +165,102 @@
                   - xmlizable: 
                     - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
                     - MobileSmartSourceType: plain:Clear all
-      ↓Directive [ngx.components.UIControlDirective-1614162691453]: 
-        directiveItemName: item
-        directiveSource: 
-          - xmlizable: 
-            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-            - MobileSmartSourceType: script:this?.fv?.miniMapsArray
-        ↓CardContainer [ngx.components.UIDynamicElement-1614162691456]: 
-          beanData: '{"ionBean":"Card","Button":"plain:true"}'
-          tagName: ion-card
-          ↓CardHeader [ngx.components.UIDynamicElement-1614162691459]: 
-            beanData: '{"ionBean":"CardHeader"}'
-            tagName: ion-card-header
-            ↓CardTitle [ngx.components.UIDynamicElement-1614162691462]: 
-              beanData: '{"ionBean":"CardTitle"}'
-              tagName: ion-card-title
-              ↓Text [ngx.components.UIText-1614162691465]: 
-                textValue: 
-                  - xmlizable: 
-                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-                    - MobileSmartSourceType: script:item.displayName
-            ↓Style [ngx.components.UIStyle-1614162691468]: 
-              styleContent: 
-                - xmlizable: 
-                  - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
-                  - com.twinsoft.convertigo.beans.common.FormatedContent: 
-                    →: |
-                      '	padding: 2px 2px 2px 2px;
-                      '
-            ↓Attr [ngx.components.UIAttribute-1614162691471]: 
-              attrName: style
-              attrValue: 
-                - xmlizable: 
-                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-                  - MobileSmartSourceType: 'script:(item.isSelected) ? ''background-color: #0CBBE7; animation-name: whiteToBlue; animation-duration: 1s''  : ''background-color: #fff; animation-name: blueToWhite; animation-duration: 1s '' '
-          ↓CardContent [ngx.components.UIDynamicElement-1614162691474]: 
-            beanData: '{"ionBean":"CardContent"}'
-            tagName: ion-card-content
-            ↓Style [ngx.components.UIStyle-1614162691477]: 
-              styleContent: 
-                - xmlizable: 
-                  - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
-                  - com.twinsoft.convertigo.beans.common.FormatedContent: 
-                    →: |
-                      '	min-height: 100px;
-                      	background-color: rgb(34,34,34)
-                      '
-            ↓Attr [ngx.components.UIAttribute-1614162691480]: 
-              attrName: id
-              attrValue: 
-                - xmlizable: 
-                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-                  - MobileSmartSourceType: script:item.id
-            ↓Event [ngx.components.UIControlEvent-1614162691483]: 
-              ↓updateMainGraphAndUnselectMiniMapCard [ngx.components.UICustomAction-1614162691486]: 
-                actionValue: 
+      ↓Directive1 [ngx.components.UIControlDirective-1614336244922]: 
+        directiveExpression: this['fv'] != undefined
+        directiveName: If
+        ↓Directive [ngx.components.UIControlDirective-1614162691453]: 
+          directiveItemName: item
+          directiveSource: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: script:this['fv'].miniMapsArray
+          ↓CardContainer [ngx.components.UIDynamicElement-1614162691456]: 
+            beanData: '{"ionBean":"Card","Button":"plain:true"}'
+            tagName: ion-card
+            ↓CardHeader [ngx.components.UIDynamicElement-1614162691459]: 
+              beanData: '{"ionBean":"CardHeader"}'
+              tagName: ion-card-header
+              ↓CardTitle [ngx.components.UIDynamicElement-1614162691462]: 
+                beanData: '{"ionBean":"CardTitle"}'
+                tagName: ion-card-title
+                ↓Text [ngx.components.UIText-1614162691465]: 
+                  textValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: script:item.displayName
+              ↓Style [ngx.components.UIStyle-1614162691468]: 
+                styleContent: 
                   - xmlizable: 
                     - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
                     - com.twinsoft.convertigo.beans.common.FormatedContent: 
                       →: |
-                        '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
-                        
-                        		var jsonString = vars.graph.toJSON();
-                        		this.fv.importFromJSON(this.fv.graph, jsonString)
-                        		this.fv.paper.setOrigin(this.fv.graphOriginX, this.fv.graphOriginY);
-                        		
-                        		if(!vars.cardObject.isSelected)
-                        			vars.cardObject.isSelected = true
-                        			
-                        		this.fv.unselectCard(vars.cardObject.id);
-                        		this.fv.highlightBreadcrumb(vars.id)
-                        		resolve();
+                        '	padding: 2px 2px 2px 2px;
                         '
-                ↓graph [ngx.components.UIControlVariable-1614162691489]: 
-                  varValue: 
+              ↓Attr [ngx.components.UIAttribute-1614162691471]: 
+                attrName: style
+                attrValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: 'script:(item.isSelected) ? ''background-color: #0CBBE7; animation-name: whiteToBlue; animation-duration: 1s''  : ''background-color: #fff; animation-name: blueToWhite; animation-duration: 1s '' '
+            ↓CardContent [ngx.components.UIDynamicElement-1614162691474]: 
+              beanData: '{"ionBean":"CardContent"}'
+              tagName: ion-card-content
+              ↓Style [ngx.components.UIStyle-1614162691477]: 
+                styleContent: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                    - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                      →: |
+                        '	min-height: 100px;
+                        	background-color: rgb(34,34,34)
+                        '
+              ↓Attr [ngx.components.UIAttribute-1614162691480]: 
+                attrName: id
+                attrValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: script:item.id
+              ↓Event [ngx.components.UIControlEvent-1614162691483]: 
+                ↓updateMainGraphAndUnselectMiniMapCard [ngx.components.UICustomAction-1614162691486]: 
+                  actionValue: 
                     - xmlizable: 
-                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-                      - MobileSmartSourceType: script:item.graph
-                ↓id [ngx.components.UIControlVariable-1614162691492]: 
-                  varValue: 
-                    - xmlizable: 
-                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-                      - MobileSmartSourceType: script:item.id
-                ↓cardObject [ngx.components.UIControlVariable-1614162691495]: 
-                  varValue: 
-                    - xmlizable: 
-                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-                      - MobileSmartSourceType: script:item
-          ↓Attr [ngx.components.UIAttribute-1614162691498]: 
-            attrName: style
-            attrValue: 
-              - xmlizable: 
-                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-                - MobileSmartSourceType: 'plain:animation-name: fadeInUp; animation-duration: 0.5s; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;'
+                      - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                      - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                        →: |
+                          '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+                          
+                          		var jsonString = vars.graph.toJSON();
+                          		page[''fv''].importFromJSON(page[''fv''].graph, jsonString)
+                          		page[''fv''].paper.setOrigin(page[''fv''].graphOriginX, page[''fv''].graphOriginY);
+                          		
+                          		if(!vars.cardObject.isSelected)
+                          			vars.cardObject.isSelected = true
+                          			
+                          		page[''fv''].unselectCard(vars.cardObject.id);
+                          		page[''fv''].highlightBreadcrumb(vars.id)
+                          		resolve();
+                          '
+                  ↓graph [ngx.components.UIControlVariable-1614162691489]: 
+                    varValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: script:item.graph
+                  ↓id [ngx.components.UIControlVariable-1614162691492]: 
+                    varValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: script:item.id
+                  ↓cardObject [ngx.components.UIControlVariable-1614162691495]: 
+                    varValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: script:item
+            ↓Attr [ngx.components.UIAttribute-1614162691498]: 
+              attrName: style
+              attrValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: 'plain:animation-name: fadeInUp; animation-duration: 0.5s; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;'
     ↓colGraph [ngx.components.UIDynamicElement-1614162691501]: 
       beanData: '{"ionBean":"GridCol","SizeXl":"plain:10"}'
       tagName: ion-col
@@ -282,7 +285,7 @@
               attrValue: 
                 - xmlizable: 
                   - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-                  - MobileSmartSourceType: script:this.fv.onMouseMove($event)
+                  - MobileSmartSourceType: 'script:(this[''fv''] != undefined) ? this[''fv''].onMouseMove($event) : '''''
             ↓Style [ngx.components.UIStyle-1614162691639]: 
               isEnabled: false
               styleContent: 
@@ -326,73 +329,76 @@
                     - MobileSmartSourceType: plain:bd_content_1
               ↓Tag [ngx.components.UIElement-1614162691660]: 
                 tagName: ul
-                ↓Directive [ngx.components.UIControlDirective-1614162691663]: 
-                  directiveItemName: item
-                  directiveSource: 
-                    - xmlizable: 
-                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-                      - MobileSmartSourceType: script:this?.fv?.breadcrumb
-                  ↓Tag [ngx.components.UIElement-1614162691666]: 
-                    tagName: li
-                    ↓Tag [ngx.components.UIElement-1614162691669]: 
-                      tagName: a
-                      ↓Text [ngx.components.UIText-1614162691672]: 
-                        textValue: 
+                ↓Directive1 [ngx.components.UIControlDirective-1614336291757]: 
+                  directiveExpression: this['fv'] != undefined
+                  directiveName: If
+                  ↓Directive [ngx.components.UIControlDirective-1614162691663]: 
+                    directiveItemName: item
+                    directiveSource: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: script:this['fv'].breadcrumb
+                    ↓Tag [ngx.components.UIElement-1614162691666]: 
+                      tagName: li
+                      ↓Tag [ngx.components.UIElement-1614162691669]: 
+                        tagName: a
+                        ↓Text [ngx.components.UIText-1614162691672]: 
+                          textValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                              - MobileSmartSourceType: script:item.displayName
+                      ↓Event [ngx.components.UIControlEvent-1614162691675]: 
+                        ↓updateMainGraphAndUnselectBreadcrumb [ngx.components.UICustomAction-1614162691678]: 
+                          actionValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                              - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                                →: |
+                                  '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+                                  		var jsonString = vars.breadcrumbObject.graph.toJSON();
+                                  		page[''fv''].importFromJSON(page[''fv''].graph, jsonString)
+                                  		page[''fv''].paper.setOrigin(page[''fv''].graphOriginX, page[''fv''].graphOriginY);
+                                  		
+                                  		if(!vars.breadcrumbObject.isSelected)
+                                  			vars.breadcrumbObject.isSelected = true
+                                  		
+                                  		// cards and breadcrumb items have the same id
+                                  		page[''fv''].unselectCard(vars.breadcrumbObject.id)
+                                  		page[''fv''].highlightCard(vars.breadcrumbObject.id)
+                                  
+                                  		page[''fv''].unselectBreadcrumb(vars.breadcrumbObject.id);
+                                  		
+                                  		resolve();
+                                  '
+                          ↓graph [ngx.components.UIControlVariable-1614162691681]: 
+                            isEnabled: false
+                            varValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: script:item.graph
+                          ↓id [ngx.components.UIControlVariable-1614162691684]: 
+                            isEnabled: false
+                            varValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: script:item.id
+                          ↓isSelected [ngx.components.UIControlVariable-1614162691687]: 
+                            isEnabled: false
+                            varValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: script:item.isSelected
+                          ↓breadcrumbObject [ngx.components.UIControlVariable-1614162691690]: 
+                            varValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: script:item
+                      ↓Attr [ngx.components.UIAttribute-1614162691693]: 
+                        attrName: style
+                        attrValue: 
                           - xmlizable: 
                             - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-                            - MobileSmartSourceType: script:item.displayName
-                    ↓Event [ngx.components.UIControlEvent-1614162691675]: 
-                      ↓updateMainGraphAndUnselectBreadcrumb [ngx.components.UICustomAction-1614162691678]: 
-                        actionValue: 
-                          - xmlizable: 
-                            - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
-                            - com.twinsoft.convertigo.beans.common.FormatedContent: 
-                              →: |
-                                '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
-                                		var jsonString = vars.breadcrumbObject.graph.toJSON();
-                                		this.fv.importFromJSON(this.fv.graph, jsonString)
-                                		this.fv.paper.setOrigin(this.fv.graphOriginX, this.fv.graphOriginY);
-                                		
-                                		if(!vars.breadcrumbObject.isSelected)
-                                			vars.breadcrumbObject.isSelected = true
-                                		
-                                		// cards and breadcrumb items have the same id
-                                		this.fv.unselectCard(vars.breadcrumbObject.id)
-                                		this.fv.highlightCard(vars.breadcrumbObject.id)
-                                
-                                		this.fv.unselectBreadcrumb(vars.breadcrumbObject.id);
-                                		
-                                		resolve();
-                                '
-                        ↓graph [ngx.components.UIControlVariable-1614162691681]: 
-                          isEnabled: false
-                          varValue: 
-                            - xmlizable: 
-                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-                              - MobileSmartSourceType: script:item.graph
-                        ↓id [ngx.components.UIControlVariable-1614162691684]: 
-                          isEnabled: false
-                          varValue: 
-                            - xmlizable: 
-                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-                              - MobileSmartSourceType: script:item.id
-                        ↓isSelected [ngx.components.UIControlVariable-1614162691687]: 
-                          isEnabled: false
-                          varValue: 
-                            - xmlizable: 
-                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-                              - MobileSmartSourceType: script:item.isSelected
-                        ↓breadcrumbObject [ngx.components.UIControlVariable-1614162691690]: 
-                          varValue: 
-                            - xmlizable: 
-                              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-                              - MobileSmartSourceType: script:item
-                    ↓Attr [ngx.components.UIAttribute-1614162691693]: 
-                      attrName: style
-                      attrValue: 
-                        - xmlizable: 
-                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-                          - MobileSmartSourceType: 'script:(item.isSelected) ? ''background-color: #0CBBE7;''  : ''background-color: #fff; '' '
+                            - MobileSmartSourceType: 'script:(item.isSelected) ? ''background-color: #0CBBE7;''  : ''background-color: #fff; '' '
           ↓Directive [ngx.components.UIControlDirective-1614162691696]: 
             directiveExpression: this.global.showSpinner
             directiveName: If
@@ -2734,11 +2740,10 @@
                 		} // end class
                 //		
                 		// initialize global object with the class
-                		this.fv = new FlowViewer(page.c8o, this.global);
+                		page[''fv''] = new FlowViewer(page.c8o, this.global);
                 		
                 		// redifine c8o endpoint to the lib for the GetIcon sequence
-                		
-                		this.fv.c8o.endpoint = "http://localhost:18080/convertigo/projects/lib_FlowViewer"
+                		page[''fv''].c8o.endpoint = "http://localhost:18080/convertigo/projects/lib_FlowViewer"
                 
                 		resolve();
                 '
@@ -2752,10 +2757,10 @@
                   		
                   		// this.fv = super.fv;
                   		this.global[''joint''] = joint;
-                  		this.fv.defineContainerShape()
+                  		page[''fv''].defineContainerShape()
                   
                   		this.global.showSpinner = false;
-                  		var _this = this.fv;
+                  		var _this = page[''fv''];
                   
                   		let graphDomElement = document.getElementById("graphDomElement")
                   	    // let graphDomElement = this.fv.graphDomElement as ElementRef
@@ -2764,7 +2769,7 @@
                               el: graphDomElement, // graphDomElement.nativeElement,
                               width: ''100%'',
                               height: ''100%'',
-                              model: this.fv.graph,
+                              model: page[''fv''].graph,
                               gridSize: 10,
                   			embeddingMode: true,
                   			cellViewNamespace: joint.shapes,
@@ -2924,46 +2929,46 @@
                   //					color: ''white''
                   //				}
                   //			},
-                          this.fv.paper = this.fv.createPaper(paperOpts);
-                  		this.fv.paper.setOrigin(this.fv.graphOriginX, this.fv.graphOriginY)
+                          page[''fv''].paper = page[''fv''].createPaper(paperOpts);
+                  		page[''fv''].paper.setOrigin(page[''fv''].graphOriginX, page[''fv''].graphOriginY)
                   		
-                  		this.fv.paper.on(''cell:pointerup blank:pointerup'', (cellView, x, y) => {
+                  		page[''fv''].paper.on(''cell:pointerup blank:pointerup'', (cellView, x, y) => {
                           	this.c8o.log.debug("Mouse Up")
-                              this.fv.dragStartPosition = null
+                              page[''fv''].dragStartPosition = null
                           });
                   
-                  		this.fv.paper.on(''blank:pointerdown'', (event, x, y) => {
+                  		page[''fv''].paper.on(''blank:pointerdown'', (event, x, y) => {
                           	this.c8o.log.debug("Mouse Start")
-                              this.fv.dragStartPosition = { x: x , y: y }; // { x: x * this.scale / 10, y: y * this.scale / 10};
+                              page[''fv''].dragStartPosition = { x: x , y: y }; // { x: x * this.scale / 10, y: y * this.scale / 10};
                           });
                   
-                  		this.fv.paper.on(''blank:pointerclick'', (cellView, evt, x, y) => {
+                  		page[''fv''].paper.on(''blank:pointerclick'', (cellView, evt, x, y) => {
                   			
                   		});
                   
-                  		this.fv.paper.on(''blank:mousewheel cell:mousewheel'', (evt, x, y, delta) => {
+                  		page[''fv''].paper.on(''blank:mousewheel cell:mousewheel'', (evt, x, y, delta) => {
                   			var normalizedDelta = Math.max(-1, Math.min(1, (delta))) / 10;
-                  			var newScale = this.fv.paper.scale().sx + normalizedDelta; // the current paper scale changed by delta
+                  			var newScale = page[''fv''].paper.scale().sx + normalizedDelta; // the current paper scale changed by delta
                   		  	if (newScale > 0.4 && newScale < 2) {
-                  			    this.fv.paper.scale(newScale, newScale);
+                  			    page[''fv''].paper.scale(newScale, newScale);
                     			}
                   		})
                   		
-                  		this.fv.paper.on(''element:contextmenu'', (cellView, event, x, y) => {
-                  			var element = this.fv.makePropertiesPanel(cellView.model.attributes.displayName, cellView.model.attributes.properties)
-                  			element.position(70, 70)
-                  			//element.position(cellView.model.attributes.position.x + 40, 70)
-                  			console.log("model x: "+ cellView.model.attributes.position.x)
-                  			event.preventDefault()
-                  		})
+                  		// to keep for Flow Builder
+                  //		page[''fv''].paper.on(''element:contextmenu'', (cellView, event, x, y) => {
+                  //			var element =page[''fv''].makePropertiesPanel(cellView.model.attributes.displayName, cellView.model.attributes.properties)
+                  //			element.position(70, 70)
+                  //			console.log("model x: "+ cellView.model.attributes.position.x)
+                  //			event.preventDefault()
+                  //		})
                   		
-                  		this.fv.paper.on(''element:button:pointerdown'', (elementView) => {
+                  		page[''fv''].paper.on(''element:button:pointerdown'', (elementView) => {
                   	        var element = elementView.model;
                   	        element.toggle();
-                  	        this.fv.fitAncestors(element);
+                  	        page[''fv''].fitAncestors(element);
                       	});
                   
-                  	   this.fv.paper.on(''element:pointermove'', (elementView) => {
+                  	   page[''fv''].paper.on(''element:pointermove'', (elementView) => {
                   	        var element = elementView.model;
                   	        // this.fv.fitAncestors(element);
                   	    });
@@ -3009,22 +3014,22 @@
                           		}
                           		var displayName = str;
                           		
-                          		this.fv.levelCount++;
+                          		page[''fv''].levelCount++;
                           
-                          		this.global.firstGraphInColumn = this.fv.createGraph();
+                          		this.global.firstGraphInColumn = page[''fv''].createGraph();
                           
-                          		var priority = this.fv.getPriority(vars.properties.properties);
+                          		var priority = page[''fv''].getPriority(vars.properties.properties);
                           		
-                          		this.fv.miniMapsArray.push({
-                          			id: ''level-'' + this.fv.levelCount,
-                          			displayName: this.fv.ellipseString(displayName),
+                          		page[''fv''].miniMapsArray.push({
+                          			id: ''level-'' + page[''fv''].levelCount,
+                          			displayName: page[''fv''].ellipseString(displayName),
                           			priority: priority,
                           			graph: this.global.firstGraphInColumn,
                           			isSelected: true,
                           		})
                           		
-                          		this.fv.addToBreadcrumb({
-                          			id: ''level-'' + this.fv.levelCount,
+                          		page[''fv''].addToBreadcrumb({
+                          			id: ''level-'' + page[''fv''].levelCount,
                           			displayName: displayName,
                           			priority: priority,
                           			graph: this.global.firstGraphInColumn,
@@ -3033,7 +3038,7 @@
                           		
                           //		console.log(this.miniMapsArray);
                           		setTimeout(() => {
-                          			var el = document.getElementById("level-"+this.fv.levelCount)
+                          			var el = document.getElementById("level-"+page[''fv''].levelCount)
                           			let paperOpts = {
                           	            el: el,
                           	            width: ''100%'',
@@ -3065,7 +3070,7 @@
                           	                    return true
                           	            }
                           	        }
-                          	        var paper = this.fv.createPaper(paperOpts);
+                          	        var paper = page[''fv''].createPaper(paperOpts);
                           			paper.scaleContentToFit({
                           				padding: 10
                           			});
@@ -3089,12 +3094,12 @@
                         - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
                         - com.twinsoft.convertigo.beans.common.FormatedContent: 
                           →: |
-                            				this.fv.graph.clear()
-                            				this.fv.paper.scale(1);
-                            				this.fv.displayFlow(vars.flow);
-                            				this.fv.embedIteratorBox(this.fv.graph);
-                            				var cellsToAdd = this.fv.graph.toJSON();
-                            				this.fv.importFromJSON(this.global.firstGraphInColumn, cellsToAdd);
+                            				page['fv'].graph.clear()
+                            				page['fv'].paper.scale(1);
+                            				page['fv'].displayFlow(vars.flow);
+                            				page['fv'].embedIteratorBox(page['fv'].graph);
+                            				var cellsToAdd = page['fv'].graph.toJSON();
+                            				page['fv'].importFromJSON(this.global.firstGraphInColumn, cellsToAdd);
                             				this.global.showSpinner = false;
                             				
                             				
