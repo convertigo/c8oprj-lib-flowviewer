@@ -19,7 +19,7 @@
             		resolve();
             '
 ↓Grid [ngx.components.UIDynamicElement-1614162691375]: 
-  beanData: '{"ionBean":"Grid","Height":"plain:"}'
+  beanData: '{"ionBean":"Grid"}'
   tagName: ion-grid
   ↓rowLevelAndGraph [ngx.components.UIDynamicElement-1614162691378]: 
     beanData: |
@@ -286,16 +286,6 @@
                 - xmlizable: 
                   - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
                   - MobileSmartSourceType: 'script:(this[''fv''] != undefined) ? this[''fv''].onMouseMove($event) : '''''
-            ↓Style [ngx.components.UIStyle-1614162691639]: 
-              isEnabled: false
-              styleContent: 
-                - xmlizable: 
-                  - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
-                  - com.twinsoft.convertigo.beans.common.FormatedContent: 
-                    →: |
-                      '	height: 600px !important;
-                      	overflow: scroll !important;
-                      '
             ↓Attr1 [ngx.components.UIAttribute-1614162691642]: 
               attrName: (document:dblclick)
               attrValue: 
@@ -453,6 +443,17 @@
                         	top: 50%;
                         	left: 50%;
                         '
+          ↓Style [ngx.components.UIStyle-1614162691639]: 
+            isEnabled: false
+            styleContent: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                  →: |
+                    '//	height: 600px !important;
+                    //	overflow: scroll !important;
+                    
+                    '
       ↓Style [ngx.components.UIStyle-1614271689246]: 
         styleContent: 
           - xmlizable: 
@@ -476,8 +477,18 @@
                 //--ion-grid-column-padding-xs	//Padding for the Column on xs screens and up
                 //--ion-grid-columns	//The number of total Columns in the Grid
                 
-                background-color: #2D3436;
+                background-color: #222222;
+                
                 '
+    ↓Style [ngx.components.UIStyle-1614355157361]: 
+      styleContent: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+          - com.twinsoft.convertigo.beans.common.FormatedContent: 
+            →: |
+              '	min-height: 100% !important;
+              	height: 100% !important;
+              '
   ↓JointStyles [ngx.components.UIStyle-1614246930467]: 
     styleContent: 
       - xmlizable: 
@@ -485,19 +496,7 @@
         - com.twinsoft.convertigo.beans.common.FormatedContent: 
           →: |
             '/* /html/body/div[3]/div/div[3]/div[1]/div[2]/div/div/ion-grid/ion-row/ion-col[2]/div/svg/g/g[1]/g[1]/image */
-            html body div div div div div div div ion-grid ion-row ion-col div svg g g g image {
-            	width: 32px !important;
-            	height: 32px !important;
-            	transform:matrix(1,0,0,1,19,19) !important;
-            }
-            /* /html/body/div[3]/div/div[3]/div[1]/div[2]/div/div/ion-grid/ion-row[1]/ion-col/div/div[1]/div/svg/g/g[1]/g[3]/path[2] */
-            html body div div div div div div div ion-grid ion-row ion-col div div div svg g g g path {
-            	stroke-width: 10px !important;
-            }
-            html body div div div div div div div ion-grid ion-row ion-col div div div svg defs marker path {
-            
-            }
-            
+            /* html body div div div div div div div ion-grid ion-row ion-col div svg g g g image */
             .html-element {
                 position: absolute;
                 background: #3498DB;
@@ -567,100 +566,6 @@
                 font-size: 10px;
             }
             
-            //svg g g g ellipse[fill="none"] {
-            //  fill: white !important;
-            //  fill-opacity: 0 !important;
-            //  transform-origin: 50% 50% !important;
-            //  animation-duration: 2s !important;
-            //  animation-name: pulse !important;
-            //  animation-iteration-count: infinite !important;
-            //}
-            //
-            //@keyframes pulse {
-            //  from {
-            //    stroke-width: 3px;
-            //    stroke-opacity: 1;
-            //    transform: scale(0.3);
-            //  }
-            //  to {
-            //    stroke-width: 0;
-            //    stroke-opacity: 0;
-            //    transform: scale(2);
-            //  }
-            //}
-            
-            //.pulsar {
-            //  position: relative;
-            //  &:before,
-            //  &:after {
-            //    content: "";
-            //    @include circle(50px);
-            //    background-color: tomato;
-            //    position: absolute;
-            //    top: 0;
-            //    right: 0;
-            //    bottom: 0;
-            //    left: 0;
-            //    margin: auto;
-            //    transform: scale(0.5);
-            //    transform-origin: center center;
-            //    animation: pulse-me 3s linear infinite;
-            //  }
-            //  &:after {
-            //    animation-delay: 2s;
-            //  }
-            //}
-            //
-            //@keyframes pulse-me {
-            //  0% {
-            //    transform: scale(0.5);
-            //    opacity: 0;
-            //  }
-            //  50% {
-            //    opacity: 0.1;
-            //  }
-            //  70% {
-            //    opacity: 0.09;
-            //  }
-            //  100% {
-            //    transform: scale(5);
-            //    opacity: 0;
-            //  }
-            //}
-            
-            
-            //@keyframes pulse {
-            //  0% {
-            //    background-color: #001F3F;
-            //  }
-            //  100% {
-            //    background-color: #FF4136;
-            //  }
-            //}
-            #flowContainer {
-            	width: 100%;
-            //	max-height: 300px !important;
-            	overflow-x: scroll !important;
-            	overflow-y: scroll !important;
-            }
-            #minimap-container {
-              position: relative;
-              display: inline-block;
-              margin: 1rem;
-              border: 1px solid #9e9e9e;
-            }
-            
-            #minimap-navigator {
-              position: absolute;
-              top: 0;
-              left: 0;
-              border: 1px solid #9e9e9e;
-              cursor: move;
-            }
-            
-            #minimap-navigator:hover {
-            	background-color: rgba(255,255,255, 0.3);
-            }
             
             /*! JointJS v3.1.1 (2019-10-28) - JavaScript diagramming library
             
@@ -736,6 +641,8 @@
                vector-effect: non-scaling-stroke;
             }
             /*
+            
+            
             
             connection-wrap is a <path> element of the joint.dia.Link that follows the .connection <path> of that link.
             In other words, the `d` attribute of the .connection-wrap contains the same data as the `d` attribute of the
@@ -839,6 +746,8 @@
                 display: table-cell;
                 padding: 0px 5px 0px 5px;
             }
+            
+            
             
             /* Paper */
             .joint-paper.joint-theme-dark {
@@ -1221,6 +1130,14 @@
             	-webkit-animation-name: fadeInUp; 
             	animation-name: fadeInUp
             }'
+  ↓Style [ngx.components.UIStyle-1614345921561]: 
+    styleContent: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+        - com.twinsoft.convertigo.beans.common.FormatedContent: 
+          →: |
+            '	min-height: 100%;
+            '
 ↓divFakeEvent [ngx.components.UIDynamicElement-1614252336356]: 
   beanData: '{"ionBean":"DivTag"}'
   identifier: initFakeEvent
@@ -1727,6 +1644,13 @@
                 					}
                 					// var el = this.makeElement(elmtOpts, this.graph, elColor)
                 					var el = (newElement.dbo.isComplex) ? this.makeComplexElement(elmtOpts, this.graph, elColor) : this.makeElement(elmtOpts, this.graph, elColor)
+                					
+                					if(previous != null)
+                						var previousHasLinks = this.elementHasOutboundLinks(previous)
+                					
+                					var startDirection = "right";
+                					if(previousHasLinks)
+                						startDirection = "bottom"
                 						
                 					if(previous != null && this.isInArray(this.ifThenElseSteps, previousClassName)) { // this.getClassName(previous.attributes.className) == "IfThenElseStep"
                 						var lastElements = this.getLastElementsFromThenAndElseBranch(previous)
@@ -1734,11 +1658,11 @@
                 						var jElseLastElement = lastElements.jElse[lastElements.jElse.length - 1]
                 
                 						if(jThenLastElement != undefined) {
-                							this.makeLink(jThenLastElement, el, '''', this.graph, false, false, "right", ''#77ACA1'')
+                							this.makeLink(jThenLastElement, el, '''', this.graph, false, false, startDirection, ''#77ACA1'')
                 						}
                 								
                 						if(jElseLastElement != undefined) {
-                							this.makeLink(jElseLastElement, el, '''', this.graph, false, false, "right", ''#77ACA1'')
+                							this.makeLink(jElseLastElement, el, '''', this.graph, false, false, startDirection, ''#77ACA1'')
                 						}
                 					}  
                 					else if(previous != null && this.isInArray(this.ifSteps, previousClassName)) { // this.getClassName(previous.attributes.className) == "IfStep"
@@ -1787,18 +1711,22 @@
                 							if(lastCell.attributes.target != undefined) {
                 								var lastCellTarget = lastCell.attributes.target
                 //								console.log(''target: '' + JSON.stringify(lastCellTarget))
-                								if(lastCellTarget.attributes.isInIterator) {
-                									this.makeLink(lastCellTarget, el, '''', this.graph, false, false, "right", ''#77ACA1'')
+                								if(lastCellTarget.attributes.isInIterator) {	
+                																
+                									this.makeLink(lastCellTarget, el, '''', this.graph, false, false, startDirection, ''#77ACA1'')
                 								} else {
-                									this.makeLink(lastCellTarget, el, '''', this.graph, false, false, "right", ''#77ACA1'')
+                									
+                									this.makeLink(lastCellTarget, el, '''', this.graph, false, false, startDirection, ''#77ACA1'')
                 								}
                 							}
                 						} else {
-                							this.makeLink(lastCell, el, '''', this.graph, false, false, "right", ''#77ACA1'')
+                
+                							this.makeLink(lastCell, el, '''', this.graph, false, false, startDirection, ''#77ACA1'')
                 						}
                 					} else {
+                
                 						if(previous != null && !this.isInArray(this.ifThenElseSteps, previousClassName)) // && previousClassName != "IfThenElseStep"
-                							var link = this.makeLink(previous, el, '''', this.graph, false, false, "right", ''#77ACA1'')
+                							var link = this.makeLink(previous, el, '''', this.graph, false, false, startDirection, ''#77ACA1'')
                 					}
                 						
                 					previous = el
@@ -1828,6 +1756,14 @@
                 						}
                 					}
                 				}
+                			}
+                			
+                			elementHasOutboundLinks(element) {
+                				var links = this.graph.getConnectedLinks(element, { outbound: true })
+                				if(links.length > 0)
+                					return true
+                				else
+                					return false
                 			}
                 	
                 			ellipseString(string) {
@@ -2092,7 +2028,7 @@
                 				for(var key in opts.props) {
                 					element.prop(key, opts.props[key])
                 				}
-                
+                							
                 				element.addTo(graph)
                 				return element;
                 					
@@ -2185,23 +2121,23 @@
                 //				})
                 				
                 				var element = new joint.shapes.basic.Rect({
-                				position: {
-                					x: opts.attrs.position.x,
-                					y: opts.attrs.position.y
-                				},
-                	//			size: {
-                	//				width: 200,
-                	//				height: 50
-                	//			},
-                				attrs: {
-                					rect: {
-                						fill: ''#222222'',
-                						strokeWidth: 1,
-                						stroke: color,
-                						strokeDasharray: 5
+                					position: {
+                						x: opts.attrs.position.x,
+                						y: opts.attrs.position.y
+                					},
+                		//			size: {
+                		//				width: 200,
+                		//				height: 50
+                		//			},
+                					attrs: {
+                						rect: {
+                							fill: ''#222222'',
+                							strokeWidth: 0.3,
+                							stroke: color,
+                							strokeDasharray: ''5,2''
+                						}
                 					}
-                				}
-                			})
+                				})
                 //		
                 
                 				for(var key in opts.props)
@@ -2569,8 +2505,6 @@
                 						label = ""
                 					}
                 					
-                
-                					var startDirection;
                 					var linkColor;
                 					if(el.attributes.isInIterator != undefined && el.attributes.isInIterator) { // this.isInArray(this.iteratorSteps, parentClassName) && el.attributes.depthLvl != parent.attributes.depthLvl
                 						var iteratorRef = this.graph.getCell(el.attributes.refBranchIterator)
@@ -2581,6 +2515,10 @@
                 					}
                 						
                 					var link;
+                					var previousHasLinks = this.elementHasOutboundLinks(previous)
+                					var startDirection = "right";
+                					if(previousHasLinks)
+                						startDirection = "bottom"
                 		
                 					if(this.isInArray(this.ifSteps, previousClassName) && !this.isInArray(this.ifSteps, stepClassName)) {
                 		
@@ -2605,10 +2543,13 @@
                 					} else if(!this.isInArray(this.ifSteps, previousClassName) && !this.isInArray(this.ifThenElseSteps, previousClassName)) {
                 							
                 						link = this.makeLink(previous, el, label, graph, previousThen, previousElse, "right", linkColor)
+                						
                 					} else if(!this.isInArray(this.ifThenElseSteps, previousClassName) && !this.isInArray(this.ifSteps, stepClassName)) {
                 							
                 						link = this.makeLink(previous, el, label, graph, previousThen, previousElse, "right", linkColor)
+                						
                 					} else if(this.isInArray(this.ifThenElseSteps, previousClassName) && this.isInArray(this.ifThenElseSteps, stepClassName)) {
+                						
                 						link = this.makeLink(previous, el, label, graph, previousThen, previousElse, "top", linkColor)
                 							
                 					} else if (!this.isInArray(this.ifThenElseSteps, previousClassName) && !el.attributes.isInIterator) {
@@ -2775,7 +2716,7 @@
                   			cellViewNamespace: joint.shapes,
                   			preventContextMenu: false,
                   			background: {
-                  				color: ''#2D3436''
+                  				color: ''#222222''
                   			},
                   //			drawGrid: {
                   //				name: "dot"
