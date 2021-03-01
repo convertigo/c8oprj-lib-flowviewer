@@ -10,13 +10,7 @@
   ↓NgxBuilderTemplate [references.ProjectSchemaReference]: 
     comment: ngx builder template
     projectName: mobilebuilder_tpl_8_0_0_ngx=https://github.com/convertigo/c8oprj-mobilebuilder-tpl/archive/mobilebuilder_tpl_8_0_0_ngx.zip
-  ↓Project_reference [references.ProjectSchemaReference]: 
-    projectName: mobilebuilder_tpl_7_9_0_Ionic5=https://github.com/convertigo/c8oprj-mobilebuilder-tpl/archive/mobilebuilder_tpl_7_9_0_Ionic5.zip
   ↓MobileApplication [core.MobileApplication]: 
     comment: Describes the mobile application global properties
     splashRemoveMode: beforeUpdate
-    ↓Android [mobileplatforms.Android]: 
-      comment: Android platform
-    ↓iOS [mobileplatforms.IOs]: 
-      comment: iOS platform
     ↓Application [ngx.components.ApplicationComponent]: 🗏 mobileApplication.yaml
