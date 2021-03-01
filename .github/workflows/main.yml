@@ -26,8 +26,13 @@ jobs:
       run: |
         echo "Build the Mobile Application and make a .car" && \
         sh gradlew --no-daemon --stacktrace --info car
-    - name: Upload Convertigo .car file
-      uses: actions/upload-artifact@v2
+    - name: Upload Release Asset
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        name: lib_FlowViewer.car
-        path: build/lib_FlowViewer.car
+        upload_url: https://uploads.github.com/repos/convertigo/c8oprj-lib-flowviewer/releases/39060421/assets{?name,label}
+        asset_path: ./build/lib_FlowViewer.car
+        asset_name: lib_FlowViewer.car
+        asset_content_type: application/zip
