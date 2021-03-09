@@ -26,6 +26,11 @@ jobs:
       run: |
         echo "Build the Mobile Application and make a .car" && \
         sh gradlew --no-daemon --stacktrace --info zipSystemCar
+    - name: Remove a Release Asset
+      uses: flcdrg/remove-release-asset-action@v1.0.5
+      with:
+        release_id: 39060421
+        asset_name: lib_FlowViewer.car
     - name: Upload Release Asset
       id: upload-release-asset 
       uses: actions/upload-release-asset@v1
