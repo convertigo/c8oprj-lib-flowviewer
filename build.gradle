@@ -225,6 +225,40 @@ downloadRemoteBuild {
 	}
 }
 
+task unzipSystemCar(type: Sync, dependsOn: car) {
+	def oriCar = file("$car.destinationDir/lib_FlowViewer.car")
+	doLast {
+		println "unzipSystemCar for $oriCar"
+	}
+	
+	from zipTree(oriCar).matching {
+		include 'lib_FlowViewer/_c8oProject/**'
+		include 'lib_FlowViewer/DisplayObjects/**'
+		include 'lib_FlowViewer/c8oProject.yaml'
+	}
+	into file("$car.destinationDir/system")
+}
+
+task updateSystemCar(dependsOn: unzipSystemCar) {
+	def dest = unzipSystemCar.destinationDir
+	doLast {
+		fileTree("$unzipSystemCar.destinationDir/lib_FlowViewer/DisplayObjects/mobile").matching {
+			include 'index.html'
+			include 'runtime.*.js'
+		}.each {
+			println "patch $it"
+			it.text = it.text.replace('http://localhost:28080/convertigo/projects/lib_FlowViewer/DisplayObjects/mobile/', '')
+		}
+	}
+}
+
+task zipSystemCar(type: Zip, dependsOn: updateSystemCar) {
+	archiveFileName = 'lib_FlowViewer.car'
+	destinationDirectory = file "$car.destinationDir/system"
+	from unzipSystemCar.destinationDir
+	exclude archiveName
+}
+
 //// the 'wrapper' task is used to upgrade the Gradle wrapper of the projet
 if (!tasks.findByName('wrapper')) {
 	task wrapper(type: Wrapper) {
@@ -232,4 +266,4 @@ if (!tasks.findByName('wrapper')) {
 		description 'Generates Gradle wrapper files.'
 	}
 }
-wrapper.gradleVersion = '6.7.1'
+wrapper.gradleVersion = '6.8.3'
