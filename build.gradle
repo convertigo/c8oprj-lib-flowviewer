@@ -248,6 +248,7 @@ task updateSystemCar(dependsOn: unzipSystemCar) {
 		}.each {
 			println "patch $it"
 			it.text = it.text.replace('http://localhost:28080/convertigo/projects/lib_FlowViewer/DisplayObjects/mobile/', '')
+			it.text = it.text.replace('/convertigo/projects/', '/convertigo/system/projects/')
 		}
 	}
 }
