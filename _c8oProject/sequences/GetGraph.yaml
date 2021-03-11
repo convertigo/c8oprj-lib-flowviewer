@@ -391,7 +391,7 @@
                 
                 	parentQName = item.getFullQName();
                 
-                	walkChildren(dboNode.item(0), parentQName, 0);
+                 	walkChildren(dboNode.item(0), parentQName, 0);
                 }
                 
                 function walkChildren(parentNode, parentQName, depthLvl) {
@@ -447,9 +447,10 @@
                 				isComplexNode.setAttribute("type", "boolean");
                 				
                 				context.addTextNode(dboChildNode, "depthLvl", depthLvl);
-                				
+                
                 				var docProperties = callGetProperties(childQName)
                 				var nodeList = docProperties.getElementsByTagName(''properties'')
+                
                 	
                 				dboChildNode.appendChild(dom.adoptNode(nodeList.item(0)));
                 				// getting children of children

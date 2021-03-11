@@ -30,7 +30,14 @@
       }'
     tagName: ion-row
     ↓colLevel [ngx.components.UIDynamicElement-1614162691381]: 
-      beanData: '{"ionBean":"GridCol","SizeXl":"plain:2"}'
+      beanData: |
+        '{
+         "ionBean": "GridCol",
+         "SizeLg": "plain:2",
+         "SizeMd": "plain:2",
+         "SizeSm": "plain:2",
+         "SizeXl": "plain:2"
+        }'
       identifier: levelDomElement
       tagName: ion-col
       ↓Style [ngx.components.UIStyle-1614162691384]: 
@@ -183,11 +190,213 @@
               ↓CardTitle [ngx.components.UIDynamicElement-1614162691462]: 
                 beanData: '{"ionBean":"CardTitle"}'
                 tagName: ion-card-title
-                ↓Text [ngx.components.UIText-1614162691465]: 
-                  textValue: 
-                    - xmlizable: 
-                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-                      - MobileSmartSourceType: script:item.displayName
+                ↓Div1 [ngx.components.UIDynamicElement-1615290757481]: 
+                  beanData: '{"ionBean":"DivTag"}'
+                  isEnabled: false
+                  tagName: div
+                  ↓Style [ngx.components.UIStyle-1615289305515]: 
+                    styleContent: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                        - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                          →: |
+                            '/**
+                             * Custom properties (sometimes referred to as CSS variables or cascading variables)
+                             * are entities defined by CSS authors that contain specific values to be reused throughout a document.
+                             * They are set using custom property notation, e.g.: --main-color: black;
+                             * and are accessed using the var() function, e.g.: color: var(--main-color);
+                             * You can find below your component''s properties you can customize within the page.
+                             * If you''d like to make some customizations for whole app, please see your app Style & Theme components.
+                             * For more informations see https://ionicframework.com/docs/theming.
+                            **/
+                            //--color	//Color of the card title
+                            
+                            display: inline-block;
+                            '
+                ↓Div [ngx.components.UIDynamicElement-1615289165974]: 
+                  beanData: '{"ionBean":"DivTag"}'
+                  isEnabled: false
+                  tagName: div
+                  ↓Style [ngx.components.UIStyle-1615288990241]: 
+                    styleContent: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                        - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                          →: |
+                            '/**
+                             * Custom properties (sometimes referred to as CSS variables or cascading variables)
+                             * are entities defined by CSS authors that contain specific values to be reused throughout a document.
+                             * They are set using custom property notation, e.g.: --main-color: black;
+                             * and are accessed using the var() function, e.g.: color: var(--main-color);
+                             * You can find below your component''s properties you can customize within the page.
+                             * If you''d like to make some customizations for whole app, please see your app Style & Theme components.
+                             * For more informations see https://ionicframework.com/docs/theming.
+                            **/
+                            //--color	//Color of the card title
+                            
+                            display: inline-block;
+                            '
+                ↓GridRow [ngx.components.UIDynamicElement-1615297015219]: 
+                  beanData: '{"ionBean":"GridRow"}'
+                  tagName: ion-row
+                  ↓GridCol [ngx.components.UIDynamicElement-1615291104358]: 
+                    beanData: |
+                      '{
+                       "ionBean": "GridCol",
+                       "SizeMd": "plain:7",
+                       "SizeSm": "plain:7",
+                       "SizeXl": "plain:7"
+                      }'
+                    tagName: ion-col
+                    ↓Text [ngx.components.UIText-1614162691465]: 
+                      textValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: script:item.displayName
+                    ↓Style [ngx.components.UIStyle-1615295928048]: 
+                      isEnabled: false
+                      styleContent: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                          - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                            →: |
+                              '/**
+                               * Custom properties (sometimes referred to as CSS variables or cascading variables)
+                               * are entities defined by CSS authors that contain specific values to be reused throughout a document.
+                               * They are set using custom property notation, e.g.: --main-color: black;
+                               * and are accessed using the var() function, e.g.: color: var(--main-color);
+                               * You can find below your component''s properties you can customize within the page.
+                               * If you''d like to make some customizations for whole app, please see your app Style & Theme components.
+                               * For more informations see https://ionicframework.com/docs/theming.
+                              **/
+                              //--ion-grid-column-padding	//Padding for the Column
+                              //--ion-grid-column-padding-lg	//Padding for the Column on lg screens and up
+                              //--ion-grid-column-padding-md	//Padding for the Column on md screens and up
+                              //--ion-grid-column-padding-sm	//Padding for the Column on sm screens and up
+                              //--ion-grid-column-padding-xl	//Padding for the Column on xl screens and up
+                              //--ion-grid-column-padding-xs	//Padding for the Column on xs screens and up
+                              //--ion-grid-columns	//The number of total Columns in the Grid
+                              display: inline;
+                              '
+                  ↓GridCol1 [ngx.components.UIDynamicElement-1615291121862]: 
+                    beanData: |
+                      '{
+                       "ionBean": "GridCol",
+                       "FlexAlignement": "plain:ion-align-self-end",
+                       "OffsetLg": "plain:2",
+                       "OffsetMd": "plain:2",
+                       "OffsetSm": "plain:2",
+                       "OffsetXl": "plain:2",
+                       "OffsetXs": "plain:2",
+                       "SizeMd": "plain:3",
+                       "SizeSm": "plain:3",
+                       "SizeXl": "plain:3"
+                      }'
+                    tagName: ion-col
+                    ↓arrowUpIcon [ngx.components.UIDynamicElement-1615287709647]: 
+                      beanData: '{"ionBean":"Icon","IconName":"script:(item.isOpened) ? ''caret-up-outline'' : ''caret-down-outline''"}'
+                      isEnabled: false
+                      tagName: ion-icon
+                      ↓Style [ngx.components.UIStyle-1615288833433]: 
+                        isEnabled: false
+                        styleContent: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                            - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                              →: |
+                                '	float: right;
+                                '
+                      ↓Event [ngx.components.UIControlEvent-1615298397262]: 
+                        ↓setIsOpened [ngx.components.UICustomAction-1615298409599]: 
+                          actionValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                              - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                                →: |
+                                  '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+                                  		if(vars.item.isOpened) {
+                                  			vars.item.isOpened = false;
+                                  			console.log(vars.item.paper)
+                                  		} else {
+                                  			vars.item.isOpened = true;
+                                  			var el = document.getElementById("level-"+page[''fv''].levelCount)
+                                  		}
+                                  		
+                                  		resolve();
+                                  '
+                          ↓item [ngx.components.UIControlVariable-1615298431375]: 
+                            varValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: script:item
+                    ↓closeIcon [ngx.components.UIDynamicElement-1615288892307]: 
+                      beanData: '{"ionBean":"Icon","IconName":"plain:close-circle-outline"}'
+                      tagName: ion-icon
+                      ↓Style [ngx.components.UIStyle-1615288900236]: 
+                        isEnabled: false
+                        styleContent: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                            - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                              →: |
+                                '	float: right;
+                                '
+                      ↓Event [ngx.components.UIControlEvent-1615305221555]: 
+                        ↓removeCard [ngx.components.UICustomAction-1615305231246]: 
+                          actionValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                              - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                                →: |
+                                  '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+                                  
+                                  		page[''fv''].removeCard(vars.item.id)
+                                  		page[''fv''].removeBreadcrumb(vars.item.id)
+                                  		
+                                  		var mainGraphFirstCell = page[''fv''].graph.getFirstCell();
+                                  		var miniMapsGraphFirstCell = vars.item.graph.getFirstCell();
+                                  		
+                                  		var mainGraphFirstCellPriority = page[''fv''].getPriority(mainGraphFirstCell.attributes.properties);
+                                  		var miniMapsGraphFirstCellPriority = page[''fv''].getPriority(miniMapsGraphFirstCell.attributes.properties);
+                                  		
+                                  		if(mainGraphFirstCellPriority == miniMapsGraphFirstCellPriority && page[''fv''].miniMapsArray.length <= 1) {
+                                  			page[''fv''].graph.clear();
+                                  		} else if(mainGraphFirstCellPriority == miniMapsGraphFirstCellPriority) {
+                                  			page[''fv''].graph.clear();
+                                  		}
+                                  		resolve();
+                                  '
+                          ↓item [ngx.components.UIControlVariable-1615305528392]: 
+                            varValue: 
+                              - xmlizable: 
+                                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                                - MobileSmartSourceType: script:item
+                    ↓Style [ngx.components.UIStyle-1615291159767]: 
+                      isEnabled: false
+                      styleContent: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                          - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                            →: |
+                              '/**
+                               * Custom properties (sometimes referred to as CSS variables or cascading variables)
+                               * are entities defined by CSS authors that contain specific values to be reused throughout a document.
+                               * They are set using custom property notation, e.g.: --main-color: black;
+                               * and are accessed using the var() function, e.g.: color: var(--main-color);
+                               * You can find below your component''s properties you can customize within the page.
+                               * If you''d like to make some customizations for whole app, please see your app Style & Theme components.
+                               * For more informations see https://ionicframework.com/docs/theming.
+                              **/
+                              //--ion-grid-column-padding	//Padding for the Column
+                              //--ion-grid-column-padding-lg	//Padding for the Column on lg screens and up
+                              //--ion-grid-column-padding-md	//Padding for the Column on md screens and up
+                              //--ion-grid-column-padding-sm	//Padding for the Column on sm screens and up
+                              //--ion-grid-column-padding-xl	//Padding for the Column on xl screens and up
+                              //--ion-grid-column-padding-xs	//Padding for the Column on xs screens and up
+                              //--ion-grid-columns	//The number of total Columns in the Grid
+                              
+                              justify-content: right;
+                              '
               ↓Style [ngx.components.UIStyle-1614162691468]: 
                 styleContent: 
                   - xmlizable: 
@@ -202,67 +411,88 @@
                   - xmlizable: 
                     - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
                     - MobileSmartSourceType: 'script:(item.isSelected) ? ''background-color: #0CBBE7; animation-name: whiteToBlue; animation-duration: 1s''  : ''background-color: #fff; animation-name: blueToWhite; animation-duration: 1s '' '
-            ↓CardContent [ngx.components.UIDynamicElement-1614162691474]: 
-              beanData: '{"ionBean":"CardContent"}'
-              tagName: ion-card-content
-              ↓Style [ngx.components.UIStyle-1614162691477]: 
-                styleContent: 
-                  - xmlizable: 
-                    - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
-                    - com.twinsoft.convertigo.beans.common.FormatedContent: 
-                      →: |
-                        '	min-height: 100px;
-                        	background-color: rgb(34,34,34)
-                        '
-              ↓Attr [ngx.components.UIAttribute-1614162691480]: 
-                attrName: id
-                attrValue: 
-                  - xmlizable: 
-                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-                    - MobileSmartSourceType: script:item.id
-              ↓Event [ngx.components.UIControlEvent-1614162691483]: 
-                ↓updateMainGraphAndUnselectMiniMapCard [ngx.components.UICustomAction-1614162691486]: 
-                  actionValue: 
-                    - xmlizable: 
-                      - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
-                      - com.twinsoft.convertigo.beans.common.FormatedContent: 
-                        →: |
-                          '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
-                          
-                          		var jsonString = vars.graph.toJSON();
-                          		page[''fv''].importFromJSON(page[''fv''].graph, jsonString)
-                          		page[''fv''].paper.setOrigin(page[''fv''].graphOriginX, page[''fv''].graphOriginY);
-                          		
-                          		if(!vars.cardObject.isSelected)
-                          			vars.cardObject.isSelected = true
-                          			
-                          		page[''fv''].unselectCard(vars.cardObject.id);
-                          		page[''fv''].highlightBreadcrumb(vars.id)
-                          		resolve();
-                          '
-                  ↓graph [ngx.components.UIControlVariable-1614162691489]: 
-                    varValue: 
-                      - xmlizable: 
-                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-                        - MobileSmartSourceType: script:item.graph
-                  ↓id [ngx.components.UIControlVariable-1614162691492]: 
-                    varValue: 
-                      - xmlizable: 
-                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-                        - MobileSmartSourceType: script:item.id
-                  ↓cardObject [ngx.components.UIControlVariable-1614162691495]: 
-                    varValue: 
-                      - xmlizable: 
-                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-                        - MobileSmartSourceType: script:item
             ↓Attr [ngx.components.UIAttribute-1614162691498]: 
               attrName: style
               attrValue: 
                 - xmlizable: 
                   - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
                   - MobileSmartSourceType: 'plain:animation-name: fadeInUp; animation-duration: 0.5s; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;'
+            ↓Event [ngx.components.UIControlEvent-1614162691483]: 
+              ↓updateMainGraphAndUnselectMiniMapCard [ngx.components.UICustomAction-1614162691486]: 
+                actionValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                    - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                      →: |
+                        '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+                        
+                        		var jsonString = vars.graph.toJSON();
+                        		page[''fv''].importFromJSON(page[''fv''].graph, jsonString)
+                        		page[''fv''].paper.setOrigin(page[''fv''].graphOriginX, page[''fv''].graphOriginY);
+                        		
+                        		if(!vars.cardObject.isSelected)
+                        			vars.cardObject.isSelected = true
+                        			
+                        		page[''fv''].unselectCard(vars.cardObject.id);
+                        		page[''fv''].highlightBreadcrumb(vars.id)
+                        		resolve();
+                        '
+                ↓graph [ngx.components.UIControlVariable-1614162691489]: 
+                  varValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: script:item.graph
+                ↓id [ngx.components.UIControlVariable-1614162691492]: 
+                  varValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: script:item.id
+                ↓cardObject [ngx.components.UIControlVariable-1614162691495]: 
+                  varValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: script:item
+            ↓Directive [ngx.components.UIControlDirective-1615298637655]: 
+              directiveName: If
+              directiveSource: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                  - MobileSmartSourceType: source:{"filter":"Iteration","project":"lib_FlowViewer","input":"","model":{"data":[{"priority":1614162691453}],"path":"","prefix":"","suffix":".isOpened","custom":"","useCustom":false}}
+              ↓CardContent [ngx.components.UIDynamicElement-1614162691474]: 
+                beanData: '{"ionBean":"CardContent"}'
+                tagName: ion-card-content
+                ↓Style [ngx.components.UIStyle-1614162691477]: 
+                  styleContent: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                      - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                        →: |
+                          '	min-height: 100px;
+                          	background-color: rgb(34,34,34)
+                          '
+                ↓Attr [ngx.components.UIAttribute-1614162691480]: 
+                  attrName: id
+                  attrValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: script:item.id
+                ↓Attr1 [ngx.components.UIAttribute-1615299679901]: 
+                  attrName: style
+                  attrValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: 'script:(item.isOpened) ? ''visibility: visible'' : ''visibility: hidden'''
+                  isEnabled: false
     ↓colGraph [ngx.components.UIDynamicElement-1614162691501]: 
-      beanData: '{"ionBean":"GridCol","SizeXl":"plain:10"}'
+      beanData: |
+        '{
+         "ionBean": "GridCol",
+         "SizeLg": "plain:10",
+         "SizeMd": "plain:10",
+         "SizeSm": "plain:10",
+         "SizeXl": "plain:10",
+         "SizeXs": "plain:10"
+        }'
       tagName: ion-col
       ↓Attr1 [ngx.components.UIAttribute-1614162691567]: 
         attrName: id
@@ -276,6 +506,35 @@
         ↓GridCol [ngx.components.UIDynamicElement-1614162691630]: 
           beanData: '{"ionBean":"GridCol"}'
           tagName: ion-col
+          ↓Directive1 [ngx.components.UIControlDirective-1615478370649]: 
+            directiveExpression: this.global.sequenceDisplayName != undefined
+            directiveName: If
+            ↓Div [ngx.components.UIDynamicElement-1615478429442]: 
+              beanData: '{"ionBean":"DivTag"}'
+              tagName: div
+              ↓Attr [ngx.components.UIAttribute-1615479386862]: 
+                attrName: id
+                attrValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:sequenceDisplayName
+              ↓Div [ngx.components.UIDynamicElement-1615479734440]: 
+                beanData: '{"ionBean":"DivTag"}'
+                tagName: div
+                ↓Attr [ngx.components.UIAttribute-1615479746575]: 
+                  attrName: class
+                  attrValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:sequenceDisplayNameTitle
+                ↓H3 [ngx.components.UIDynamicElement-1615478452503]: 
+                  beanData: '{"ionBean":"Heading3"}'
+                  tagName: h3
+                  ↓Text [ngx.components.UIText-1615478461445]: 
+                    textValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: script:this?.global?.sequenceDisplayName
           ↓Div [ngx.components.UIDynamicElement-1614162691633]: 
             beanData: '{"ionBean":"DivTag"}'
             identifier: graphDomElement
@@ -974,10 +1233,42 @@
             
             #0CBBE7 bleu c8o
             */
+            [joint-selector="image"] {
+            	width: 32px !important;
+            	height: 32px !important;
+            	transform:matrix(1,0,0,1,19,19) !important;
+            }
             
             ion-spinner > svg > circle {
             	z-index: 9999 !important;
             }
+            
+            #sequenceDisplayName {
+            	width: 100%;
+            	z-index: 1000;	
+            }
+            
+            .sequenceDisplayName {
+            	position: absolute;
+              	width: 100%;
+              	float: left;
+              	margin-left: 0px;
+            	top: 100px;
+            }
+            
+            
+            .sequenceDisplayNameTitle h3 {
+            	position: relative;
+              	float: left;
+            	border-radius: 3px;
+            	padding: 2px 2px 2px 2px;
+              	background-color: #0CBBE7;
+            	box-shadow: -2px 0px 20px -6px rgba(0,0,0,0.5);
+            	z-index: 1;
+            	min-width: 50px;
+              	max-width: 100%;
+            }
+            
             .bd_content {
             	width: 100%;
             	z-index: 1000;
@@ -1748,7 +2039,7 @@
                 							previousBox.embed(elements[i])
                 							//@ts-ignore
                 							previousBox.fitEmbeds({
-                								padding: 20,
+                								padding: { top: 70, left: 10, right: 30, bottom: 700 },
                 								deep: true
                 							})
                 							
@@ -1832,6 +2123,13 @@
                 				let elementViewLength = element.attributes.position.x + Math.round(elementBBox.width)
                 				// Math.round(elementBBox.x)
                 				return elementViewLength
+                			}
+                			
+                			getElementViewHeight(element) {
+                				let elementBBox = element.findView(this.paper).getBBox();
+                				let elementViewHeight = element.attributes.position.y + Math.round(elementBBox.height)
+                				// Math.round(elementBBox.x)
+                				return elementViewHeight
                 			}
                 			
                 			getFlowScale() {
@@ -2106,7 +2404,7 @@
                 				});
                 				
                 				link.connector(''rounded'')
-                				link.toBack()
+                
                 				link.addTo(graph)
                 				
                 		    }
@@ -2134,7 +2432,7 @@
                 							fill: ''#222222'',
                 							strokeWidth: 0.3,
                 							stroke: color,
-                							strokeDasharray: ''5,2''
+                							strokeDasharray: ''5,2'',
                 						}
                 					}
                 				})
@@ -2267,6 +2565,20 @@
                 				console.log(event.offsetY - this.dragStartPosition.y * this.scale / 10)
                 				}
                 		    }
+                
+                			removeBreadcrumb(breadcrumbID) {
+                				for(var i = 0; i < this.breadcrumb.length; i++) {
+                					if(this.breadcrumb[i].id == breadcrumbID)
+                						this.breadcrumb.splice(i, 1)
+                				}
+                			}
+                
+                			removeCard(cardID) {
+                				for(var i = 0; i < this.miniMapsArray.length; i++) {
+                					if(this.miniMapsArray[i].id == cardID)
+                						this.miniMapsArray.splice(i, 1)
+                				}
+                			}
                 
                 			unselectBreadcrumb(breadcrumbID) {
                 				for(var i = 0; i < this.breadcrumb.length; i++) {
@@ -2488,12 +2800,16 @@
                 		//						console.log(''elite:'' + JSON.stringify(el))
                 								var cellIteratorBox = this.graph.getCell(el.attributes.refIteratorBox);
                 								cellIteratorBox.embed(el);
+                								
+                								var cellIteratorBoxHeight = this.getElementViewHeight(cellIteratorBox)
+                								var elementBoxHeight = this.getElementViewHeight(el)
+                								var paddingBottom = cellIteratorBoxHeight - elementBoxHeight
+                								
                 								//@ts-ignore
                 								cellIteratorBox.fitEmbeds({
                 									padding: 20,
                 									deep:true
                 								})
-                					
                 							}
                 						}
                 
@@ -2824,6 +3140,7 @@
                   								priority: priority,
                   								qname: elementQName,
                   								isSelected: true,
+                  								isOpened: true,
                   								graph: newGraph, 
                   								cells: []
                   						});
@@ -2833,7 +3150,8 @@
                   								displayName: elementDisplayName,
                   								priority: priority,
                   								graph: newGraph,
-                  								isSelected: true
+                  								isSelected: true,
+                  								isOpened: true
                   						})
                   						
                   						
@@ -2957,6 +3275,7 @@
                           		
                           		page[''fv''].levelCount++;
                           
+                          		this.global.sequenceDisplayName = displayName;
                           		this.global.firstGraphInColumn = page[''fv''].createGraph();
                           
                           		var priority = page[''fv''].getPriority(vars.properties.properties);
@@ -2967,6 +3286,8 @@
                           			priority: priority,
                           			graph: this.global.firstGraphInColumn,
                           			isSelected: true,
+                          			isOpened: true,
+                          			cells: [],
                           		})
                           		
                           		page[''fv''].addToBreadcrumb({
@@ -2974,10 +3295,11 @@
                           			displayName: displayName,
                           			priority: priority,
                           			graph: this.global.firstGraphInColumn,
-                          			isSelected: true
+                          			isSelected: true,
+                          			isOpened: true
                           		})
                           		
-                          //		console.log(this.miniMapsArray);
+                          		console.log(page[''fv''].miniMapsArray);
                           		setTimeout(() => {
                           			var el = document.getElementById("level-"+page[''fv''].levelCount)
                           			let paperOpts = {
@@ -3015,11 +3337,13 @@
                           			paper.scaleContentToFit({
                           				padding: 10
                           			});
+                          			
                           //			var computedSize = paper.getComputedSize();
                           //			var originY = computedSize.height / 2;
                           //			paper.scaleContentToFit()
                           			
                           //			paper.setOrigin(this.graphOriginX, originY)
+                          			page[''fv''].miniMapsArray[page[''fv''].miniMapsArray.length - 1][''paper''] = paper;
                           		}, 0o400) // = 0.4s
                           
                           		resolve();
@@ -3041,6 +3365,7 @@
                             				page['fv'].embedIteratorBox(page['fv'].graph);
                             				var cellsToAdd = page['fv'].graph.toJSON();
                             				page['fv'].importFromJSON(this.global.firstGraphInColumn, cellsToAdd);
+                            				page['fv'].miniMapsArray[page['fv'].miniMapsArray.length - 1].cells = cellsToAdd;
                             				this.global.showSpinner = false;
                             				
                             				

@@ -46,4 +46,4 @@
 ↓qname [variables.RequestableVariable-1614095736641]: 
 ↓project [core.TestCase]: 
   ↓qname [variables.TestCaseVariable-1614095736645]: 
-    value: C8oStudio
+    value: lib_FlowViewer.GetProperties.GetBean
