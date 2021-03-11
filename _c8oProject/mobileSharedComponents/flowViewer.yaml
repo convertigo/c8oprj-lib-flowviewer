@@ -282,6 +282,7 @@
                     beanData: |
                       '{
                        "ionBean": "GridCol",
+                       "FlexAlignement": "plain:ion-align-self-end",
                        "OffsetLg": "plain:2",
                        "OffsetMd": "plain:2",
                        "OffsetSm": "plain:2",
@@ -294,6 +295,7 @@
                     tagName: ion-col
                     ↓arrowUpIcon [ngx.components.UIDynamicElement-1615287709647]: 
                       beanData: '{"ionBean":"Icon","IconName":"script:(item.isOpened) ? ''caret-up-outline'' : ''caret-down-outline''"}'
+                      isEnabled: false
                       tagName: ion-icon
                       ↓Style [ngx.components.UIStyle-1615288833433]: 
                         isEnabled: false
@@ -314,8 +316,10 @@
                                   '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
                                   		if(vars.item.isOpened) {
                                   			vars.item.isOpened = false;
+                                  			console.log(vars.item.paper)
                                   		} else {
                                   			vars.item.isOpened = true;
+                                  			var el = document.getElementById("level-"+page[''fv''].levelCount)
                                   		}
                                   		
                                   		resolve();
@@ -502,6 +506,35 @@
         ↓GridCol [ngx.components.UIDynamicElement-1614162691630]: 
           beanData: '{"ionBean":"GridCol"}'
           tagName: ion-col
+          ↓Directive1 [ngx.components.UIControlDirective-1615478370649]: 
+            directiveExpression: this.global.sequenceDisplayName != undefined
+            directiveName: If
+            ↓Div [ngx.components.UIDynamicElement-1615478429442]: 
+              beanData: '{"ionBean":"DivTag"}'
+              tagName: div
+              ↓Attr [ngx.components.UIAttribute-1615479386862]: 
+                attrName: id
+                attrValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:sequenceDisplayName
+              ↓Div [ngx.components.UIDynamicElement-1615479734440]: 
+                beanData: '{"ionBean":"DivTag"}'
+                tagName: div
+                ↓Attr [ngx.components.UIAttribute-1615479746575]: 
+                  attrName: class
+                  attrValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:sequenceDisplayNameTitle
+                ↓H3 [ngx.components.UIDynamicElement-1615478452503]: 
+                  beanData: '{"ionBean":"Heading3"}'
+                  tagName: h3
+                  ↓Text [ngx.components.UIText-1615478461445]: 
+                    textValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: script:this?.global?.sequenceDisplayName
           ↓Div [ngx.components.UIDynamicElement-1614162691633]: 
             beanData: '{"ionBean":"DivTag"}'
             identifier: graphDomElement
@@ -1200,10 +1233,42 @@
             
             #0CBBE7 bleu c8o
             */
+            [joint-selector="image"] {
+            	width: 32px !important;
+            	height: 32px !important;
+            	transform:matrix(1,0,0,1,19,19) !important;
+            }
             
             ion-spinner > svg > circle {
             	z-index: 9999 !important;
             }
+            
+            #sequenceDisplayName {
+            	width: 100%;
+            	z-index: 1000;	
+            }
+            
+            .sequenceDisplayName {
+            	position: absolute;
+              	width: 100%;
+              	float: left;
+              	margin-left: 0px;
+            	top: 100px;
+            }
+            
+            
+            .sequenceDisplayNameTitle h3 {
+            	position: relative;
+              	float: left;
+            	border-radius: 3px;
+            	padding: 2px 2px 2px 2px;
+              	background-color: #0CBBE7;
+            	box-shadow: -2px 0px 20px -6px rgba(0,0,0,0.5);
+            	z-index: 1;
+            	min-width: 50px;
+              	max-width: 100%;
+            }
+            
             .bd_content {
             	width: 100%;
             	z-index: 1000;
@@ -3210,6 +3275,7 @@
                           		
                           		page[''fv''].levelCount++;
                           
+                          		this.global.sequenceDisplayName = displayName;
                           		this.global.firstGraphInColumn = page[''fv''].createGraph();
                           
                           		var priority = page[''fv''].getPriority(vars.properties.properties);
@@ -3220,7 +3286,8 @@
                           			priority: priority,
                           			graph: this.global.firstGraphInColumn,
                           			isSelected: true,
-                          			isOpened: true
+                          			isOpened: true,
+                          			cells: [],
                           		})
                           		
                           		page[''fv''].addToBreadcrumb({
@@ -3270,11 +3337,13 @@
                           			paper.scaleContentToFit({
                           				padding: 10
                           			});
+                          			
                           //			var computedSize = paper.getComputedSize();
                           //			var originY = computedSize.height / 2;
                           //			paper.scaleContentToFit()
                           			
                           //			paper.setOrigin(this.graphOriginX, originY)
+                          			page[''fv''].miniMapsArray[page[''fv''].miniMapsArray.length - 1][''paper''] = paper;
                           		}, 0o400) // = 0.4s
                           
                           		resolve();
@@ -3296,6 +3365,7 @@
                             				page['fv'].embedIteratorBox(page['fv'].graph);
                             				var cellsToAdd = page['fv'].graph.toJSON();
                             				page['fv'].importFromJSON(this.global.firstGraphInColumn, cellsToAdd);
+                            				page['fv'].miniMapsArray[page['fv'].miniMapsArray.length - 1].cells = cellsToAdd;
                             				this.global.showSpinner = false;
                             				
                             				
