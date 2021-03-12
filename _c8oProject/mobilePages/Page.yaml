@@ -20,5 +20,83 @@ title: First page
 ↓Content [ngx.components.UIDynamicElement-1615302089941]: 
   beanData: '{"ionBean":"Content"}'
   tagName: ion-content
+<<<<<<< HEAD
   ↓UseSharedComponent [ngx.components.UIUseShared-1615301632913]: 
     sharedcomponent: lib_FlowViewer.MobileApplication.Application.flowViewer
+=======
+<<<<<<< Updated upstream
+↓Footer [ngx.components.UIDynamicElement-1491634242460]: 
+  beanData: '{"ionBean":"Footer"}'
+  comment: Page footer
+  tagName: ion-footer
+  ↓ToolBar [ngx.components.UIDynamicElement-1491634317538]: 
+    beanData: '{"ionBean":"ToolBar"}'
+    tagName: ion-toolbar
+    ↓ButtonSet [ngx.components.UIDynamicElement-1588170246138]: 
+      beanData: '{"ionBean":"ButtonSet","SetPosition":"plain:start"}'
+      tagName: ion-buttons
+      ↓Button1 [ngx.components.UIDynamicElement-1491634332730]: 
+        beanData: '{"ionBean":"Button"}'
+        tagName: ion-button
+        ↓Text [ngx.components.UIText-1491634340354]: 
+          textValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: plain:Action 1
+    ↓ButtonSet1 [ngx.components.UIDynamicElement-1588170269871]: 
+      beanData: '{"ionBean":"ButtonSet","SetPosition":"plain:end"}'
+      tagName: ion-buttons
+      ↓Button2 [ngx.components.UIDynamicElement-1491634376874]: 
+        beanData: '{"ionBean":"Button"}'
+        tagName: ion-button
+        ↓Text [ngx.components.UIText-1491634383107]: 
+          textValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: plain:Action 2
+=======
+  ↓UseSharedComponent [ngx.components.UIUseShared-1615301632913]: 
+    sharedcomponent: lib_FlowViewer.MobileApplication.Application.flowViewer
+    ↓qname [ngx.components.UIControlVariable-1615545607910]: 
+      varValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: source:{"filter":"Global","project":"lib_FlowViewer","input":"","model":{"data":[{"sharedObject":"router.sharedObject"}],"path":"?.queryStringQName","prefix":"","suffix":"","custom":"","useCustom":false}}
+    ↓cardProperties [ngx.components.UIControlVariable-1615545607912]: 
+      varValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: script:''
+    ↓paperProperties [ngx.components.UIControlVariable-1615545607914]: 
+      varValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: script:''
+    ↓elementProperties [ngx.components.UIControlVariable-1615545607916]: 
+      varValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: script:''
+↓PageEvent [ngx.components.UIPageEvent-1615556987938]: 
+  viewEvent: onWillEnter
+  ↓getParamQname [ngx.components.UICustomAction-1615557009778]: 
+    actionValue: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+        - com.twinsoft.convertigo.beans.common.FormatedContent: 
+          →: |
+            '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+            		const queryString = window.location.search;
+            		const urlParams = new URLSearchParams(queryString);
+            		let qname = urlParams.get(''qname'');
+            		resolve(qname);
+            '
+    ↓qnameQueryString [ngx.components.UIDynamicAction-1615557582808]: 
+      beanData: |
+        '{
+         "ionBean": "SetGlobalAction",
+         "Property": "plain:queryStringQName",
+         "Value": "source:{\"filter\":\"Action\",\"project\":\"lib_FlowViewer\",\"input\":\"\",\"model\":{\"data\":[{\"priority\":1615557009778}],\"path\":\"?.out\",\"prefix\":\"\",\"suffix\":\"\",\"custom\":\"\",\"useCustom\":false}}"
+        }'
+>>>>>>> Stashed changes
+>>>>>>> master
