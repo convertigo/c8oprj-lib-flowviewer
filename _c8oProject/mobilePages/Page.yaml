@@ -51,6 +51,7 @@ title: First page
   beanData: '{"ionBean":"Content"}'
   comment: Page content
   tagName: ion-content
+<<<<<<< Updated upstream
 ↓Footer [ngx.components.UIDynamicElement-1491634242460]: 
   beanData: '{"ionBean":"Footer"}'
   comment: Page footer
@@ -80,3 +81,48 @@ title: First page
             - xmlizable: 
               - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
               - MobileSmartSourceType: plain:Action 2
+=======
+  ↓UseSharedComponent [ngx.components.UIUseShared-1615301632913]: 
+    sharedcomponent: lib_FlowViewer.MobileApplication.Application.flowViewer
+    ↓qname [ngx.components.UIControlVariable-1615545607910]: 
+      varValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: source:{"filter":"Global","project":"lib_FlowViewer","input":"","model":{"data":[{"sharedObject":"router.sharedObject"}],"path":"?.queryStringQName","prefix":"","suffix":"","custom":"","useCustom":false}}
+    ↓cardProperties [ngx.components.UIControlVariable-1615545607912]: 
+      varValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: script:''
+    ↓paperProperties [ngx.components.UIControlVariable-1615545607914]: 
+      varValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: script:''
+    ↓elementProperties [ngx.components.UIControlVariable-1615545607916]: 
+      varValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: script:''
+↓PageEvent [ngx.components.UIPageEvent-1615556987938]: 
+  viewEvent: onWillEnter
+  ↓getParamQname [ngx.components.UICustomAction-1615557009778]: 
+    actionValue: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+        - com.twinsoft.convertigo.beans.common.FormatedContent: 
+          →: |
+            '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+            		const queryString = window.location.search;
+            		const urlParams = new URLSearchParams(queryString);
+            		let qname = urlParams.get(''qname'');
+            		resolve(qname);
+            '
+    ↓qnameQueryString [ngx.components.UIDynamicAction-1615557582808]: 
+      beanData: |
+        '{
+         "ionBean": "SetGlobalAction",
+         "Property": "plain:queryStringQName",
+         "Value": "source:{\"filter\":\"Action\",\"project\":\"lib_FlowViewer\",\"input\":\"\",\"model\":{\"data\":[{\"priority\":1615557009778}],\"path\":\"?.out\",\"prefix\":\"\",\"suffix\":\"\",\"custom\":\"\",\"useCustom\":false}}"
+        }'
+>>>>>>> Stashed changes
