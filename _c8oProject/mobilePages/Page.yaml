@@ -18,7 +18,12 @@ scriptContent:
 segment: first
 title: First page
 ↓Content [ngx.components.UIDynamicElement-1615302089941]: 
-  beanData: '{"ionBean":"Content"}'
+  beanData: |
+    '{
+     "ionBean": "Content",
+     "Padding": "plain:ion-no-padding",
+     "ScrollY": "plain:false"
+    }'
   tagName: ion-content
   ↓UseSharedComponent [ngx.components.UIUseShared-1615301632913]: 
     sharedcomponent: lib_FlowViewer.MobileApplication.Application.flowViewer
@@ -54,6 +59,12 @@ title: First page
             		const queryString = window.location.search;
             		const urlParams = new URLSearchParams(queryString);
             		let qname = urlParams.get(''qname'');
+            		
+            //		var req = new XMLHttpRequest();
+            //		req.open(''GET'', window.location, false);
+            //		req.send(null);
+            //		var headers = req.getAllResponseHeaders();
+            //		console.log(headers);
             		resolve(qname);
             '
     ↓qnameQueryString [ngx.components.UIDynamicAction-1615557582808]: 

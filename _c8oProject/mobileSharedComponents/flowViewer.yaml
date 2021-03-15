@@ -64,7 +64,7 @@
                 //--ion-grid-columns	//The number of total Columns in the Grid
                 
                 background-color: rgba(45,52,54,1);
-                overflow-y: scroll;
+                overflow-y: auto;
                 min-height: 500px !important;
                 height: 100% !important;
                 '
@@ -1428,6 +1428,7 @@
         - com.twinsoft.convertigo.beans.common.FormatedContent: 
           →: |
             '	min-height: 100%;
+            	padding: 0px 0px 0px 0px;
             '
 ↓divFakeEvent [ngx.components.UIDynamicElement-1614252336356]: 
   beanData: '{"ionBean":"DivTag"}'
