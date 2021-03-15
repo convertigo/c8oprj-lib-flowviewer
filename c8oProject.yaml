@@ -2,7 +2,7 @@
 ↓lib_FlowViewer [core.Project]: 
   comment: Convertigo Mobile builder Project
   corsOrigin: =Origin
-  version: 8.0.0
+  version: 2021.15.03.17.19
   ↓void [connectors.SqlConnector]: 🗏 connectors/void.yaml
   ↓GetGraph [sequences.GenericSequence]: 🗏 sequences/GetGraph.yaml
   ↓GetIcon [sequences.GenericSequence]: 🗏 sequences/GetIcon.yaml

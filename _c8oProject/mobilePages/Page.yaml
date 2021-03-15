@@ -74,3 +74,158 @@ title: First page
          "Property": "plain:queryStringQName",
          "Value": "source:{\"filter\":\"Action\",\"project\":\"lib_FlowViewer\",\"input\":\"\",\"model\":{\"data\":[{\"priority\":1615557009778}],\"path\":\"?.out\",\"prefix\":\"\",\"suffix\":\"\",\"custom\":\"\",\"useCustom\":false}}"
         }'
+↓Subscribe_Handler [ngx.components.UIEventSubscriber-1615824174965]: 
+  topic: eclipseSequenceChange
+  ↓GetGraph [ngx.components.UIDynamicAction-1615824640145]: 
+    beanData: '{"ionBean":"CallSequenceAction","requestable":"plain:lib_FlowViewer.GetGraph"}'
+    ↓SetGlobal [ngx.components.UIDynamicAction-1615824640148]: 
+      beanData: |
+        '{
+         "ionBean": "SetGlobalAction",
+         "Property": "plain:getGraphResponse",
+         "Value": "source:{\"filter\":\"Action\",\"project\":\"C8oStudio\",\"input\":\"\",\"model\":{\"data\":[{\"priority\":1615824640145}],\"path\":\"?.out?.array\",\"prefix\":\"\",\"suffix\":\"\",\"custom\":\"\",\"useCustom\":false}}"
+        }'
+    ↓GetProperties [ngx.components.UIDynamicAction-1615824640151]: 
+      beanData: '{"ionBean":"CallSequenceAction","requestable":"plain:lib_FlowViewer.GetProperties"}'
+      ↓qname [ngx.components.UIControlVariable-1615824640154]: 
+        comment: new variable
+        varValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: source:{"filter":"Action","project":"C8oStudio","input":"","model":{"data":[{"priority":1615824640145}],"path":"?.in?.vars?.qname","prefix":"","suffix":"","custom":"","useCustom":false}}
+      ↓createFirstPaperAndPushGraphToArray [ngx.components.UICustomAction-1615824640157]: 
+        actionValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+            - com.twinsoft.convertigo.beans.common.FormatedContent: 
+              →: |
+                '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+                		
+                		var qname = vars.qname;
+                		var splitStr = qname.split('':'')
+                		for(var i = 0; i < splitStr.length; i++) {
+                			var str = splitStr[i].split(''.'')
+                		}
+                		var displayName = str;
+                		
+                		page[''fv''].levelCount++;
+                
+                		this.global.sequenceDisplayName = displayName;
+                		this.global.firstGraphInColumn = page[''fv''].createGraph();
+                
+                		var priority = page[''fv''].getPriority(vars.properties.properties);
+                		
+                		page[''fv''].miniMapsArray.push({
+                			id: ''level-'' + page[''fv''].levelCount,
+                			displayName: page[''fv''].ellipseString(displayName),
+                			priority: priority,
+                			graph: this.global.firstGraphInColumn,
+                			isSelected: true,
+                			isOpened: true,
+                			cells: [],
+                		})
+                		
+                		page[''fv''].addToBreadcrumb({
+                			id: ''level-'' + page[''fv''].levelCount,
+                			displayName: displayName,
+                			priority: priority,
+                			graph: this.global.firstGraphInColumn,
+                			isSelected: true,
+                			isOpened: true
+                		})
+                		
+                		console.log(page[''fv''].miniMapsArray);
+                		setTimeout(() => {
+                			var el = document.getElementById("level-"+page[''fv''].levelCount)
+                			let paperOpts = {
+                	            el: el,
+                	            width: ''100%'',
+                	            height: ''100%'',
+                	            model: this.global.firstGraphInColumn,
+                	            gridSize: 10,
+                				embeddingMode: true,
+                				interactive: false,
+                				cellViewNamespace: joint.shapes,
+                	            defaultLink: new joint.dia.Link({
+                	            	attrs: {
+                	                    ''.connection'' : {
+                	                        stroke: ''orange'',
+                	                        strokeWidth: 2
+                	                    }
+                	                }                
+                	            }),
+                	            defaultRouter: {
+                	                name: ''manhattan''
+                	            },
+                	            defaultConnector: {
+                	                name: ''rounded''
+                	            },
+                	            validateConnection: function(cellViewS, magnetS, cellViewT, magnetT, end, linkView) {
+                	                // Prevent connections if not on Magnets from ports
+                	                if (magnetT == undefined|| magnetS ==undefined)
+                	                    return false
+                	                else
+                	                    return true
+                	            }
+                	        }
+                	        var paper = page[''fv''].createPaper(paperOpts);
+                			paper.scaleContentToFit({
+                				padding: 10
+                			});
+                			
+                //			var computedSize = paper.getComputedSize();
+                //			var originY = computedSize.height / 2;
+                //			paper.scaleContentToFit()
+                			
+                //			paper.setOrigin(this.graphOriginX, originY)
+                			page[''fv''].miniMapsArray[page[''fv''].miniMapsArray.length - 1][''paper''] = paper;
+                		}, 0o400) // = 0.4s
+                
+                		resolve();
+                '
+        ↓qname [ngx.components.UIControlVariable-1615824640160]: 
+          varValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: source:{"filter":"Action","project":"C8oStudio","input":"","model":{"data":[{"priority":1615824640145}],"path":"?.in?.vars?.qname","prefix":"","suffix":"","custom":"","useCustom":false}}
+        ↓DisplayFlow [ngx.components.UICustomAction-1615824640163]: 
+          actionValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+              - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                →: |
+                  				page['fv'].graph.clear()
+                  				page['fv'].paper.scale(1);
+                  				page['fv'].displayFlow(vars.flow);
+                  				page['fv'].embedIteratorBox(page['fv'].graph);
+                  				var cellsToAdd = page['fv'].graph.toJSON();
+                  				page['fv'].importFromJSON(this.global.firstGraphInColumn, cellsToAdd);
+                  				page['fv'].miniMapsArray[page['fv'].miniMapsArray.length - 1].cells = cellsToAdd;
+                  				this.global.showSpinner = false;
+                  				
+                  				
+                  //			this.walkChildren(vars.flow, null)
+                      		resolve();
+                  
+          ↓flow [ngx.components.UIControlVariable-1615824640166]: 
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:this.global.getGraphResponse
+        ↓properties [ngx.components.UIControlVariable-1615824640169]: 
+          varValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: source:{"filter":"Action","project":"C8oStudio","input":"","model":{"data":[{"priority":1615824640151},{"priority":1615824640145}],"path":"?.out","prefix":"","suffix":"","custom":"","useCustom":false}}
+    ↓qname [ngx.components.UIControlVariable-1615824640172]: 
+      comment: new variable
+      varValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: source:{"filter":"Global","project":"lib_FlowViewer","input":"","model":{"data":[{"sharedObject":"router.sharedObject"}],"path":"?.queryStringQName","prefix":"","suffix":"","custom":"","useCustom":false}}
+    ↓level [ngx.components.UIControlVariable-1615824640175]: 
+      comment: new variable
+      varValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: plain:100
