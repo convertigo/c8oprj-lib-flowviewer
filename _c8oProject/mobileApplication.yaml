@@ -7,6 +7,10 @@ componentScriptContent:
         /*End_c8o_AppImport*/
         /*Begin_c8o_AppDeclaration*/
         	/*End_c8o_AppDeclaration*/
+        /*Begin_c8o_AppSettings*/
+        		window['c8oevents'] = this.events;
+        		// window['c8oevents'].publish('eclipseSequenceChange', null)
+                /*End_c8o_AppSettings*/
         /*Begin_c8o_AppConstructor*/
         		/*End_c8o_AppConstructor*/
         /*Begin_c8o_AppInitialization*/
