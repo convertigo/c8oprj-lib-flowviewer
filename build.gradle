@@ -244,10 +244,11 @@ task updateSystemCar(dependsOn: unzipSystemCar) {
 	doLast {
 		fileTree("$unzipSystemCar.destinationDir/lib_FlowViewer/DisplayObjects/mobile").matching {
 			include 'index.html'
-			include 'runtime.*.js'
+			include '*.js'
 		}.each {
 			println "patch $it"
 			it.text = it.text.replace('http://localhost:28080/convertigo/projects/lib_FlowViewer/DisplayObjects/mobile/', '')
+			it.text = it.text.replace('http://localhost:18080/', '/')
 			it.text = it.text.replace('/convertigo/projects/', '/convertigo/system/projects/')
 		}
 	}
