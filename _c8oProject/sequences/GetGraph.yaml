@@ -28,10 +28,13 @@
     	parameters.put("__sequence", __sequence);
     	parameters.put("qname", qname);
     	
-    	var request = new com.twinsoft.convertigo.engine.requesters.InternalHttpServletRequest();
+    	var nolog = org.apache.log4j.MDC.get("nolog");
+    	
+    	var request = new com.twinsoft.convertigo.engine.requesters.InternalHttpServletRequest(context.httpServletRequest);
     	var requester = new com.twinsoft.convertigo.engine.requesters.InternalRequester(parameters, request);
     	requester.processRequest();
     	org.apache.log4j.MDC.put("ContextualParameters", context.logParameters);
+    	org.apache.log4j.MDC.put("nolog", nolog);
     
     	return requester.getDocument();
     }'
