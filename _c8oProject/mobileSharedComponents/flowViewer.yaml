@@ -1713,13 +1713,6 @@
               - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
               - com.twinsoft.convertigo.beans.common.XMLVector: 
                 - java.lang.String: 
-                  - ↑value: ElementRef
-                - java.lang.String: 
-                  - ↑value: '@angular/core'
-            - xmlizable: 
-              - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
-              - com.twinsoft.convertigo.beans.common.XMLVector: 
-                - java.lang.String: 
                   - ↑value: '* as _ '
                 - java.lang.String: 
                   - ↑value: lodash
@@ -1741,7 +1734,7 @@
               - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
               - com.twinsoft.convertigo.beans.common.XMLVector: 
                 - java.lang.String: 
-                  - ↑value: '* as \$'
+                  - ↑value: '* as jQuery'
                 - java.lang.String: 
                   - ↑value: jquery
       ↓initFlowViewerClass [ngx.components.UICustomAction-1614097971290]: 
@@ -1752,6 +1745,7 @@
               →: |
                 '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
                 		
+                		@Directive()
                 		class FlowViewer {
                 			
                 			@ViewChildren("levelDomElement") public all_levelDomElement : QueryList<any>;
@@ -2702,17 +2696,17 @@
                 			        	_.bindAll(this, ''updateBox'');
                 			            joint.dia.ElementView.prototype.initialize.apply(this, arguments);
                 			//
-                			            this.$box = $(_.template(this.template)());
+                			            this.$box = jQuery(_.template(this.template)());
                 			            // Prevent paper from handling pointerdown.
                 			            this.$box.find(''input,select'').on(''mousedown click'', function(evt) {
                 			                evt.stopPropagation();
                 			            });
                 			            // This is an example of reacting on the input change and storing the input data in the cell model.
                 			            this.$box.find(''input'').on(''change'', _.bind(function(evt) {
-                			              this.model.set(''input'', $(evt.target).val());
+                			              this.model.set(''input'', jQuery(evt.target).val());
                 			            }, this));
                 			            this.$box.find(''select'').on(''change'', _.bind(function(evt) {
-                			              this.model.set(''select'', $(evt.target).val());
+                			              this.model.set(''select'', jQuery(evt.target).val());
                 			            }, this));
                 			            this.$box.find(''select'').val(this.model.get(''select''));
                 			            this.$box.find(''.properties-panel-button-close'').on(''click'', _.bind(this.model.remove, this.model));
@@ -3222,6 +3216,17 @@
                 
                 		resolve();
                 '
+        page_ts_imports: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                - com.twinsoft.convertigo.beans.common.XMLVector: 
+                  - java.lang.String: 
+                    - ↑value: Directive
+                  - java.lang.String: 
+                    - ↑value: '@angular/core'
         ↓initGraphAndPaper [ngx.components.UICustomAction-1614180389198]: 
           actionValue: 
             - xmlizable: 

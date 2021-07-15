@@ -183,6 +183,17 @@ title: First page
                 
                 		resolve();
                 '
+        page_ts_imports: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+                - com.twinsoft.convertigo.beans.common.XMLVector: 
+                  - java.lang.String: 
+                    - ↑value: '* as joint'
+                  - java.lang.String: 
+                    - ↑value: jointjs
         ↓qname [ngx.components.UIControlVariable-1615824640160]: 
           varValue: 
             - xmlizable: 
