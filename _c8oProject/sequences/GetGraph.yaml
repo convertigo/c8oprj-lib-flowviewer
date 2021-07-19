@@ -34,7 +34,11 @@
     	var requester = new com.twinsoft.convertigo.engine.requesters.InternalRequester(parameters, request);
     	requester.processRequest();
     	org.apache.log4j.MDC.put("ContextualParameters", context.logParameters);
-    	org.apache.log4j.MDC.put("nolog", nolog);
+    	if (nolog == null) {
+    		org.apache.log4j.MDC.remove("nolog");
+    	} else {
+    		org.apache.log4j.MDC.put("nolog", nolog);
+    	}
     
     	return requester.getDocument();
     }'

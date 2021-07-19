@@ -1745,14 +1745,14 @@
               →: |
                 '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
                 		
-                		@Directive()
+                //		@Directive()
                 		class FlowViewer {
                 			
-                			@ViewChildren("levelDomElement") public all_levelDomElement : QueryList<any>;
-                			@ViewChild("levelDomElement", { static: false }) public levelDomElement;
-                	
-                			@ViewChildren("graphDomElement") public all_graphDomElement : QueryList<any>;
-                			@ViewChild("graphDomElement", { static: false }) public graphDomElement;
+                //			@ViewChildren("levelDomElement") public all_levelDomElement : QueryList<any>;
+                //			@ViewChild("levelDomElement", { static: false }) public levelDomElement;
+                //	
+                //			@ViewChildren("graphDomElement") public all_graphDomElement : QueryList<any>;
+                //			@ViewChild("graphDomElement", { static: false }) public graphDomElement;
                 			
                 			constructor(c8o: any, global: any) {
                 				this.c8o = c8o
