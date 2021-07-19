@@ -3626,22 +3626,22 @@
           varValue: 
             - xmlizable: 
               - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-              - MobileSmartSourceType: script:params1614095203377.qname
+              - MobileSmartSourceType: script:this.qname
         ↓cardProperties [ngx.components.UIControlVariable-1614253904070]: 
           varValue: 
             - xmlizable: 
               - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-              - MobileSmartSourceType: script:params1614095203377.cardProperties
+              - MobileSmartSourceType: script:this.cardProperties
         ↓paperProperties [ngx.components.UIControlVariable-1614253932344]: 
           varValue: 
             - xmlizable: 
               - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-              - MobileSmartSourceType: script:params1614095203377.paperProperties
+              - MobileSmartSourceType: script:this.paperProperties
         ↓elementProperties [ngx.components.UIControlVariable-1614260637410]: 
           varValue: 
             - xmlizable: 
               - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-              - MobileSmartSourceType: script:params1614095203377.elementProperties
+              - MobileSmartSourceType: script:this.elementProperties
 ↓cardProperties [ngx.components.UICompVariable-1614253822571]: 
 ↓paperProperties [ngx.components.UICompVariable-1614253876085]: 
 ↓elementProperties [ngx.components.UICompVariable-1614260589392]: 
